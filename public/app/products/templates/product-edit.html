@@ -1,0 +1,43 @@
+<h2><span ng-hide="product.name"> Create New Product</span> <span ng-show="product.name">Edit Product : <br />{{product.name}}</span> </h2>
+
+
+<form name="productForm">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="name" class="">Name</label>
+                <div>
+                    <input type="text" required ng-model="product.name" name="productName" ng-change="productNameChanged()" />
+                    <span ng-if="productForm.productName.$error.required && productForm.productName.$dirty">Name is required</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="name" class="">Year</label>
+                <div>
+                    <input type="number" ng-model="product.year" name="productYear" year-validator validYear/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>&nbsp;</label>
+                <div>
+                    <button ng-disabled="productForm.$invalid" ng-click="saveProduct(product.id);">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <p ng-if="productForm.$invalid && productForm.$dirty">Invalid Data... Please fill the form with appropriate data</p>
+        </div>
+
+    </div>
+
+
+</form>

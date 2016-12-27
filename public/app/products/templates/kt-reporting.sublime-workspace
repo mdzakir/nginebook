@@ -1,0 +1,1822 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cell",
+				"cellspacing	Attr"
+			],
+			[
+				"t",
+				"thead	Tag"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"produc",
+				"product"
+			],
+			[
+				"randomN",
+				"randomNumber"
+			],
+			[
+				"rej",
+				"reject(e)	kew.js"
+			],
+			[
+				"setTime",
+				"setTimeout(fn, delay)	jasmine.js"
+			],
+			[
+				"str",
+				"stringify(val)	index.js"
+			],
+			[
+				"then",
+				"then(callback)	sidenav.js"
+			],
+			[
+				"getst",
+				"getState()	firebug-lite-debug.js"
+			],
+			[
+				"getSTat",
+				"getStates()	home.controllers.js"
+			],
+			[
+				"getStates",
+				"getStates()	home.controllers.js"
+			],
+			[
+				"Product",
+				"ProductListController"
+			],
+			[
+				"prod",
+				"product"
+			],
+			[
+				"prodc",
+				"product"
+			],
+			[
+				"contr",
+				"controller	AngularJS"
+			],
+			[
+				"local",
+				"localstorage()	engine.io.js"
+			],
+			[
+				"Storage",
+				"StorageEngine"
+			],
+			[
+				"getItem",
+				"getItem(key)	browser.js"
+			],
+			[
+				"prodcu",
+				"products"
+			],
+			[
+				"getProducts",
+				"getProducts()	app.product.js"
+			],
+			[
+				"produ",
+				"product"
+			],
+			[
+				"funct",
+				"function"
+			],
+			[
+				"ng-mo",
+				"ng-model	AngularJS"
+			],
+			[
+				"prdu",
+				"products"
+			],
+			[
+				"controller",
+				"controller	AngularJS"
+			],
+			[
+				"con",
+				"config	Angular.js"
+			],
+			[
+				"$root",
+				"$rootScope	AngularJS"
+			],
+			[
+				"$roo",
+				"$rootScope	AngularJS"
+			],
+			[
+				"Deb",
+				"DEBUG"
+			],
+			[
+				"mo",
+				"module()	angular-mocks.js"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"KTADMin",
+				"KTAdminUI_Regular"
+			],
+			[
+				"s",
+				"small	Tag"
+			],
+			[
+				"bor",
+				"border-color"
+			],
+			[
+				"te",
+				"textarea	Tag"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"getHot",
+				"getHotelId()	edit_occupancy_pricing_rule_spec.js"
+			],
+			[
+				"ng-bind",
+				"ng-bind-html	AngularJS"
+			],
+			[
+				"toggleC",
+				"toggleClass(toggleClass)	panel.js"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"im",
+				"important"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"REVE",
+				"Revenue(metric)	month_strip.js"
+			],
+			[
+				"toS",
+				"toString()	PluginError.js"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"border-col",
+				"border-color"
+			],
+			[
+				"city",
+				"cityElement"
+			],
+			[
+				"remove",
+				"angular: removeAttr"
+			],
+			[
+				"baseR",
+				"baseRoom"
+			],
+			[
+				"rmrp",
+				"rmrpValuesFlag"
+			],
+			[
+				"c",
+				"class	Attr"
+			],
+			[
+				"select",
+				"select2"
+			],
+			[
+				"opt",
+				"option	Tag"
+			],
+			[
+				"roSpli",
+				"roSplit2"
+			],
+			[
+				"first",
+				"first-tab-btn"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"occ",
+				"occupancy_prices"
+			],
+			[
+				"ngre",
+				"ng-repeat	AngularJS"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"join",
+				"join"
+			],
+			[
+				"KPI",
+				"kpiList"
+			],
+			[
+				"dateRange",
+				"date_range"
+			],
+			[
+				"KT",
+				"KTAdminUI_Regular"
+			],
+			[
+				"K",
+				"KTAdminUI_Regular"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"reven",
+				"revenue"
+			],
+			[
+				"end",
+				"endDate"
+			],
+			[
+				"padding",
+				"padding"
+			],
+			[
+				"border-co",
+				"border-color"
+			],
+			[
+				"thi",
+				"thisRule"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"hotel",
+				"hotelId"
+			],
+			[
+				"i",
+				"important"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"start",
+				"startValidity"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"border-l",
+				"border-left-width"
+			],
+			[
+				"popup",
+				"popupDataSupply"
+			],
+			[
+				"ng-mou",
+				"ng-mouseenter	AngularJS"
+			],
+			[
+				"kpi",
+				"kpiList"
+			],
+			[
+				"selec",
+				"selected_kpi"
+			],
+			[
+				"for",
+				"angular.forEach"
+			],
+			[
+				"pre",
+				"pre-wrap"
+			],
+			[
+				"cou",
+				"countKPIs"
+			],
+			[
+				"kpiC",
+				"kpiChecked"
+			],
+			[
+				"Occ",
+				"occupancy"
+			],
+			[
+				"hoe",
+				"hotelId"
+			],
+			[
+				"htt",
+				"angular: $httpBackend"
+			],
+			[
+				"crete",
+				"createPricingRule"
+			],
+			[
+				"rooms",
+				"roomsService"
+			],
+			[
+				"round",
+				"roundToK"
+			],
+			[
+				"price",
+				"prices"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"hote",
+				"hotelId"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"ng-f",
+				"ng-if	AngularJS"
+			],
+			[
+				"Recom",
+				"recommended"
+			],
+			[
+				"paddin",
+				"padding-right"
+			],
+			[
+				"Rev",
+				"RevPAR"
+			],
+			[
+				"chek",
+				"ng-checked	AngularJS"
+			],
+			[
+				"wk",
+				"wkIndex"
+			],
+			[
+				"range",
+				"rangeOfDatesArray"
+			],
+			[
+				"album",
+				"albumNameArray"
+			],
+			[
+				"$sc",
+				"$scope	AngularJS"
+			],
+			[
+				"ng-re",
+				"ng-repeat	AngularJS"
+			],
+			[
+				"rules",
+				"rulesEmpty"
+			],
+			[
+				"st",
+				"STD"
+			],
+			[
+				"ng-r",
+				"ng-repeat	AngularJS"
+			],
+			[
+				"to",
+				"tbody	Tag"
+			],
+			[
+				"th",
+				"th	Tag"
+			],
+			[
+				"lr",
+				"lr-body"
+			],
+			[
+				"ov",
+				"overTDIndex"
+			],
+			[
+				"po",
+				"po-table"
+			],
+			[
+				"this",
+				"thismonth"
+			],
+			[
+				"marin",
+				"margin-right"
+			],
+			[
+				"conin",
+				"Continue"
+			],
+			[
+				"mari",
+				"margin-top"
+			],
+			[
+				"modify",
+				"modify_count"
+			],
+			[
+				"pass",
+				"pass_count"
+			],
+			[
+				"faile",
+				"failed_count"
+			],
+			[
+				"moi",
+				"modify-count"
+			],
+			[
+				"failed",
+				"failed-count"
+			],
+			[
+				"new",
+				"new_id"
+			],
+			[
+				"re",
+				"response"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/zakir/prototyping/kt-reporting/Weekly Performance Report (day wise)/index.html",
+			"settings":
+			{
+				"buffer_size": 11503,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/zakir/prototyping/kt-reporting/Monthly Performance Report (week wise)/index.html",
+			"settings":
+			{
+				"buffer_size": 7841,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<table style=\"width:650px;font:13px Arial, Sans, Sans-serif;\">\n	<tbody>\n		<tr>\n			<td>\n				<table cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: collapse;width:100%;font:13px Arial, Sans, Sans-serif;border:1px solid #ddd;\">\n					<thead>\n						<tr>\n							<th style=\"border:1px solid #ddd;background-color:#eee;padding:5px;\">KPIs</th>\n							<th style=\"border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">26th Sep</th>\n							<th style=\"border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">27th Sep</th>\n							<th style=\"border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">28th Sep</th>\n							<th style=\"border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">29th Sep</th>\n							<th style=\"border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">30th Sep</th>\n							<th style=\"border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">1st Oct</th>\n							<th style=\"border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">2nd Oct</th>\n							<th style=\"border:1px solid #ddd;background-color:#eee;padding:5px;\">Total</th>\n						</tr>\n					</thead>\n					<tbody>\n						<tr>\n							<td style=\"text-align:center;border:1px solid #ddd;background-color:#eee;padding:5px;\">Occupancy</td>\n							<td style=\"text-align:center;border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">49</td>\n							<td style=\"text-align:center;border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">34</td>\n							<td style=\"text-align:center;border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">64</td>\n							<td style=\"text-align:center;border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">55</td>\n							<td style=\"text-align:center;border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">33</td>\n							<td style=\"text-align:center;border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">76</td>\n							<td style=\"text-align:center;border:1px solid #ddd;background-color:#f8f8f8;padding:5px;\">65</td>\n							<td style=\"text-align:center;border:1px solid #ddd;background-color:#eee;padding:5px;\">200</td>\n						</tr>\n					</tbody>\n				</table>\n			</td>\n		</tr>\n	</tbody>\n</table>",
+			"settings":
+			{
+				"buffer_size": 2150,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/zakir/Downloads/weekly20161006.html",
+			"settings":
+			{
+				"buffer_size": 14624,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "var count = 6;\nvar months = [];\nwhile (count < 6+12) months.push(moment().month(count++).format(\"MMMM\"));",
+			"settings":
+			{
+				"buffer_size": 105,
+				"line_ending": "Unix",
+				"name": "var count = 6;"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 138.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"diff",
+				"Set Syntax: Diff"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"sublimelin",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"lint mar",
+				"SublimeLinter: Choose Mark Style"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"repl:",
+				"SublimeREPL: Matlab"
+			],
+			[
+				"repl",
+				"SublimeREPL: Python"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"html",
+				"HTMLPrettify"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"todo",
+				"TodoReview: Project Files"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"git ",
+				"Git: Blame"
+			],
+			[
+				"git bl",
+				"Git: Blame"
+			],
+			[
+				"list packages",
+				"Package Control: List Packages"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 233.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/zakir/prototyping/kt-reporting",
+		"/home/zakir/prototyping/kt-reporting/Monthly Performance Report (week wise)"
+	],
+	"file_history":
+	[
+		"/home/zakir/Downloads/weekly20161006.xls (2)/Sheet1.html",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/about/templates/about.html",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/about/about.controllers.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/index.html",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/templates/product-list.html",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/product.directives.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/templates/product-widget.html",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/product.module.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/templates/product-home.html",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/templates/product-edit.html",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/templates/products.component.html",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/home/home.controllers.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/home/home.config.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/base/header.html",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/home/templates/home.html",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/js/app.config.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/brand/brand.config.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/product.components.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/product.config.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/brand/brand.components.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/product.controllers.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/product.services.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/templates/product-view.html",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/js/app.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/products/product.filters.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/cart/cart.services.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/css/style.css",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/cart/cart.module.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/js/app.controllers.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/home/home.module.js",
+		"/home/zakir/prototyping/angularjs-workshop/app/app.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/about/about.config.js",
+		"/home/zakir/prototyping/angularjs-workshop/public/app/about/about.module.js",
+		"/home/zakir/prototyping/revamp_optimizer/step5-multiple-date-selection.html",
+		"/home/zakir/prototyping/revamp_optimizer/step6-multiple-dates-overridden.html",
+		"/home/zakir/prototyping/revamp_optimizer/step7-multiple-dates-optimized.html",
+		"/home/zakir/prototyping/revamp_optimizer/step3-single-day-optimized.html",
+		"/home/zakir/prototyping/revamp_optimizer/ro1.html",
+		"/home/zakir/prototyping/revamp_optimizer/step1-price-calendar.html",
+		"/home/zakir/prototyping/revamp_optimizer/step2-single-date-selection.html",
+		"/home/zakir/prototyping/revamp_optimizer/step3-overridden.html",
+		"/home/zakir/prototyping/revamp_optimizer/css/ro-style.css",
+		"/home/zakir/prototyping/revamp_optimizer/step4-multiple-date-selection.html",
+		"/home/zakir/prototyping/revamp_optimizer/step5-multiple-dates-overridden.html",
+		"/home/zakir/prototyping/revamp_optimizer/step6-multiple-dates-optimized.html",
+		"/home/zakir/prototyping/revamp_optimizer/step1.html",
+		"/home/zakir/prototyping/revamp_optimizer/step2-overridden.html",
+		"/home/zakir/prototyping/revamp_optimizer/step2.html",
+		"/home/zakir/prototyping/revamp_optimizer/css/font-awesome.min.css",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/controllers/segChartCtrl.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/controllers/priceChartCtrl.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/controllers/channel_mix.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/controllers/booking_curve.js",
+		"/home/zakir/projectnew/knights-templar/webapp/hotels/models/currency.py",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/pickup.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/private.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/base/styles.src.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/base/scripts.src.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/user.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/create-hotel_new.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/view_pricing_rules.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/create_pricing_rule.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/pricing-rules/reorder-occupancy.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/reorder_pricing_rules.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/pricing-rules/view.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/month_strip.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/price-optimizer.html",
+		"/home/zakir/projectnew/knights-templar/webapp/admin/views/user.py",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/app.js",
+		"/home/zakir/projectnew/knights-templar/webapp/hotels/models/settings.py",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/css/create-rule.css",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/optimizer.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/pricing-rules/create-occupancy.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/dashboard/metrics.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/create_promotion_pricing_rule.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/dashboard/charts.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/directives/compareWidget.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/directives/charts.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/celery_task.py",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/css/style.css",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/css/price-optimizer.css",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/settings/local.py",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/__init__.py",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/views.py",
+		"/home/zakir/projectnew/knights-templar/sandbox/mocks/price_optimizer.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/import-bookings.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/services.js",
+		"/tmp/fz3temp-1/index.php",
+		"/tmp/fz3temp-1/custom.css",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/css/view-rules.css",
+		"/tmp/fz3temp-1/font-awesome.css",
+		"/tmp/fz3temp-1/req_css.php",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/css/admin-style.css",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/css/reorder-rules.css",
+		"/home/zakir/projectnew/knights-templar/webapp/bower.json",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/suppliers-list_new.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/admin_head_tag.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/css/sidebar.css",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/import.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/base/private.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/dashboard/base.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/css/custom-dp.css",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/css/chart.css",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/metrics.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/dashboard/seg-table.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/css/new.css",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/settings/base.py",
+		"/home/zakir/projectnew/knights-templar/webapp/goldeneye/urls.py",
+		"/home/zakir/projectnew/knights-templar/webapp/imports/models/base.py",
+		"/home/zakir/projectnew/knights-templar/webapp/package.json",
+		"/tmp/fz3temp-1/mod_chronoforms5.php",
+		"/tmp/fz3temp-1/ajax.php",
+		"/tmp/fz3temp-1/chronoforms.php",
+		"/tmp/fz3temp-1/form.php",
+		"/tmp/fz3temp-1/chronoforms_router.php",
+		"/tmp/fz3temp-1/chronoforms5.php",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/base/base.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/bower_components/angular-sanitize/angular-sanitize.js",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/adminlogin.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/supplier-details_new.html",
+		"/home/zakir/projectnew/knights-templar/webapp/admin/urls.py",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/fetch-bookings.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/hotel-list_new.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/hotel-list.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/suppliers-list.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/templates/create_user_new.html",
+		"/home/zakir/projectnew/knights-templar/webapp/webapp/static/js/locationJS.js",
+		"/home/zakir/projectnew/knights-templar/webapp/hotels/models/occupancy_pricing.py"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"*.*",
+			"*.html",
+			"",
+			"*.js",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			";\"><",
+			"border",
+			"background-color:#eee;",
+			"sdnum=\"16393;0;YYYY-MM-DD HH:MM:SS\"",
+			"align=\"right\" sdval=\"42639\" sdnum=\"16393;0;YYYY-MM-DD HH:MM:SS\"",
+			"border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; border-left: 1px solid #3c3c3c; border-right: 1px solid #3c3c3c\" align=\"center\" valign=top",
+			"eee",
+			"center;",
+			"ddd;",
+			"KTAdminUI_",
+			"about",
+			"optimiz",
+			"optimized-date",
+			"overridden-date",
+			"o-overridden",
+			" checked",
+			"selected-date",
+			"active-date",
+			"o-se",
+			"o-sele",
+			"o-selected",
+			"<div class=\"o-date\">",
+			"o-active",
+			"<td>",
+			"td",
+			"<span class=\"fa fa-circle o-card-status o-optimized\"></span>",
+			"<td>",
+			"change-price",
+			"Triple",
+			"bootstrap",
+			"currency_class",
+			".get",
+			"Metrics.get",
+			"hotelid",
+			"currency_symbol",
+			"plotChart",
+			"renderCurve",
+			"adr",
+			"&",
+			"fetchRooms",
+			"setArcHotels",
+			"rooms_data",
+			"hotelid",
+			"currency_class",
+			"rooms-list",
+			"Occupancy Slabs",
+			"currenc",
+			"hotelid",
+			"currency_symbol",
+			"return",
+			"currency_symbol",
+			"8377",
+			"&#8377",
+			"$sce.trustAsHtml",
+			"currency_symbol",
+			"currency_class",
+			"currency_symbol",
+			"curren",
+			";\")",
+			"currency_class",
+			"self.reset",
+			"reset",
+			"remove",
+			"hideOptimizer",
+			"alread",
+			"applicableDaysOfOverlappingRule",
+			"436",
+			"optimizer_asyc",
+			"chromeBrowser",
+			"UIContext",
+			"uicontext",
+			"hotelChanged",
+			"alert",
+			"getCurrencyIsoCode",
+			"walk",
+			"DragKPI",
+			"getHotelCurrency",
+			"get_currency_code",
+			"iso",
+			"getHotelCurrency",
+			"currency_code",
+			"getHotelCurrency",
+			"currenc",
+			"fa-chevron-right",
+			"lr-name",
+			"rules,",
+			"rules",
+			"rulesEmpty",
+			"altInputFormats",
+			"format",
+			"hotelOccupancy",
+			"getRuleDates",
+			"between",
+			"WalkThrough.status",
+			"no-rules-msg",
+			"userList.html",
+			"hotel-list",
+			"sortable",
+			"bower_components/select2/select2.min.js",
+			"hotelId",
+			"publishData",
+			"publish",
+			"range",
+			"side-menu",
+			"hometabs",
+			"brandname",
+			"navbar-default .navbar-brand",
+			"navbar-default .navbar-brand:hover",
+			"search-hotels",
+			"login-footer",
+			"hometabs",
+			"home-tab-content",
+			"progress",
+			"occ-wrapper",
+			"progress-bar",
+			"container-fluid>.navbar-collapse",
+			"logo",
+			"toggleButton",
+			"\n.",
+			"toggleButton",
+			".toggleButton {\n    margin-left: 200px;\n    margin-top: -25px;\n    width: 35px;\n    position: absolute;\n}",
+			"toggleButton",
+			"container-fluid",
+			"main-container",
+			"column11",
+			"ntfy-a",
+			"moreop",
+			"occu"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"rmrpSelection",
+			"<",
+			"base_room.order",
+			"rule_type",
+			"mockReorderOccupancyPricingRule",
+			"scope.edit_rule",
+			"self.render(",
+			"Number(other.occupancy)",
+			"Number(this.occupancy)",
+			"Number(right.offset)",
+			"Number(left.offset)",
+			"Number(leftOffset)",
+			"right.occupancy",
+			"other.occupancy",
+			"this.occupancy",
+			"",
+			"'",
+			"./static",
+			"Lemon Tree Hotel",
+			"OakWood Hotel",
+			"Test 1",
+			"hotellist",
+			"webapp.views.",
+			"td>",
+			"td",
+			"../images/chosen-sprite.png",
+			"btn-xs\">Details",
+			"btn-sm\">Details",
+			"btn-sm\">Assign Hotels",
+			"Lato, ",
+			"Lato, 'Droid Serif'",
+			"padding:0px 10px 5px 10px",
+			"padding:0px 10px",
+			"font-weight:bold;",
+			"8px 8px",
+			"padding:5px 10px; ",
+			"9243 00 66 77",
+			"Next to Aditya School",
+			"1px solid #ddd",
+			"padding: 5px",
+			"'",
+			"1px solid #ccc",
+			"eee",
+			"#B69CD1",
+			"#C4ADDB",
+			"",
+			"											<!--					<div class=\"side-note-pane\">\n																	<div class=\"s-notes s-note-1\">\n																		<strong>Basic details of the hotel</strong>\n																	</div>\n																	<div class=\"data-fill-hotel\">\n																		\n																	</div>\n																</div> -->",
+			"fa fa-plus",
+			" ",
+			"images/",
+			"<div class=\"prop-img\">",
+			"<div class=\"prop-details\">\n  <h4 class=\"prop-name\">Hotel Gangotri</h4>\n  <div class=\"prop-desc\">Sample description of the property. Description of the property. Property description.</div>\n  <div class=\"stats-bar\">\n     <div><strong>200</strong><br>Bookings</div>\n     <div><strong>230</strong><br>Room Nights</div>\n     <div><strong>250</strong><br>Orders</div>\n  </div>\n</div>\n</div>",
+			"  <div class=\"prop-img\"><img src=\"images/hotel-images/1.jpg\"></div>",
+			"<div class=\"prop-img\"><img src=\"images/hotel-images/1.jpg\"></div>",
+			"                 <div class=\"prop-img\">",
+			"<div class=\"card-holder\"> \n",
+			"<div class=\"card-holder\"><div class=\"prop-img\">",
+			"10px",
+			"color:#0044dd;margin-bottom:8px;",
+			"padding:5px;",
+			"Prophet (pbuh)",
+			"content-wrapper",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/zakir/prototyping/kt-reporting/Weekly Performance Report (day wise)/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11503,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								365,
+								365
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/zakir/prototyping/kt-reporting/Monthly Performance Report (week wise)/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7841,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6164,
+								6152
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2193.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1221,
+								1221
+							]
+						],
+						"settings":
+						{
+							"default_dir": "/home/zakir/prototyping/kt-reporting",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/zakir/Downloads/weekly20161006.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14624,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14522,
+								14522
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3944.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 105,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								105,
+								105
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var count = 6;",
+							"default_dir": "/home/zakir/prototyping/kt-reporting",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 414.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "kt-reporting.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"productlist",
+				"public/app/products/templates/product-list.html"
+			],
+			[
+				"product-wid",
+				"public/app/products/templates/product-widget.html"
+			],
+			[
+				"product.dir",
+				"public/app/products/product.directives.js"
+			],
+			[
+				"producthome",
+				"public/app/products/templates/product-home.html"
+			],
+			[
+				"productl",
+				"public/app/products/templates/product-list.html"
+			],
+			[
+				"product.modu",
+				"public/app/products/product.module.js"
+			],
+			[
+				"about.con",
+				"public/app/about/about.controllers.js"
+			],
+			[
+				"productedit",
+				"public/app/products/templates/product-edit.html"
+			],
+			[
+				"product-home",
+				"public/app/products/templates/product-home.html"
+			],
+			[
+				"index.html",
+				"public/index.html"
+			],
+			[
+				"app.con",
+				"public/app/js/app.config.js"
+			],
+			[
+				"heade",
+				"public/app/base/header.html"
+			],
+			[
+				"home.confi",
+				"public/app/home/home.config.js"
+			],
+			[
+				"home.html",
+				"public/app/home/templates/home.html"
+			],
+			[
+				"home.cont",
+				"public/app/home/home.controllers.js"
+			],
+			[
+				"header.html",
+				"public/app/base/header.html"
+			],
+			[
+				"product.cont",
+				"public/app/products/product.controllers.js"
+			],
+			[
+				"app.js",
+				"public/app/js/app.js"
+			],
+			[
+				"header",
+				"public/app/base/header.html"
+			],
+			[
+				"product.",
+				"public/app/products/product.config.js"
+			],
+			[
+				"product.mo",
+				"public/app/products/product.module.js"
+			],
+			[
+				"app",
+				"public/app/js/app.js"
+			],
+			[
+				"index.ht",
+				"public/index.html"
+			],
+			[
+				"prod",
+				"public/app/products/product.controllers.js"
+			],
+			[
+				"product",
+				"public/app/products/product.controllers.js"
+			],
+			[
+				"productllist",
+				"public/app/products/templates/product-list.html"
+			],
+			[
+				"home.",
+				"public/app/home/home.module.js"
+			],
+			[
+				"home.mo",
+				"public/app/home/home.module.js"
+			],
+			[
+				".css",
+				"css/ro-style.css"
+			],
+			[
+				"ste",
+				"step2-single-date-selection.html"
+			],
+			[
+				"step",
+				"step1-price-calendar.html"
+			],
+			[
+				"step7",
+				"step7-multiple-dates-optimized.html"
+			],
+			[
+				"single",
+				"step3-single-day-optimized.html"
+			],
+			[
+				"step1",
+				"step1-price-calendar.html"
+			],
+			[
+				"step2",
+				"step2-single-date-selection.html"
+			],
+			[
+				"step6",
+				"step6-multiple-dates-optimized.html"
+			],
+			[
+				"step5",
+				"step5-multiple-dates-overridden.html"
+			],
+			[
+				"multiple",
+				"step4-multiple-date-selection.html"
+			],
+			[
+				"scripts.",
+				"webapp/webapp/templates/base/scripts.src.html"
+			],
+			[
+				"styles",
+				"webapp/webapp/templates/base/styles.src.html"
+			],
+			[
+				"user.js",
+				"webapp/webapp/static/js/user.js"
+			],
+			[
+				"private",
+				"webapp/webapp/static/js/private.js"
+			],
+			[
+				"pickup",
+				"webapp/webapp/static/js/pickup.js"
+			],
+			[
+				"booking",
+				"webapp/webapp/static/js/controllers/booking_curve.js"
+			],
+			[
+				"curr",
+				"webapp/hotels/models/currency.py"
+			],
+			[
+				"createhotel",
+				"webapp/webapp/templates/create-hotel_new.html"
+			],
+			[
+				"viewpricing",
+				"webapp/webapp/static/js/view_pricing_rules.js"
+			],
+			[
+				"createpricing",
+				"webapp/webapp/static/js/create_pricing_rule.js"
+			],
+			[
+				"viewp",
+				"webapp/webapp/static/js/view_pricing_rules.js"
+			],
+			[
+				"reorder",
+				"webapp/webapp/static/js/reorder_pricing_rules.js"
+			],
+			[
+				"reorderocc",
+				"webapp/webapp/templates/pricing-rules/reorder-occupancy.html"
+			],
+			[
+				"view.",
+				"webapp/webapp/templates/pricing-rules/view.html"
+			],
+			[
+				"months",
+				"webapp/webapp/static/js/month_strip.js"
+			],
+			[
+				"userp",
+				"webapp/admin/views/user.py"
+			],
+			[
+				"settings",
+				"webapp/hotels/models/settings.py"
+			],
+			[
+				"scripts",
+				"webapp/webapp/templates/base/scripts.src.html"
+			],
+			[
+				"view_pric",
+				"webapp/webapp/static/js/view_pricing_rules.js"
+			],
+			[
+				"prize",
+				"webapp/webapp/templates/price-optimizer.html"
+			],
+			[
+				"view.html",
+				"webapp/webapp/templates/pricing-rules/view.html"
+			],
+			[
+				"create_projo",
+				"webapp/webapp/static/js/create_promotion_pricing_rule.js"
+			],
+			[
+				"optimi",
+				"webapp/webapp/static/js/optimizer.js"
+			],
+			[
+				"private.",
+				"webapp/webapp/static/js/private.js"
+			],
+			[
+				"segchar",
+				"webapp/webapp/static/js/controllers/segChartCtrl.js"
+			],
+			[
+				"pricechar",
+				"webapp/webapp/static/js/controllers/priceChartCtrl.js"
+			],
+			[
+				"compare",
+				"webapp/webapp/static/js/directives/compareWidget.html"
+			],
+			[
+				"bookingcur",
+				"webapp/webapp/static/js/controllers/booking_curve.js"
+			],
+			[
+				"chart",
+				"webapp/webapp/templates/dashboard/charts.html"
+			],
+			[
+				"picup",
+				"webapp/webapp/static/js/pickup.js"
+			],
+			[
+				"price",
+				"webapp/webapp/templates/price-optimizer.html"
+			],
+			[
+				"create-o",
+				"webapp/webapp/templates/pricing-rules/create-occupancy.html"
+			],
+			[
+				"channel",
+				"webapp/webapp/static/js/controllers/channel_mix.js"
+			],
+			[
+				"comparewi",
+				"webapp/webapp/static/js/directives/compareWidget.html"
+			],
+			[
+				"charts",
+				"webapp/webapp/static/js/directives/charts.js"
+			],
+			[
+				"charts.html",
+				"webapp/webapp/templates/dashboard/charts.html"
+			],
+			[
+				"create-rule",
+				"webapp/webapp/static/css/create-rule.css"
+			],
+			[
+				"optim",
+				"webapp/webapp/static/js/optimizer.js"
+			],
+			[
+				"create_pri",
+				"webapp/webapp/static/js/create_pricing_rule.js"
+			],
+			[
+				"create-op",
+				"webapp/webapp/templates/pricing-rules/create-occupancy.html"
+			],
+			[
+				"metrics",
+				"webapp/webapp/templates/dashboard/metrics.html"
+			],
+			[
+				"currency",
+				"webapp/hotels/models/currency.py"
+			],
+			[
+				"cele",
+				"webapp/webapp/celery_task.py"
+			],
+			[
+				"price-op",
+				"webapp/webapp/templates/price-optimizer.html"
+			],
+			[
+				"celery",
+				"webapp/webapp/celery_task.py"
+			],
+			[
+				"price-o",
+				"webapp/webapp/templates/price-optimizer.html"
+			],
+			[
+				"viewpric",
+				"webapp/webapp/static/js/view_pricing_rules.js"
+			],
+			[
+				"styl",
+				"webapp/webapp/static/css/style.css"
+			],
+			[
+				"cur",
+				"webapp/hotels/models/currency.py"
+			],
+			[
+				"view",
+				"webapp/webapp/views.py"
+			],
+			[
+				"priceopmi",
+				"sandbox/mocks/price_optimizer.html"
+			],
+			[
+				"opimizer",
+				"webapp/webapp/static/js/optimizer.js"
+			],
+			[
+				"servic",
+				"webapp/webapp/static/js/services.js"
+			],
+			[
+				"import",
+				"webapp/webapp/templates/import-bookings.html"
+			],
+			[
+				"services",
+				"webapp/webapp/static/js/services.js"
+			],
+			[
+				"curren",
+				"webapp/hotels/models/currency.py"
+			],
+			[
+				"serice",
+				"webapp/webapp/static/js/services.js"
+			],
+			[
+				"currenc",
+				"webapp/hotels/models/currency.py"
+			],
+			[
+				"pickups",
+				"webapp/webapp/static/js/pickup.js"
+			],
+			[
+				"reorder-",
+				"webapp/webapp/templates/pricing-rules/reorder-occupancy.html"
+			],
+			[
+				"create_proomo",
+				"webapp/webapp/static/js/create_promotion_pricing_rule.js"
+			],
+			[
+				"create-occ",
+				"webapp/webapp/templates/pricing-rules/create-occupancy.html"
+			],
+			[
+				"create_pr",
+				"webapp/webapp/static/js/create_pricing_rule.js"
+			],
+			[
+				"view_rul",
+				"webapp/webapp/static/js/view_pricing_rules.js"
+			],
+			[
+				"view-rules",
+				"webapp/webapp/static/css/view-rules.css"
+			],
+			[
+				"user.",
+				"webapp/admin/views/user.py"
+			],
+			[
+				"style.",
+				"webapp/webapp/static/css/style.css"
+			],
+			[
+				"admin-style",
+				"webapp/webapp/static/css/admin-style.css"
+			],
+			[
+				"createhotenew",
+				"webapp/webapp/templates/create-hotel_new.html"
+			],
+			[
+				"price-optimi",
+				"webapp/webapp/static/css/price-optimizer.css"
+			],
+			[
+				"suplierlist",
+				"webapp/webapp/templates/suppliers-list_new.html"
+			],
+			[
+				"admintag",
+				"webapp/webapp/templates/admin_head_tag.html"
+			],
+			[
+				"bower",
+				"webapp/bower.json"
+			],
+			[
+				"optimizerhtml",
+				"webapp/webapp/templates/price-optimizer.html"
+			],
+			[
+				"create-oc",
+				"webapp/webapp/templates/pricing-rules/create-occupancy.html"
+			],
+			[
+				"sidebar.",
+				"webapp/webapp/static/css/sidebar.css"
+			],
+			[
+				"styles.s",
+				"webapp/webapp/templates/base/styles.src.html"
+			],
+			[
+				"import.js",
+				"webapp/webapp/static/js/import.js"
+			],
+			[
+				"scripts.sr",
+				"webapp/webapp/templates/base/scripts.src.html"
+			],
+			[
+				"priv",
+				"webapp/webapp/static/js/private.js"
+			],
+			[
+				"bower.js",
+				"webapp/bower.json"
+			],
+			[
+				"chart.css",
+				"webapp/webapp/static/css/chart.css"
+			],
+			[
+				"custom",
+				"webapp/webapp/static/css/custom-dp.css"
+			],
+			[
+				"style",
+				"webapp/webapp/static/css/style.css"
+			],
+			[
+				"new.css",
+				"webapp/webapp/static/css/new.css"
+			],
+			[
+				"new.c",
+				"webapp/webapp/static/css/new.css"
+			],
+			[
+				"base.html",
+				"webapp/webapp/templates/dashboard/base.html"
+			],
+			[
+				"month",
+				"webapp/webapp/static/js/month_strip.js"
+			],
+			[
+				"base.py",
+				"webapp/webapp/settings/base.py"
+			],
+			[
+				"import-b",
+				"webapp/webapp/templates/import-bookings.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/sublime_projects/kt.sublime-project"
+			],
+			[
+				"met",
+				"~/meteor_project/klassifieds.sublime-project"
+			],
+			[
+				"pro",
+				"~/sublime_projects/prototyping.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"supportviews",
+				"SupportViews"
+			],
+			[
+				"beviews",
+				"BEViews"
+			]
+		],
+		"width": 692.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 249.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

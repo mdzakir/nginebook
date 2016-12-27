@@ -1,0 +1,12 @@
+<h2>Page Title {{title}}</h2>
+<p>Page Description {{description}}</p>
+<h3>Team</h3>
+<label>Search for a team member</label>
+<input type="text" ng-model="member" />
+<ul>
+    <li ng-repeat="member in team | filter:member">
+        {{member}}
+    </li>
+</ul>
+
+{{randomNumber}}

@@ -1,0 +1,47 @@
+<h3>Dashboard</h3>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<select class="form-control">
+			<option>Hotel Vythiri Village</option>
+			<option>Hotel Krishna</option>
+		</select>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-3">
+		<h5>Today's Bookings</h5>
+		<ul>
+			<li ng-repeat="tb in todaysBookings">
+				{{tb.name}}
+				{{tb.checkin}}
+				{{tb.checkout}}
+			</li>
+		</ul>
+	</div>
+	<div class="col-md-3">
+		<h5>Today's Arrivals</h5>
+		<ul>
+			<li ng-repeat="ta in todaysArrivals">
+				{{ta.name}}
+				{{ta.checkin}}
+				{{ta.checkout}}
+			</li>
+		</ul>
+	</div>
+	<div class="col-md-3">
+		<h5>Today's Stay</h5>
+		<ul>
+			<li ng-repeat="ts in todaysStay">
+				{{ts.name}}
+				{{ts.checkin}}
+				{{ts.checkout}}
+			</li>
+		</ul>
+	</div>
+	<div class="col-md-3">
+		<h5>Bookings Trend</h5>
+		<p>Graph to show booking trend for current month</p>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<h2>Product Home</h2>
+
+<div class="">
+	<ul>
+		<li><a ui-sref="products.list">List</a></li>
+		<li><a ui-sref="products.create">Create</a></li>
+		<li><a ui-sref="products.components">Product Components</a></li>
+	</ul>
+</div>
+
+<div class="flex two">
+	<div>
+		<ui-view></ui-view>
+	</div>
+	<div>
+		<ui-view name="help"></ui-view>
+	</div>
+</div>
