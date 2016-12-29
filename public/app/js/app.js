@@ -1,11 +1,13 @@
 angular.module("productApp", [
 	"ui.router",
+	"ui.bootstrap",
 	"cart.module",
 	"app.config",
 	"app.controllers",
 	"about.module",
 	"home.module",
 	"inventory.module",
+	"bookings.module",
 	"product.module",
 	"ngResource"
 ])

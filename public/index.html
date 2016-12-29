@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="productApp">
+<html lang="en" ng-app="productApp" ng-cloak>
 
 <head>
     <meta charset="utf-8">
-    <title>{{appTitle}} - {{pageTitle}}</title>
+    <title>{{pageTitle}} - {{appTitle}}</title>
     <meta name="description" content="AngularJS-NodeSense">
     <meta name="author" content="krish@nodesen.se">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/picnic.min.css">
+    <link rel="stylesheet" href="/components/angular-bootstrap/ui-bootstrap-csp.css">
+    <!-- <link rel="stylesheet" href="/css/picnic.min.css"> -->
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/be-style.css">
     <style>
     body {
         margin: 60px;
@@ -25,6 +27,8 @@
 
     <script type="text/javascript" src="/components/angular/angular.js"></script>
     <script type="text/javascript" src="/components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="/components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="/components/angular-resource/angular-resource.js"></script>
     
     
@@ -35,6 +39,10 @@
     <script type="text/javascript" src="/app/about/about.controllers.js"></script>
     <script type="text/javascript" src="/app/about/about.module.js"></script>
     <script type="text/javascript" src="/app/about/about.config.js"></script>
+
+    <script type="text/javascript" src="/app/bookings/bookings.controllers.js"></script>
+    <script type="text/javascript" src="/app/bookings/bookings.module.js"></script>
+    <script type="text/javascript" src="/app/bookings/bookings.config.js"></script>
 
     <script type="text/javascript" src="/app/inventory/inventory.controllers.js"></script>
     <script type="text/javascript" src="/app/inventory/inventory.module.js"></script>

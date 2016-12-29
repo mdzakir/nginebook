@@ -1,47 +1,86 @@
-<h3>Dashboard</h3>
-
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
-		<select class="form-control">
-			<option>Hotel Vythiri Village</option>
-			<option>Hotel Krishna</option>
-		</select>
+		<div class="form-group">
+			<select class="form-control">
+				<option>Hotel Vythiri Village</option>
+				<option>Hotel Krishna</option>
+			</select>
+		</div>
 	</div>
 </div>
 
-<div class="row">
+<div class="row stats-box">
 	<div class="col-md-3">
-		<h5>Today's Bookings</h5>
-		<ul>
-			<li ng-repeat="tb in todaysBookings">
-				{{tb.name}}
-				{{tb.checkin}}
-				{{tb.checkout}}
-			</li>
-		</ul>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">Today's Bookings ({{stats.noOfTodaysBookings}})</div>
+			</div>
+			<div class="panel-body">
+				<ul>
+					<li ng-repeat="tb in todaysBookings">
+						<span class="stats-details-column" title="{{tb.name}}">
+							{{tb.checkin}} - 
+							{{tb.checkout}}, 
+							{{tb.name}}
+						</span>
+						<span class="stats-ctrl-column">
+							View
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<div class="col-md-3">
-		<h5>Today's Arrivals</h5>
-		<ul>
-			<li ng-repeat="ta in todaysArrivals">
-				{{ta.name}}
-				{{ta.checkin}}
-				{{ta.checkout}}
-			</li>
-		</ul>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">Today's Arrivals ({{stats.noOfTodaysArrivals}})</div>
+			</div>
+			<div class="panel-body">
+				<ul>
+					<li ng-repeat="ta in todaysArrivals">
+						<span class="stats-details-column" title="{{ta.name}}">					
+							{{ta.checkin}} - 
+							{{ta.checkout}}, 
+							{{ta.name}}
+						</span>
+						<span class="stats-ctrl-column">
+							View
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<div class="col-md-3">
-		<h5>Today's Stay</h5>
-		<ul>
-			<li ng-repeat="ts in todaysStay">
-				{{ts.name}}
-				{{ts.checkin}}
-				{{ts.checkout}}
-			</li>
-		</ul>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">Today's Stay ({{stats.noOfTodaysStay}})</div>
+			</div>
+			<div class="panel-body">
+				<ul>
+					<li ng-repeat="ts in todaysStay">
+						<span class="stats-details-column" title="{{ts.name}}">
+							{{ts.checkin}} - 
+							{{ts.checkout}}, 
+							{{ts.name}}
+						</span>
+						<span class="stats-ctrl-column">
+							View
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<div class="col-md-3">
-		<h5>Bookings Trend</h5>
-		<p>Graph to show booking trend for current month</p>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">Bookings Trend</div>
+			</div>
+			<div class="panel-body stats-graph-box">
+				<img src="../images/graph-monthly-temp.png" alt="Bookings Trend Graph" class="img-responsive" />
+			</div>
+		</div>
 	</div>
 </div>
