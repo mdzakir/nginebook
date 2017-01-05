@@ -3,6 +3,36 @@ angular.module("home.controllers", [
 ])
 
 .controller('HomeController', function ($scope, $http) {
+
+	$scope.hotels = [
+		{
+			id : 'vyt',
+			name : 'Hotel Vythiri Village'
+		},
+		{
+			id : 'kri',
+			name : 'Hotel Krishna'
+		}
+	];
+
+	console.log($scope.hotels);
+    $scope.hotelId = 'kri';
+    $scope.indexOfSelectedHotel = _.findIndex($scope.hotels, function (o) {
+        return o.id == $scope.hotelId;
+    });
+
+	$scope.selectedHotel = $scope.hotels[$scope.indexOfSelectedHotel];
+
+	$scope.hotelChanged = function (changedHotelID) {
+        $scope.hotelId = changedHotelID;
+        $scope.indexOfSelectedHotel = _.findIndex($scope.hotels, function (o) {
+            return o.id == $scope.hotelId;
+        });
+        $scope.selectedHotel = $scope.hotels[$scope.indexOfSelectedHotel];
+    };
+
+
+
 	$scope.title = "Dashboard";
 	$scope.$emit("pageTitleChanged", "Dashboard");
 

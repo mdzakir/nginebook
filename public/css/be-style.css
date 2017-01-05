@@ -1,3 +1,59 @@
+body{
+  margin: 0px;
+}
+
+.app-container{
+  width: 100%;
+}
+
+.main-container{
+  width: 100%;
+}
+
+.navbar-brand{
+  width: 225px;
+}
+
+/* START APP SIDE BAR */
+
+.app-side-bar {
+    background: #ecf0f1;
+    position: fixed;
+    left: 0;
+    top: 50px;
+    height: 100%;
+    width: 225px;
+    display: flex;
+}
+
+.app-side-bar #navbar{
+  padding: 0;
+  width: 100%;
+}
+
+.app-side-bar #navbar ul{
+  width: 100%;
+}
+
+.app-side-bar #navbar li{
+  display: block;
+  float: none;
+  width: 100%;
+}
+
+.app-side-bar #navbar li a:hover{
+  background: #bdc3c7;
+}
+
+/* END APP SIDE BAR */
+
+.page-content {
+    display: flex;
+    padding-left: 225px;
+    width: 100%;
+    margin-top: 65px;
+}
+
 .tac{
   text-align: center;
 }
@@ -54,3 +110,5 @@
   right: 10px;
   top: 10px;
 }
+
+

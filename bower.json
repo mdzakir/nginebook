@@ -28,6 +28,7 @@
     "angular-resource": "^1.5.8",
     "angular-translate": "^2.11.1",
     "angular-cache": "^4.6.0",
-    "angular-bootstrap": "^2.3.2"
+    "angular-bootstrap": "^2.3.2",
+    "lodash": "^4.6.1"
   }
 }

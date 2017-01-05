@@ -1,6 +1,6 @@
 <div ng-controller="HeaderController">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-	    <div class="container">
+	    <div class="fluid-container">
 	        <div class="navbar-header">
 	            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 	                <span class="sr-only">Toggle navigation</span>
@@ -10,14 +10,16 @@
 	            </button>
 	            <a class="navbar-brand" ui-sref="#">Booking Engine</a>
 	        </div>
-	        <div id="navbar" class="collapse navbar-collapse">
-	            <ul class="nav navbar-nav">
-	                <li ui-sref-active="active"><a ui-sref="home" >Dashboard</a></li>
-	                <li ui-sref-active="active"><a ui-sref="bookings">Bookings</a></li>
-	                <li ui-sref-active="active"><a ui-sref="inventory" >Inventory</a></li>
-	                <li ui-sref-active="active"><a ui-sref="pricing">Pricing</a></li>
-	                <li ui-sref-active="active"><a ui-sref="deals-and-promotions">Deals &amp; Promotions</a></li>
-	            </ul>
+
+	        <div id="hotel-search" class="hotel-search">
+	            <ui-select ng-model="selectedHotel" class="hotel-list" ng-change="hotelChanged($select.selected.id);">
+                    <ui-select-match>
+                        <span ng-bind="$select.selected.name"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="hotel in (hotels | filter: $select.search) track by hotel.id">
+                        <span ng-bind="hotel.name"></span>
+                    </ui-select-choices>
+                </ui-select>
 	        </div>
 	        <!--/.nav-collapse -->
 	    </div>

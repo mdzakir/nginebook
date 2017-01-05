@@ -9,6 +9,7 @@ angular.module("productApp", [
 	"inventory.module",
 	"bookings.module",
 	"product.module",
+	/*"baseFeed.module",*/
 	"ngResource"
 ])
 
