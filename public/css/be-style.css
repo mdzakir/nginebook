@@ -1,5 +1,6 @@
 body{
   margin: 0px;
+  background: #F1F4F9;
 }
 
 .app-container{
@@ -10,20 +11,31 @@ body{
   width: 100%;
 }
 
-.navbar-brand{
+.navbar-inverse .navbar-brand {
   width: 225px;
+  color: #fff;
+  background: url(../images/blurred-bg.png) no-repeat scroll 0 0 #22BAA0;
+}
+
+.navbar-inverse .navbar-brand:hover{
+  background: url(../images/blurred-bg.png) no-repeat scroll 0 0 #22BAA0;
+}
+
+.navbar-fixed-top {
+    border-width: 0 0 0px;
 }
 
 /* START APP SIDE BAR */
 
 .app-side-bar {
-    background: #ecf0f1;
+    background: #34425A;
     position: fixed;
     left: 0;
     top: 50px;
     height: 100%;
     width: 225px;
     display: flex;
+    padding-top: 20px;
 }
 
 .app-side-bar #navbar{
@@ -41,8 +53,27 @@ body{
   width: 100%;
 }
 
-.app-side-bar #navbar li a:hover{
-  background: #bdc3c7;
+.app-side-bar #navbar li a{
+  border-left: 4px solid #34425A;
+  color: #899dc1
+}
+
+.app-side-bar #navbar li a:hover, 
+.app-side-bar #navbar li a:focus{
+  background: #2B384E;
+  border-left: 4px solid #22BAA0; 
+  color: #eee;
+}
+
+.app-side-bar #navbar li a:active,
+.app-side-bar #navbar li.active a{
+  background: #1B2432;
+  border-left: 4px solid #22BAA0; 
+  color: #eee;
+}
+
+.app-side-bar #navbar li a i{
+  margin-right: 10px;
 }
 
 /* END APP SIDE BAR */
@@ -54,14 +85,30 @@ body{
     margin-top: 65px;
 }
 
+.page-container{
+  padding: 10px 25px;
+}
+
 .tac{
   text-align: center;
 }
 
 .navbar-inverse {
-    background-color: #2c3e50;
-    border-color: #2c3e50;
+    background-color: #fff;
+    border-color: #fff;
+    border-radius: 0;
+    -webkit-box-shadow: 0 5px 5px -5px rgba(0,0,0,.1);
+    -moz-box-shadow: 0 5px 5px -5px rgba(0,0,0,.1);
+    box-shadow: 0 5px 5px -5px rgba(0,0,0,.1);
 }
+/*
+.navbar-inverse {
+    background-color: #0078D7;
+    border-color: #0078D7;
+    border-radius: 0;
+}*/
+
+
 
 .form-control, .btn{
   border-radius: 0;
