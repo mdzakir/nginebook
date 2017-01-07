@@ -14,11 +14,13 @@ body{
 .navbar-inverse .navbar-brand {
   width: 225px;
   color: #fff;
-  background: url(../images/blurred-bg.png) no-repeat scroll 0 0 #22BAA0;
+  background: #475875;
+  /*background: url(../images/blurred-bg.png) no-repeat scroll 0 0 #22BAA0;*/
 }
 
 .navbar-inverse .navbar-brand:hover{
-  background: url(../images/blurred-bg.png) no-repeat scroll 0 0 #22BAA0;
+  /*background: url(../images/blurred-bg.png) no-repeat scroll 0 0 #22BAA0;*/
+  background: #475875;
 }
 
 .navbar-fixed-top {
@@ -159,3 +161,20 @@ body{
 }
 
 
+/* PANEL */
+
+.panel-default {
+    border-color: #ddd;
+    border-radius: 0;
+}
+
+.panel-default>.panel-heading {
+    background-color: #fff;
+    border-color: #ddd;
+    border-radius: 0;
+}
+
+.panel-default>.panel-heading .panel-title{
+    font-size: 14px;
+    font-weight: bold;
+}
