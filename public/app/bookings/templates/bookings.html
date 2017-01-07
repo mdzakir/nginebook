@@ -79,34 +79,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>000BPS3001</td>
-					<td>Mr. India</td>
-					<td>Prepaid</td>
-					<td>Confirmed</td>
-					<td>Airport Pickup and Drop</td>
+				<tr ng-repeat="booking in bookingData">
+					<td>{{booking.bookingId}}</td>
+					<td>{{booking.guestName}}</td>
+					<td>{{booking.paymentMode}}</td>
+					<td>{{booking.status}}</td>
+					<td>{{booking.remark}}</td>
 					<td>
 					    <div class="btn-group" uib-dropdown is-open="status.isopen">
-					      <button id="single-button" type="button" class="btn btn-primary btn-sm" uib-dropdown-toggle ng-disabled="disabled"> Action <span class="caret"></span>
+					      <button id="btn_{{booking.bookingId}}" type="button" class="btn btn-primary btn-sm" uib-dropdown-toggle ng-disabled="disabled"> Action <span class="caret"></span>
 					      </button>
-					      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-					        <li role="menuitem"><a href="#">No Show</a></li>
-					        <li role="menuitem"><a href="#">Add Remark</a></li>
-					      </ul>
-					    </div>
-					</td>
-				</tr>
-				<tr>
-					<td>000BPS3002</td>
-					<td>Mr. Karnataka</td>
-					<td>Pay at hotel</td>
-					<td>Confirmed</td>
-					<td>Airport Pickup</td>
-					<td>
-					    <div class="btn-group" uib-dropdown is-open="status.isopen">
-					      <button id="single-button" type="button" class="btn btn-primary btn-sm" uib-dropdown-toggle ng-disabled="disabled"> Action <span class="caret"></span>
-					      </button>
-					      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+					      <ul class="dropdown-menu pull-right" uib-dropdown-menu role="menu" aria-labelledby="btn_{{booking.bookingId}}">
 					        <li role="menuitem"><a href="#">No Show</a></li>
 					        <li role="menuitem"><a href="#">Add Remark</a></li>
 					      </ul>

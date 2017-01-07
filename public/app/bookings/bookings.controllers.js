@@ -28,11 +28,51 @@ angular.module("bookings.controllers", [
 	$scope.altInputFormats = ['M!/d!/yyyy'];
 
 	$scope.start_date_popup = {
-	opened: false
+		opened: false
 	};
 
 	$scope.end_date_popup = {
-	opened: false
+		opened: false
 	};
+	
+	// BOOKING DATA
+	$scope.bookingData = [
+		{
+			bookingId : '000BPS3001',
+			guestName : 'Mr. India',
+			paymentMode : 'Prepaid',
+			status : 'Confirmed',
+			remark : 'Airport Pickup and Drop'
+		},
+		{
+			bookingId : '000BPS3002',
+			guestName : 'Mr. Karnataka',
+			paymentMode : 'Postpaid',
+			status : 'Pending',
+			remark : 'Airport Pickup and Drop'
+		},
+		{
+			bookingId : '000BPS3003',
+			guestName : 'Mr. Mysore',
+			paymentMode : 'Pay at hotel',
+			status : 'Canceled',
+			remark : 'Airport Pickup'
+		}
+	];
+});
 
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

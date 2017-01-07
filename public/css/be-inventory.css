@@ -1,0 +1,81 @@
+/* INVENTORY PAGE STYLING */
+
+.month-nav{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.inventory-calendar{
+/*  padding: 0 15px;*/
+}
+
+.inventory-calendar .month-header ul,
+.inventory-calendar .month-body ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  float: left;
+}
+
+.inventory-calendar .month-header ul{
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.inventory-calendar .month-body ul{
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  background: #fff; 
+}
+
+.inventory-calendar .month-header ul li,
+.inventory-calendar .month-body ul li{
+  width: 14.2857142857%;
+  float: left;
+}
+
+.inventory-calendar .month-header ul li{
+  padding: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.inventory-calendar .month-body ul li{
+  height: 60px;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.inv-date{
+  font-size: 10px;
+  color: #777;
+}
+
+.inv-value{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
