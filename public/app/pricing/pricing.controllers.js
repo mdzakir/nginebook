@@ -1,7 +1,7 @@
-angular.module("inventory.controllers", [
-        "inventory.module"
+angular.module("pricing.controllers", [
+        "pricing.module"
     ])
-	.factory('Inventory', function ($http) {
+	.factory('Pricing', function ($http) {
         return {
             month: moment(),
             currentMonth: function () {
@@ -19,9 +19,9 @@ angular.module("inventory.controllers", [
         };
 
 	})
-    .controller('InventoryController', ['$scope', 'Inventory', function($scope, Inventory) {
-        $scope.title = "Inventory";
-        $scope.$emit("pageTitleChanged", "Inventory");
+    .controller('PricingController', ['$scope', 'Pricing', function($scope, Pricing) {
+        $scope.title = "Pricing";
+        $scope.$emit("pageTitleChanged", "Pricing");
 
 		// DATE PICKER
 
@@ -65,11 +65,11 @@ angular.module("inventory.controllers", [
             return newArr;
 		}
 
-		// GENERATE INVENTORY TABLE
+		// GENERATE Pricing TABLE
 
-		function generateInventoryTable() {
-			var year = Inventory.currentYear();
-            var month = Inventory.currentMonth() - 1;
+		function generatePricingTable() {
+			var year = Pricing.currentYear();
+            var month = Pricing.currentMonth() - 1;
 
             $scope.currentMonth = moment(month).format('MMMM');
             $scope.currentYear = year;
@@ -97,7 +97,7 @@ angular.module("inventory.controllers", [
 			     $scope.daysInMonth.push({
 			     	date : monthDate.format('DD'), 
 			     	fullDate : monthDate.format('YYYY-MM-DD'),
-			     	value : 12
+			     	value : 2000
 			     }); 
 			     monthDate.add(1, 'day');
 			});
@@ -107,6 +107,6 @@ angular.module("inventory.controllers", [
 
 		}
 
-		generateInventoryTable();
+		generatePricingTable();
 
 }]);

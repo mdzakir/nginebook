@@ -8,8 +8,19 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" ui-sref="#">Booking Engine</a>
+	            <a class="navbar-brand" ui-sref="#">Admin</a>
 	        </div>
+
+	        <div class="row">
+				<div class="col-md-4">
+					<div class="form-group hotel-search-wrapper">
+						<select class="form-control">
+							<option>Hotel Vythiri Village</option>
+							<option>Hotel Krishna</option>
+						</select>
+					</div>
+				</div>
+			</div>
 
 	        <div id="hotel-search" class="hotel-search">
 	            <ui-select ng-model="selectedHotel" class="hotel-list" ng-change="hotelChanged($select.selected.id);">

@@ -6,18 +6,19 @@ angular.module("productApp", [
 	"app.controllers",
 	"about.module",
 	"home.module",
+	"rooms-rateplans.module",
 	"inventory.module",
+	"pricing.module",
 	"bookings.module",
 	"product.module",
-	/*"baseFeed.module",*/
 	"ngResource"
 ])
 
 .constant('DEBUG', true)
 
 .run(function($rootScope){
-    $rootScope.appTitle = "Booking Engine";
-    $rootScope.title = "Booking Engine Admin";
+    $rootScope.appTitle = "Admin";
+    $rootScope.title = "Admin";
 })
 
 .run(function(DEBUG){

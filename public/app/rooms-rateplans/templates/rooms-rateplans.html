@@ -1,3 +1,30 @@
+<div class="row">
+	<div class="col-md-12"><h4>Rooms</h4></div>
+	<div class="col-md-3" ng-repeat="room in rooms track by $index">
+		<div class="room-rateplan-box room-box">
+			<div class="room-rateplan-box-name">{{room.name}}</div>
+			<div class="room-rateplan-box-img">
+				<img src="/images/{{room.src}}" alt="Room name" class="img-responsive" />
+			</div>
+			<div class="room-rateplan-box-desc">
+				<p>{{room.desc}}</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="room-rateplan-box room-box">
+			<div class="new-room-rateplan new-room">
+				<div class="nrr-btn-wrapper">
+					<div class="nrr-btn">
+						<i class="fa fa-plus nrr-btn-add"></i>
+						<span>Add New Room</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <form class="well">
 	<div class="row">
 		<div class="col-md-3">
@@ -49,30 +76,3 @@
 		</div>
 	</div>
 </form>
-
-<div class="row inventory-calendar">
-
-	<div class="col-md-12 month-nav">
-		<i class="fa fa-chevron-left"></i> &nbsp;&nbsp;
-		{{currentMonth}} {{currentYear}} &nbsp;&nbsp;
-		<i class="fa fa-chevron-right"></i>
-	</div>
-
-	<div class="col-md-12 ic-left">
-		<div class="month-header">
-			<ul class="">
-				<li ng-repeat="weekDay in weekDays">
-					{{weekDay}}
-				</li>
-			</ul> 
-		</div>
-		<div class="month-body">
-			<ul class="">
-				<li ng-repeat="day in allDaysOfMonth track by $index">
-					<div class="inv-date">{{day.date}}</div>
-					<div class="inv-value">{{day.value}}</div>
-				</li>
-			</ul> 
-		</div>
-	</div>
-</div>
