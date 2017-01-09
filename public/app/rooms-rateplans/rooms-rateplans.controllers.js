@@ -17,9 +17,30 @@ angular.module("rooms-rateplans.controllers", [
                 return $http.post('/hotel/override', data);
             }
         };
-
     })
-    .controller('RoomsRateplansController', ['$scope', 'RoomsRateplans', function($scope, RoomsRateplans) {
+    .factory('ManageRooms', function ($http) {
+        return {
+            save: function (params, isAdd, callback) {
+                var post_url = isAdd ? '/hotel/addroom/' : '/hotel/editroom/';
+                $http.post(post_url, angular.toJson(params, true))
+                    .then(function () {
+                        callback();
+                    });
+            }
+        }
+    })
+    .factory('ManageRateplans', function ($http) {
+        return {
+            save: function (params, isAdd, callback) {
+                var post_url = isAdd ? '/hotel/addrateplan/' : '/hotel/editrateplan/';
+                $http.post(post_url, angular.toJson(params, true))
+                    .then(function () {
+                        callback();
+                    });
+            }
+        }
+    })
+    .controller('RoomsRateplansController', ['$scope', 'RoomsRateplans', 'ManageRooms', 'ManageRateplans', function($scope, RoomsRateplans, ManageRooms, ManageRateplans) {
         $scope.title = "RoomsRateplans";
         $scope.$emit("pageTitleChanged", "RoomsRateplans");
 
@@ -53,6 +74,7 @@ angular.module("rooms-rateplans.controllers", [
         };
 
         // AVAILABLE ROOMS
+        var isAddRoom = _.isEmpty($scope.rooms);
 
         $scope.rooms = [{
             name: 'Standard Affordable OYO Rooms Premium',
@@ -66,9 +88,63 @@ angular.module("rooms-rateplans.controllers", [
             name: 'Luxury Room',
             src: 'room_3.jpg',
             desc: 'Alma House Bed and Breakfast: Room 4 with adjoining room. Nice Room For Rent in Phu Nhuan District.'
-        }]
+        }];
 
 
+        // SHOW ADD ROOM FORM
+        $scope.addRoomForm = function(){
+            $scope.showAddRoomForm = true;
+        };
 
+        // ADD ROOM
+        $scope.saveAddRoom() = function(){
+            var params = {
+                name : $scope.room.name,
+                desc : $scope.room.desc,
+                images : $scope.room.images,
+                type : $scope.room.type,
+                min_adult : $scope.room.min_adult,
+                max_adult : $scope.room.max_adult,
+                amenities : $scope.room.amenities
+            };
 
+            ManageRooms.save(params, isAdd, function () {
+                $state.go('rooms-rateplans');
+            });
+        };
+
+        // AVAILABLE RATEPLANS
+        var isAddRoom = _.isEmpty($scope.rateplans);
+
+        $scope.rateplans = [{
+            name: 'CP Customized',
+            src: 'room_1.jpg',
+            desc: 'Rooms Hotel Tbilisi Garden View Twin Room R 2. Theater and the brick, the fireplace, the lighter.'
+        }, {
+            name: '4 nights 3 days',
+            src: 'room_2.jpg',
+            desc: 'Contemporary Boutique Hotel Suite Main Room Interior Design of Atlantic Resort and Spa Ft. Lauderdale.'
+        }, {
+            name: 'Summer Rateplan',
+            src: 'room_3.jpg',
+            desc: 'Alma House Bed and Breakfast: Room 4 with adjoining room. Nice Room For Rent in Phu Nhuan District.'
+        }];
+
+        // ADD ROOM
+        $scope.saveAddRoom() = function(){
+            var params = {
+                name : $scope.room.name,
+                desc : $scope.room.desc,
+                images : $scope.room.images,
+                type : $scope.room.type,
+                min_adult : $scope.room.min_adult,
+                max_adult : $scope.room.max_adult,
+                amenities : $scope.room.amenities
+            };
+
+            ManageRateplans.save(params, isAdd, function () {
+                $state.go('rooms-rateplans');
+            });
+        };
+        
     }]);

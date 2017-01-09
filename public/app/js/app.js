@@ -4,13 +4,14 @@ angular.module("productApp", [
 	"cart.module",
 	"app.config",
 	"app.controllers",
-	"about.module",
 	"home.module",
+	"bookings.module",
 	"rooms-rateplans.module",
 	"inventory.module",
 	"pricing.module",
-	"bookings.module",
+	"deals-promotions.module",
 	"product.module",
+	"about.module",
 	"ngResource"
 ])
 

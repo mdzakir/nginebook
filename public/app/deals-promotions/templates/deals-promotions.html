@@ -1,0 +1,146 @@
+<form class="well">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Name</label>
+				<div class="">
+					<input type="text" class="form-control" ng-required="true" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Description</label>
+				<div class="">
+					<textarea class="form-control" ng-required="true" ></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Booking Start date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="start_date" 
+					is-open="start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_start()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Booking End date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="end_date" 
+					is-open="end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_end()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Booking Days of Week</label>
+				<div class="btn-group">
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Travel Start date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="start_date" 
+					is-open="start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_start()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Travel End date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="end_date" 
+					is-open="end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_end()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Travel Days of Week</label>
+				<div class="btn-group">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Blackout Start date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="start_date" 
+					is-open="start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_start()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Blackout End date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="end_date" 
+					is-open="end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_end()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Blackout Days of Week</label>
+				<div class="btn-group">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Discount Type</label>
+				<div class="">
+					<select class="form-control">
+						<option>Fixed</option>
+						<option>Percentage</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Amount</label>
+				<div class="">
+					<input type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group tac">
+				<button type="button" class="btn btn-success"><i class="fa fa-save"></i> Save</button>
+			</div>
+		</div>
+	</div>
+</form>
+
+<div class="row">
+
+	<div class="col-md-12">
+	 Table to show the existing deals and promotions
+	</div>
+
+</div>
