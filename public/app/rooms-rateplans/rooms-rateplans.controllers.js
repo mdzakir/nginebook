@@ -97,7 +97,8 @@ angular.module("rooms-rateplans.controllers", [
         };
 
         // ADD ROOM
-        $scope.saveAddRoom() = function(){
+        $scope.room = [];
+        $scope.saveAddRoom = function(){
             var params = {
                 name : $scope.room.name,
                 desc : $scope.room.desc,
@@ -108,13 +109,13 @@ angular.module("rooms-rateplans.controllers", [
                 amenities : $scope.room.amenities
             };
 
-            ManageRooms.save(params, isAdd, function () {
+            ManageRooms.save(params, isAddRoom, function () {
                 $state.go('rooms-rateplans');
             });
         };
 
         // AVAILABLE RATEPLANS
-        var isAddRoom = _.isEmpty($scope.rateplans);
+        var isAddRateplans = _.isEmpty($scope.rateplans);
 
         $scope.rateplans = [{
             name: 'CP Customized',
@@ -131,7 +132,7 @@ angular.module("rooms-rateplans.controllers", [
         }];
 
         // ADD ROOM
-        $scope.saveAddRoom() = function(){
+        $scope.saveAddRateplan = function(){
             var params = {
                 name : $scope.room.name,
                 desc : $scope.room.desc,
@@ -142,7 +143,7 @@ angular.module("rooms-rateplans.controllers", [
                 amenities : $scope.room.amenities
             };
 
-            ManageRateplans.save(params, isAdd, function () {
+            ManageRateplans.save(params, isAddRateplans, function () {
                 $state.go('rooms-rateplans');
             });
         };
