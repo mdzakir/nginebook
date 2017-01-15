@@ -90,6 +90,19 @@ angular.module("rooms-rateplans.controllers", [
             desc: 'Alma House Bed and Breakfast: Room 4 with adjoining room. Nice Room For Rent in Phu Nhuan District.'
         }];
 
+        $scope.images = [
+            {
+                img_url : ''
+            }
+        ]
+
+        $scope.addImage = function(){     
+            $scope.images.push({ 'img_url':$scope.img_url });
+            $scope.img_url='';
+        };
+        $scope.removeImage = function(index){
+            $scope.images.splice( index, 1 );        
+        };
 
         // SHOW ADD ROOM FORM
         $scope.addRoomForm = function(){
@@ -102,7 +115,7 @@ angular.module("rooms-rateplans.controllers", [
             var params = {
                 name : $scope.room.name,
                 desc : $scope.room.desc,
-                images : $scope.room.images,
+                images : $scope.images,
                 type : $scope.room.type,
                 min_adult : $scope.room.min_adult,
                 max_adult : $scope.room.max_adult,

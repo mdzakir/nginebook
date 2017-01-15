@@ -47,7 +47,11 @@
 			<div class="form-group">
 				<label class="">Images</label>
 				<div class="">
-					<input type="file" name="" ng-model="room.images" />
+					<div class="" ng-repeat="roomImages in images track by $index">
+						<input type="text" name="" ng-model="img_url" />
+						<button type="button" ng-click="addImage()"><i class="fa fa-plus"></i></button>
+						<button type="button" ng-click="removeImage($index)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
+					</div>
 				</div>
 			</div>
 		</div>
