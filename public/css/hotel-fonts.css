@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'fontic-hotel';
 	src:url('../fonts/hotel-fonts/fontic-hotel.eot');
-	src:url('../fonts/fonts/hotel-fonts/fontic-hotel.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/fonts/hotel-fonts/fontic-hotel.woff') format('woff'),
-		url('../fonts/fonts/hotel-fonts/fontic-hotel.ttf') format('truetype'),
-		url('../fonts/fonts/hotel-fonts/fontic-hotel.svg#fontic-hotel') format('svg');
+	src:url('../fonts/hotel-fonts/fontic-hotel.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/hotel-fonts/fontic-hotel.woff') format('woff'),
+		url('../fonts/hotel-fonts/fontic-hotel.ttf') format('truetype'),
+		url('../fonts/hotel-fonts/fontic-hotel.svg#fontic-hotel') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }

@@ -128,13 +128,15 @@ angular.module("rooms-rateplans.controllers", [
         $scope.saveAddRoom = function(){
             $scope.selectedAmenities = _.filter($scope.amenities, 'checked');
             var params = {
-                name : $scope.room.name,
-                desc : $scope.room.desc,
-                images : $scope.images,
-                type : $scope.room.type,
-                min_adult : $scope.room.min_adult,
-                max_adult : $scope.room.max_adult,
-                amenities : $scope.selectedAmenities
+                "hotel_id": "58726a8e5aa124394eb7dae4",
+                "name": $scope.room.name,
+                "description": $scope.room.description,
+                "type" : $scope.room.type,
+                "status" : 1,
+                "is_smoking" : $scope.room.isSmoking,
+                "max_adult" : $scope.room.max_adult,
+                "amenities" : $scope.selectedAmenities,
+                "images" : $scope.images
             };
 
             ManageRooms.save(params, isAddRoom, function () {

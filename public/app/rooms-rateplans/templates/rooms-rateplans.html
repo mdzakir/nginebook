@@ -39,7 +39,36 @@
 			<div class="form-group">
 				<label class="">Description</label>
 				<div class="">
-					<textarea class="form-control" ng-model="room.desc"> </textarea>
+					<textarea class="form-control" ng-model="room.description"> </textarea>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Status</label>
+				<div class="">
+					<label><input type="radio" name="status" ng-model="status.checked" value="1" /> Active</label>
+					<label><input type="radio" name="status" ng-model="status.checked" value="0" /> Inactive</label>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Room Type</label>
+				<div class="">
+					<select class="form-control" ng-model="room.type" >
+						<option>AC</option>
+						<option>NON AC</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Smoking</label>
+				<div class="">
+					<label><input type="radio" name="smoking" ng-model="smoking.checked" value="1" /> Yes</label>
+					<label><input type="radio" name="smoking" ng-model="smoking.checked" value="0" /> No</label>
 				</div>
 			</div>
 		</div>
@@ -57,17 +86,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Room Type</label>
-				<div class="">
-					<select class="form-control" ng-model="room.type" >
-						<option>AC</option>
-						<option>NON AC</option>
-					</select>
-				</div>
-			</div>
-		</div>
+		
 		<div class="col-md-3">
 			<div class="form-group">
 				<label class="">Min. Adults</label>
