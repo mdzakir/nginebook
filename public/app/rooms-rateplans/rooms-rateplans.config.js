@@ -3,7 +3,12 @@ angular.module("rooms-rateplans.config", [])
 	$stateProvider
 	.state("rooms-rateplans", {
 		url : "/rooms-rateplans",
-		controller : "RoomsRateplansController",
-		templateUrl : "app/rooms-rateplans/templates/rooms-rateplans.html"
+		templateUrl : "app/rooms-rateplans/templates/rooms-rateplans.html",
+		resolve: {
+			amenities : function(ManageRooms){
+				return ManageRooms.getRoomAmenities();
+			}
+		},
+		controller : "RoomsRateplansController"
 	})	
 })

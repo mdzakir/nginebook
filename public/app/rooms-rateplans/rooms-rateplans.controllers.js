@@ -18,10 +18,22 @@ angular.module("rooms-rateplans.controllers", [
             }
         };
     })
-    .factory('ManageRooms', function ($http) {
+    .factory('ManageRooms', function ($http, $q) {
         return {
+            getRoomAmenities: function() {
+                var deferred = $q.defer();
+                var amenities = deferred.promise;
+                $http.get('http://0.0.0.0:8083/hotel/amenities').then(function(response) {
+                    var amenities = response.data;
+                    deferred.resolve(amenities);
+                }, function(error) {
+                    amenities = null;
+                    deferred.reject(error);
+                });
+                return amenities;
+            },
             save: function (params, isAdd, callback) {
-                var post_url = isAdd ? '/hotel/addroom/' : '/hotel/editroom/';
+                var post_url = 'http://0.0.0.0:8083/room/create/';
                 $http.post(post_url, angular.toJson(params, true))
                     .then(function () {
                         callback();
@@ -40,7 +52,7 @@ angular.module("rooms-rateplans.controllers", [
             }
         }
     })
-    .controller('RoomsRateplansController', ['$scope', 'RoomsRateplans', 'ManageRooms', 'ManageRateplans', function($scope, RoomsRateplans, ManageRooms, ManageRateplans) {
+    .controller('RoomsRateplansController', ['$scope', 'RoomsRateplans', 'ManageRooms', 'ManageRateplans', 'amenities', function($scope, RoomsRateplans, ManageRooms, ManageRateplans, amenities) {
         $scope.title = "RoomsRateplans";
         $scope.$emit("pageTitleChanged", "RoomsRateplans");
 
@@ -90,21 +102,23 @@ angular.module("rooms-rateplans.controllers", [
             desc: 'Alma House Bed and Breakfast: Room 4 with adjoining room. Nice Room For Rent in Phu Nhuan District.'
         }];
 
-        $scope.images = [
-            {
-                img_url : ''
-            }
-        ]
+        // Room Images
+        $scope.images = [{img_url : ''}]
 
-        $scope.addImage = function(){     
-            $scope.images.push({ 'img_url':$scope.img_url });
-            $scope.img_url='';
+        $scope.addImage = function(){
+            $scope.images[$scope.images.length] = {};
         };
         $scope.removeImage = function(index){
             $scope.images.splice( index, 1 );        
         };
 
+        // Room Amenities
+
+        $scope.amenities = amenities;
+        
+
         // SHOW ADD ROOM FORM
+        $scope.showAddRoomForm = false;
         $scope.addRoomForm = function(){
             $scope.showAddRoomForm = true;
         };
@@ -112,6 +126,7 @@ angular.module("rooms-rateplans.controllers", [
         // ADD ROOM
         $scope.room = [];
         $scope.saveAddRoom = function(){
+            $scope.selectedAmenities = _.filter($scope.amenities, 'checked');
             var params = {
                 name : $scope.room.name,
                 desc : $scope.room.desc,
@@ -119,7 +134,7 @@ angular.module("rooms-rateplans.controllers", [
                 type : $scope.room.type,
                 min_adult : $scope.room.min_adult,
                 max_adult : $scope.room.max_adult,
-                amenities : $scope.room.amenities
+                amenities : $scope.selectedAmenities
             };
 
             ManageRooms.save(params, isAddRoom, function () {

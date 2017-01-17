@@ -4,7 +4,7 @@ angular.module("app.config", [])
 .value('settings', {})
 
 .config(function(cartServiceProvider){
-	console.log("Default Engine is : ", cartServiceProvider.engine);
+	/*console.log("Default Engine is : ", cartServiceProvider.engine);*/
 	//cartServiceProvider.engine = "Session";
 	cartServiceProvider.engine = "LocalStorage";
 })

@@ -22,14 +22,14 @@ angular.module("cart.services", [])
 	
 	this.engine = "Session";
 
-	console.log("cartService default provider");
+	/*console.log("cartService default provider");*/
 
 	
 	this.$get = function(){
 		
 		var storageEngine = null;
 
-		console.log("cartService $get");
+		/*console.log("cartService $get");*/
 
 		if(this.engine == "Session")
 			storageEngine = new StorageEngine(window.sessionStorage);
