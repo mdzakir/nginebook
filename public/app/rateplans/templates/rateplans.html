@@ -4,7 +4,7 @@
 		<div class="room-rateplan-box room-box">
 			<div class="room-rateplan-box-name">{{room.name}}</div>
 			<div class="room-rateplan-box-img">
-				<img src="/images/{{room.src}}" alt="Room name" class="img-responsive" />
+				<img ng-src="/images/{{room.src}}" alt="Room name" class="img-responsive" />
 			</div>
 			<div class="room-rateplan-box-desc">
 				<p>{{room.desc}}</p>
@@ -67,8 +67,8 @@
 			<div class="form-group">
 				<label class="">Smoking</label>
 				<div class="">
-					<label><input type="radio" name="smoking" ng-model="smoking.checked" value="1" /> Yes</label>
-					<label><input type="radio" name="smoking" ng-model="smoking.checked" value="0" /> No</label>
+					<label><input type="radio" ng-model="room.isSmoking" ng-value="true" /> Yes</label>
+					<label><input type="radio" ng-model="room.isSmoking" ng-value="false" /> No</label>
 				</div>
 			</div>
 		</div>

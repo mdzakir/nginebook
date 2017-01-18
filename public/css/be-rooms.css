@@ -1,0 +1,82 @@
+
+.room-rateplan-box {
+    position: relative;
+    margin-bottom: 10px;
+    height: 285px;
+}
+
+.room-rateplan-box-img {
+    width: 100%;
+    height: 175px;
+    position: relative;
+}
+
+.room-rateplan-box-name {
+    z-index: 1;
+    position: absolute;
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 10px;
+    background: linear-gradient(black, transparent);
+    width: 100%;
+    top: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-shadow: 0 0;
+    white-space: normal;
+}
+
+.room-rateplan-box-desc {
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    height: 110px;
+}
+
+.room-rateplan-box-desc p{
+  margin: 0;
+}
+
+.new-room-rateplan {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    height: 100%;
+    position: relative;
+}
+
+.nrr-btn-wrapper{
+  position: absolute;
+  top: 100px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.nrr-btn{
+  cursor: pointer;
+}
+
+.nrr-btn span{
+  display: block;
+}
+
+.nrr-btn i{
+  border: 1px solid #ddd;
+  padding: 20px;
+  height: 55px;
+  border-radius: 50%;
+  width: 55px;
+  background: #f6f6f6;
+}
+
+.nrr-btn:hover i.nrr-btn-add{
+  color: green;
+  border-color: green;
+}
+
+.view-room-controls{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
