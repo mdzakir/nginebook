@@ -45,10 +45,11 @@ angular.module("rooms.controllers", [
             $scope.images.splice( index, 1 );        
         };
         $scope.room.amenities = amenities;
+
         $scope.room.isSmoking = "false";
 
         // ADD ROOM
-        $scope.room = [];
+        
         $scope.saveAddRoom = function(){
             $scope.room.selectedAmenities = _.filter($scope.amenities, 'checked');
             var params = {
