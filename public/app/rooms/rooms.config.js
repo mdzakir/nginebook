@@ -14,9 +14,9 @@ angular.module("rooms.config", [])
 			amenities : function(ManageRooms){
 				return ManageRooms.getRoomAmenities();
 			},
-			room : function($stateParams, ManageRooms, hotelId) {
-                if (Number($stateParams.roomId)) {
-                    return ManageRooms.room(hotelId, $stateParams.roomId);
+			getRoomForEdit : function($stateParams, ManageRooms, hotelId) {
+                if ($stateParams.roomId) {
+                    return ManageRooms.getRoom(hotelId, $stateParams.roomId);
                 }
                 return {};
             },
@@ -50,10 +50,10 @@ angular.module("rooms.config", [])
             });
             return amenities;
         },
-        room: function(hotelId, roomId) {
+        getRoom: function(hotelId, roomId) {
             var deferred = $q.defer();
             var room = deferred.promise;
-            $http.get('http://0.0.0.0:8083/room/view', {
+            $http.get('http://0.0.0.0:8083/room/create', {
                     params: {
                         hotel_id: hotelId,
                         room_id: roomId
@@ -61,6 +61,7 @@ angular.module("rooms.config", [])
                 })
                 .then(function(response) {
                     var room = response.data;
+                    debugger;
                     deferred.resolve(room);
                 }, function(error) {
                     room = null;

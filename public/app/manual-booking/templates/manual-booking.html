@@ -4,81 +4,180 @@
 	<div class="row">
 		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Room Name</label>
+				<label class="">Checkin</label>
 				<div class="">
-					<input type="text" class="form-control" ng-model="room.name"/>
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="start_date" 
+					is-open="start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_start()"/>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Description</label>
+				<label class="">Checkout</label>
 				<div class="">
-					<textarea class="form-control" ng-model="room.description"> </textarea>
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="end_date" 
+					is-open="end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_end()"/>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Status</label>
+				<label class="">No. of Adults</label>
 				<div class="">
-					<label><input type="radio" name="status" ng-model="room.status.checked" value="1" /> Active</label>
-					<label><input type="radio" name="status" ng-model="room.status.checked" value="0" /> Inactive</label>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Room Type</label>
-				<div class="">
-					<select class="form-control" ng-model="room.type" >
-						<option>AC</option>
-						<option>NON AC</option>
+					<select class="form-control" ng-model="no_of_adults">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
 					</select>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Smoking</label>
+				<label class="">No. of Children</label>
 				<div class="">
-					<label><input type="radio" ng-model="room.isSmoking" ng-value="true" /> Yes</label>
-					<label><input type="radio" ng-model="room.isSmoking" ng-value="false" /> No</label>
+					<select class="form-control" ng-model="no_of_child">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Room Type</label>
+				<div class="">
+					<select class="form-control" ng-model="room_id">
+						<option value="1">Standard</option>
+						<option value="2">Deluxe</option>
+						<option value="3">Luxury</option>
+					</select>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Images</label>
-				<button type="button" class="btn btn-link" ng-click="addImage()"><i class="fa fa-plus"></i> Add Image</button>
+				<label class="">Rate plans</label>
 				<div class="">
-					<div class="" ng-repeat="roomImages in room.images">
-						<div class="input-group" >
-							<input type="text" ng-model="roomImages.img_url" />
-							<button type="button" class="btn btn-link" ng-click="room.images.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
-						</div>
+					<select class="form-control" ng-model="rate_id">
+						<option value="1">CP</option>
+						<option value="2">EP</option>
+						<option value="3">MAP</option>
+						<option value="4">AP</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Total amount</label>
+				<div class="">
+					<input type="text" class="form-control" name="" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Total tax</label>
+				<div class="">
+					<input type="text" class="form-control" name="" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Guest name</label>
+				<div class="">
+					<input type="text" class="form-control" name="" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Guest mobile</label>
+				<div class="">
+					<input type="text" class="form-control" name="" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Guest email</label>
+				<div class="">
+					<input type="text" class="form-control" name="" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Guest address</label>
+				<div class="">
+					<input type="text" class="form-control" name="" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">No. of rooms</label>
+				<div class="">
+					<select class="form-control">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Special Request</label>
+				<div class="">
+					<div class="" >
+						<textarea class="form-control"></textarea>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="form-group">
+			<label class="">Payment type</label>
+			<div class="">
+				<select class="form-control">
+					<option value="1">Pay at hotel</option>
+					<option value="2">Pay at checkout</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-md-9">
 			<div class="form-group">
-				<label class="">Max. Adults</label>
+				<label class="">Segment</label>
 				<div class="">
-					<input type="number" ng-model="room.max_adult" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+					<select class="form-control">
+						<option value="1">Corporate</option>
+						<option value="2">Individual</option>
+					</select>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-9">
 			<div class="form-group">
-				<label class="">Amenities</label>
+				<label class="">Source</label>
 				<div class="">
-					<ul>
-						<li style="display: inline-block;width: 30%" ng-repeat="amenity in room.amenities">
-							<label><input type="checkbox" name="" value="{{amenity.id}}" ng-model="amenity.checked">
-							<i class="{{amenity.icon}}"></i> {{amenity.name}}</label>
-						</li>
-					</ul>
+					<select class="form-control">
+						<option value="1">Offline</option>
+						<option value="2">Online</option>
+					</select>
 				</div>
 			</div>
 		</div>

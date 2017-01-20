@@ -1,7 +1,7 @@
 angular.module("rooms.controllers", [
         "rooms.module"
     ])
-    .controller('RoomsController', ['$state', '$scope', 'ManageRooms', 'room', 'viewRooms', 'amenities', function($state, $scope, ManageRooms, room, viewRooms, amenities) {
+    .controller('RoomsController', ['$state', '$scope', 'ManageRooms', 'getRoomForEdit', 'viewRooms', 'amenities', function($state, $scope, ManageRooms, getRoomForEdit, viewRooms, amenities) {
         $scope.title = "Rooms";
         $scope.$emit("pageTitleChanged", "Rooms");
 
@@ -9,12 +9,12 @@ angular.module("rooms.controllers", [
         $scope.rooms = viewRooms;
         var isAddRoom = _.isEmpty($scope.rooms);
 
-        $scope.room = room || {};
+        $scope.room = getRoomForEdit || {};
 
         if(isAddRoom){
 
         }else{
-
+            $scope.showAddRoomForm = true;
         }
 
          /*[{
@@ -75,5 +75,9 @@ angular.module("rooms.controllers", [
                 $state.go('.', {}, { reload: 'rooms' });
             });
         }
+
+        $scope.editRoom = function(room){
+            $state.go('.', { 'roomId': room.id }, { reload: 'rooms' });
+        };
 
     }]);
