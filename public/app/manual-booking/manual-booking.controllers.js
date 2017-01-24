@@ -1,78 +1,120 @@
 angular.module("manual-booking.controllers", [
         "manual-booking.module"
     ])
-    .controller('RoomsController', ['$state', '$scope', 'ManualBooking', 'viewRooms', 'amenities', function($state, $scope, ManualBooking, viewRooms, amenities) {
-        $scope.title = "Rooms";
-        $scope.$emit("pageTitleChanged", "Rooms");
+    .controller('ManualBookingController', ['$state', '$scope', 'ManualBooking', 'viewRooms', 'viewRateplans', 'amenities', function($state, $scope, ManualBooking, viewRooms, viewRateplans, amenities) {
+        $scope.title = "Manual Booking";
+        $scope.$emit("pageTitleChanged", "Manual Booking");
 
-        // AVAILABLE ROOMS
+        // Datepickers
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            maxDate: new Date(2020, 5, 22),
+            minDate: new Date(),
+            startingDay: 1
+        };
+
+        $scope.open_start = function() {
+            $scope.start_date_popup.opened = true;
+        };
+
+        $scope.open_end = function() {
+            $scope.end_date_popup.opened = true;
+        };
+
+        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd MMM yyyy', 'shortDate'];
+        $scope.format = $scope.formats[2];
+        $scope.altInputFormats = ['M!/d!/yyyy'];
+
+        $scope.start_date_popup = {
+            opened: false
+        };
+
+        $scope.end_date_popup = {
+            opened: false
+        };
+        
+        // Select options
+        $scope.noOfAdults = [
+          {id: '1', name: '1'},
+          {id: '2', name: '2'},
+          {id: '3', name: '3'},
+          {id: '4', name: '4'}
+        ];
+        $scope.selectedNoOfAdult = $scope.noOfAdults[0];
+
+        $scope.noOfChildren = [
+          {id: '1', name: '1'},
+          {id: '2', name: '2'},
+          {id: '3', name: '3'},
+          {id: '4', name: '4'}
+        ];
+        $scope.selectedNoOfChildren = $scope.noOfChildren[0];
+
         $scope.rooms = viewRooms;
-        var isAddRoom = _.isEmpty($scope.rooms);
+        $scope.selectedRoom = $scope.rooms[0];
 
-        $scope.room = room || {};
+        $scope.ratePlans = [
+          {id: '1', name: 'CP'},
+          {id: '2', name: 'EP'},
+          {id: '3', name: 'DP'},
+          {id: '4', name: 'PP'}
+        ];
+        $scope.selectedRateplan = $scope.ratePlans[0];
 
-        if(isAddRoom){
+        $scope.noOfRooms = [
+          {id: '1', name: '1'},
+          {id: '2', name: '2'},
+          {id: '3', name: '3'},
+          {id: '4', name: '4'}
+        ];
+        $scope.selectedNoOfRoom = $scope.noOfRooms[0];
 
-        }else{
+        $scope.paymentType = [
+          {id: '1', name: 'Pay at hotel'},
+          {id: '2', name: 'Pay at checkout'}
+        ];
+        $scope.selectedPaymentType = $scope.paymentType[0];
 
-        }
+        $scope.segmentType = [
+          {id: '1', name: 'Corporate'},
+          {id: '2', name: 'Individual'}
+        ];
+        $scope.selectedSegmentType = $scope.segmentType[0];
 
-         /*[{
-            name: 'Standard Affordable OYO Rooms Premium',
-            src: 'room_1.jpg',
-            desc: 'Rooms Hotel Tbilisi Garden View Twin Room R 2. Theater and the brick, the fireplace, the lighter.'
-        }, {
-            name: 'Deluxe AC Room',
-            src: 'room_2.jpg',
-            desc: 'Contemporary Boutique Hotel Suite Main Room Interior Design of Atlantic Resort and Spa Ft. Lauderdale.'
-        }, {
-            name: 'Luxury Room',
-            src: 'room_3.jpg',
-            desc: 'Alma House Bed and Breakfast: Room 4 with adjoining room. Nice Room For Rent in Phu Nhuan District.'
-        }];*/
+        $scope.sourceOfBooking = [
+          {id: '1', name: 'OFFLINE'},
+          {id: '2', name: 'ONLINE'}
+        ];
+        $scope.selectedSourceOfBooking = $scope.sourceOfBooking[0];
 
-        // SHOW ADD ROOM FORM
-        $scope.showAddRoomForm = false;
-        $scope.addRoomForm = function(){
-            $scope.showAddRoomForm = true;
-        };
 
-        $scope.room.images = [{name:'', img_url : '', order:''}];
-        $scope.addImage = function(){
-            $scope.images[$scope.images.length] = {};
-        };
-        $scope.removeImage = function(index){
-            $scope.images.splice( index, 1 );        
-        };
-        $scope.room.amenities = amenities;
-        $scope.room.isSmoking = "false";
 
-        // ADD ROOM
-        $scope.room = [];
-        $scope.saveAddRoom = function(){
-            $scope.room.selectedAmenities = _.filter($scope.amenities, 'checked');
+        $scope.saveManualBooking = function(){
             var params = {
                 "hotel_id": "58726a8e5aa124394eb7dae4",
-                "name": $scope.room.name,
-                "description": $scope.room.description,
-                "type" : $scope.room.type,
-                "status" : 1,
-                "is_smoking" : $scope.room.isSmoking,
-                "max_adult" : $scope.room.max_adult,
-                "amenities" : $scope.room.selectedAmenities,
-                "images" : $scope.room.images
+                "refrence_id": "RTY2349",
+                "checkin_date": moment($scope.start_date).format("YYYY-MM-DD"),
+                "checkout_date": moment($scope.end_date).format("YYYY-MM-DD"),
+                "no_of_adults": $scope.selectedNoOfAdult.id,
+                "no_of_child": $scope.selectedNoOfChildren.id,
+                "room_id": $scope.selectedRoom.id,
+                "rate_id": $scope.selectedRateplan.id,
+                "total_amount": $scope.totalAmount,
+                "total_tax": $scope.totalTax,
+                "guest_name": $scope.guestName,
+                "guest_mobile": $scope.guestMobile,
+                "guest_email": $scope.guestEmail,
+                "guest_address": $scope.guestAddress,
+                "no_of_rooms": $scope.selectedNoOfRoom.id,
+                "payment_type": $scope.selectedPaymentType.id,
+                "segment": $scope.selectedSegmentType.id,
+                "Source": $scope.selectedSourceOfBooking.id,
+                "special_request": $scope.specialRequest,
             };
 
-            ManageRooms.save(params, isAddRoom, function () {
+            ManualBooking.save(params, function () {
                 $state.go('.', {}, { reload: 'rooms' });
             });
         };
-
-        $scope.deleteRoom = function(room){
-            params = {status : 0}
-            ManageRooms.deleteRoom(params, isAddRoom, function () {
-                $state.go('.', {}, { reload: 'rooms' });
-            });
-        }
 
     }]);

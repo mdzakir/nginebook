@@ -11,6 +11,7 @@ angular.module("productApp", [
 	"inventory.module",
 	"pricing.module",
 	"deals-promotions.module",
+	"manual-booking.module",
 	"product.module",
 	"about.module",
 	"ngResource"
