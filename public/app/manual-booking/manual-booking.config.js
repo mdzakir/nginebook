@@ -90,8 +90,8 @@ angular.module("manual-booking.config", [])
                     callback();
                 });
         },
-        deleteRoom: function (params, callback) {
-            var post_url = 'http://0.0.0.0:8083/room/updateStatus?hotel_id=58726a8e5aa124394eb7dae4';
+        deleteBooking: function (params, callback) {
+            var post_url = 'http://0.0.0.0:8083/booking/updateStatus?hotel_id=58726a8e5aa124394eb7dae4';
             $http.post(post_url, angular.toJson(params, true))
                 .then(function () {
                     callback();
