@@ -83,8 +83,8 @@ angular.module("manual-booking.config", [])
                 });
             return room;
         },
-        save: function (params, isAdd, callback) {
-            var post_url = 'http://0.0.0.0:8083/createBooking/';
+        save: function (params, callback) {
+            var post_url = 'http://0.0.0.0:8083/booking/createBooking/';
             $http.post(post_url, angular.toJson(params, true))
                 .then(function () {
                     callback();
