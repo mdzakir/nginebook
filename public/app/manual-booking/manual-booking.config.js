@@ -8,23 +8,26 @@ angular.module("manual-booking.config", [])
 			hotelId: function() {
                 return '58726a8e5aa124394eb7dae4';
             },
-			viewRooms : function(ManageRooms){
-				return ManageRooms.getRooms();
+			viewRooms : function(ManualBooking){
+				return ManualBooking.getRooms();
 			},
-			amenities : function(ManageRooms){
-				return ManageRooms.getRoomAmenities();
+            viewRateplans : function(ManualBooking){
+                return ManualBooking.getRateplans();
+            },
+			amenities : function(ManualBooking){
+				return ManualBooking.getRoomAmenities();
 			},
-			room : function($stateParams, ManageRooms, hotelId) {
+			room : function($stateParams, ManualBooking, hotelId) {
                 if (Number($stateParams.roomId)) {
-                    return ManageRooms.room(hotelId, $stateParams.roomId);
+                    return ManualBooking.room(hotelId, $stateParams.roomId);
                 }
                 return {};
             },
 		},
-		controller : "RoomsController"
+		controller : "ManualBookingController"
 	})
 })
-.factory('ManageRooms', function ($http, $q) {
+.factory('ManualBooking', function ($http, $q) {
     return {
         getRooms : function(){
             var deferred = $q.defer();
@@ -37,6 +40,18 @@ angular.module("manual-booking.config", [])
                 deferred.reject(error);
             });
             return viewrooms;
+        },
+        getRateplans : function(){
+            var deferred = $q.defer();
+            var viewRateplans = deferred.promise;
+            $http.get('http://0.0.0.0:8083/rate-plan/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+                var viewRateplans = response.data;
+                deferred.resolve(viewRateplans);
+            }, function(error) {
+                viewRateplans = null;
+                deferred.reject(error);
+            });
+            return viewRateplans;
         },
         getRoomAmenities: function() {
             var deferred = $q.defer();
@@ -68,15 +83,15 @@ angular.module("manual-booking.config", [])
                 });
             return room;
         },
-        save: function (params, isAdd, callback) {
-            var post_url = 'http://0.0.0.0:8083/room/create/';
+        save: function (params, callback) {
+            var post_url = 'http://0.0.0.0:8083/booking/createBooking/';
             $http.post(post_url, angular.toJson(params, true))
                 .then(function () {
                     callback();
                 });
         },
-        deleteRoom: function (params, isAdd, callback) {
-            var post_url = 'http://0.0.0.0:8083/room/updateStatus?hotel_id=58726a8e5aa124394eb7dae4';
+        deleteBooking: function (params, callback) {
+            var post_url = 'http://0.0.0.0:8083/booking/updateStatus?hotel_id=58726a8e5aa124394eb7dae4';
             $http.post(post_url, angular.toJson(params, true))
                 .then(function () {
                     callback();

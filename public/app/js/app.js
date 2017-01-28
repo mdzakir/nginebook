@@ -10,7 +10,9 @@ angular.module("productApp", [
 	"rateplans.module",
 	"inventory.module",
 	"pricing.module",
-	"deals-promotions.module",
+	"deals.module",
+	"promotions.module",
+	"manual-booking.module",
 	"product.module",
 	"about.module",
 	"ngResource"

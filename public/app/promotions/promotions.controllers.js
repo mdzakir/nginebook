@@ -1,10 +1,10 @@
-angular.module("deals-promotions.controllers", [
-        "deals-promotions.module"
+angular.module("promotions.controllers", [
+        "promotions.module"
     ])
 	.factory('DealsPromtions', function ($http) {
         return {
             save: function (hotelId, data) {
-                return $http.post('/hotel/deals-promotions', data);
+                return $http.post('/hotel/promotions', data);
             }
         };
 

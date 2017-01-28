@@ -1,6 +1,6 @@
 
 
-<form class="well" ng-show="showAddRoomForm">
+<form class="well">
 	<div class="row">
 		<div class="col-md-3">
 			<div class="form-group">
@@ -26,11 +26,9 @@
 			<div class="form-group">
 				<label class="">No. of Adults</label>
 				<div class="">
-					<select class="form-control" ng-model="no_of_adults">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-					</select>
+					<select class="form-control"
+					    ng-options="option.name for option in noOfAdults track by option.id"
+					    ng-model="selectedNoOfAdult"></select>
 				</div>
 			</div>
 		</div>
@@ -38,12 +36,9 @@
 			<div class="form-group">
 				<label class="">No. of Children</label>
 				<div class="">
-					<select class="form-control" ng-model="no_of_child">
-						<option value="0">0</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-					</select>
+					<select class="form-control"
+					    ng-options="option.name for option in noOfChildren track by option.id"
+					    ng-model="selectedNoOfChildren"></select>
 				</div>
 			</div>
 		</div>
@@ -53,11 +48,9 @@
 			<div class="form-group">
 				<label class="">Room Type</label>
 				<div class="">
-					<select class="form-control" ng-model="room_id">
-						<option value="1">Standard</option>
-						<option value="2">Deluxe</option>
-						<option value="3">Luxury</option>
-					</select>
+					<select class="form-control"
+					    ng-options="option.name for option in rooms track by option.id"
+					    ng-model="selectedRoom"></select>
 				</div>
 			</div>
 		</div>
@@ -65,12 +58,9 @@
 			<div class="form-group">
 				<label class="">Rate plans</label>
 				<div class="">
-					<select class="form-control" ng-model="rate_id">
-						<option value="1">CP</option>
-						<option value="2">EP</option>
-						<option value="3">MAP</option>
-						<option value="4">AP</option>
-					</select>
+					<select class="form-control"
+					    ng-options="option.name for option in ratePlans track by option.id"
+					    ng-model="selectedRateplan"></select>
 				</div>
 			</div>
 		</div>
@@ -78,7 +68,7 @@
 			<div class="form-group">
 				<label class="">Total amount</label>
 				<div class="">
-					<input type="text" class="form-control" name="" />
+					<input type="text" class="form-control" name="" ng-model="totalAmount" />
 				</div>
 			</div>
 		</div>
@@ -86,7 +76,7 @@
 			<div class="form-group">
 				<label class="">Total tax</label>
 				<div class="">
-					<input type="text" class="form-control" name="" />
+					<input type="text" class="form-control" name="" ng-model="totalTax" />
 				</div>
 			</div>
 		</div>
@@ -96,7 +86,7 @@
 			<div class="form-group">
 				<label class="">Guest name</label>
 				<div class="">
-					<input type="text" class="form-control" name="" />
+					<input type="text" class="form-control" name="" ng-model="guestName" />
 				</div>
 			</div>
 		</div>
@@ -104,7 +94,7 @@
 			<div class="form-group">
 				<label class="">Guest mobile</label>
 				<div class="">
-					<input type="text" class="form-control" name="" />
+					<input type="text" class="form-control" name="" ng-model="guestMobile" />
 				</div>
 			</div>
 		</div>
@@ -112,7 +102,7 @@
 			<div class="form-group">
 				<label class="">Guest email</label>
 				<div class="">
-					<input type="text" class="form-control" name="" />
+					<input type="text" class="form-control" name="" ng-model="guestEmail" />
 				</div>
 			</div>
 		</div>
@@ -120,7 +110,7 @@
 			<div class="form-group">
 				<label class="">Guest address</label>
 				<div class="">
-					<input type="text" class="form-control" name="" />
+					<input type="text" class="form-control" name="" ng-model="guestAddress" />
 				</div>
 			</div>
 		</div>
@@ -131,12 +121,40 @@
 			<div class="form-group">
 				<label class="">No. of rooms</label>
 				<div class="">
-					<select class="form-control">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-					</select>
+					<select class="form-control"
+					    ng-options="option.name for option in noOfRooms track by option.id"
+					    ng-model="selectedNoOfRoom"></select>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Payment type</label>
+				<div class="">
+					<select class="form-control"
+					    ng-options="option.name for option in paymentType track by option.id"
+					    ng-model="selectedPaymentType"></select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Segment</label>
+				<div class="">
+					<select class="form-control"
+					    ng-options="option.name for option in segmentType track by option.id"
+					    ng-model="selectedSegmentType"></select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Source</label>
+				<div class="">
+					<select class="form-control"
+					    ng-options="option.name for option in sourceOfBooking track by option.id"
+					    ng-model="selectedSourceOfBooking"></select>
 				</div>
 			</div>
 		</div>
@@ -145,39 +163,8 @@
 				<label class="">Special Request</label>
 				<div class="">
 					<div class="" >
-						<textarea class="form-control"></textarea>
+						<textarea class="form-control" ng-model="specialRequest" ></textarea>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="">Payment type</label>
-			<div class="">
-				<select class="form-control">
-					<option value="1">Pay at hotel</option>
-					<option value="2">Pay at checkout</option>
-				</select>
-			</div>
-		</div>
-		<div class="col-md-9">
-			<div class="form-group">
-				<label class="">Segment</label>
-				<div class="">
-					<select class="form-control">
-						<option value="1">Corporate</option>
-						<option value="2">Individual</option>
-					</select>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-9">
-			<div class="form-group">
-				<label class="">Source</label>
-				<div class="">
-					<select class="form-control">
-						<option value="1">Offline</option>
-						<option value="2">Online</option>
-					</select>
 				</div>
 			</div>
 		</div>
@@ -185,40 +172,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group tac">
-				<button type="button" class="btn btn-success" ng-click="saveAddRoom();"><i class="fa fa-save"></i> Save</button>
+				<button type="button" class="btn btn-success" ng-click="saveManualBooking();">Create</button>
 			</div>
 		</div>
 	</div>
 </form>
-
-<div class="row">
-	<div class="col-md-12"><h4>Rooms</h4></div>
-	<div class="col-md-3" ng-repeat="room in rooms track by $index">
-		<div class="room-rateplan-box room-box">
-			<div class="room-rateplan-box-name">{{room.name}}</div>
-			<div class="room-rateplan-box-img">
-				<img ng-if="room.src" ng-src="images/{{room.src}}" alt="{{room.name}}" class="img-responsive" />
-				<img ng-if="!room.src" ng-src="images/no-image.jpg" alt="{{room.name}}" class="img-responsive" />
-				<div class="view-room-controls">
-					<button type="button" ng-click="deleteRoom(room);"><i class="fa fa-times"></i></button>
-					<button type="button" ng-click="editRoom(room);"><i class="fa fa-pencil"></i></button>
-				</div>
-			</div>
-			<div class="room-rateplan-box-desc">
-				<p>{{room.desc}}</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="room-rateplan-box room-box">
-			<div class="new-room-rateplan new-room">
-				<div class="nrr-btn-wrapper">
-					<div class="nrr-btn" ng-click="addRoomForm();">
-						<i class="fa fa-plus nrr-btn-add"></i>
-						<span>Add New Room</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
