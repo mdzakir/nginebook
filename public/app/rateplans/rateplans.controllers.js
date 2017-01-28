@@ -30,9 +30,7 @@ angular.module("rateplans.controllers", [
         }
     })
     .controller('RateplansController', ['$state', '$scope', 'Rateplans', 'ManageRateplans', function($scope, $state, Rateplans, ManageRateplans) {
-        $scope.title = "Rateplans";
-        $scope.$emit("pageTitleChanged", "Rateplans");
-
+        
         // DATE PICKER
 
         $scope.dateOptions = {
