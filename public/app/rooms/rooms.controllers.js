@@ -1,7 +1,7 @@
 angular.module("rooms.controllers", [
         "rooms.module"
     ])
-    .controller('RoomsController', ['$state', '$scope', 'ManageRooms', 'getRoomForEdit', 'viewRooms', 'amenities', function($state, $scope, ManageRooms, getRoomForEdit, viewRooms, amenities) {
+    .controller('RoomsController', function($state, $scope, ManageRooms, getRoomForEdit, viewRooms, amenities) {
         $scope.title = "Rooms";
         $scope.$emit("pageTitleChanged", "Rooms");
 
@@ -16,21 +16,6 @@ angular.module("rooms.controllers", [
         }else{
             $scope.showAddRoomForm = true;
         }
-
-         /*[{
-            name: 'Standard Affordable OYO Rooms Premium',
-            src: 'room_1.jpg',
-            desc: 'Rooms Hotel Tbilisi Garden View Twin Room R 2. Theater and the brick, the fireplace, the lighter.'
-        }, {
-            name: 'Deluxe AC Room',
-            src: 'room_2.jpg',
-            desc: 'Contemporary Boutique Hotel Suite Main Room Interior Design of Atlantic Resort and Spa Ft. Lauderdale.'
-        }, {
-            name: 'Luxury Room',
-            src: 'room_3.jpg',
-            desc: 'Alma House Bed and Breakfast: Room 4 with adjoining room. Nice Room For Rent in Phu Nhuan District.'
-        }];*/
-
         // SHOW ADD ROOM FORM
         $scope.showAddRoomForm = false;
         $scope.addRoomForm = function(){
@@ -39,10 +24,10 @@ angular.module("rooms.controllers", [
 
         $scope.room.images = [{name:'', img_url : '', order:''}];
         $scope.addImage = function(){
-            $scope.images[$scope.images.length] = {};
+            $scope.room.images[$scope.room.images.length] = {};
         };
         $scope.removeImage = function(index){
-            $scope.images.splice( index, 1 );        
+            $scope.room.images.splice( index, 1 );        
         };
         $scope.room.amenities = amenities;
 
@@ -71,13 +56,14 @@ angular.module("rooms.controllers", [
 
         $scope.deleteRoom = function(room){
             params = {status : 0}
-            ManageRooms.deleteRoom(params, isAddRoom, function () {
-                $state.go('.', {}, { reload: 'rooms' });
+            ManageRooms.deleteRoom(params, function () {
+                //$state.go('.', {}, { reload: 'rooms' });
+                $state.go('rooms', {'roomId': rule.id});
             });
-        }
-
-        $scope.editRoom = function(room){
-            $state.go('.', { 'roomId': room.id }, { reload: 'rooms' });
         };
 
-    }]);
+        $scope.editRoom = function(id){
+            $state.go("create-room", {"id" : id});
+        };
+
+    });

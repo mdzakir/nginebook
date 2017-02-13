@@ -2,7 +2,7 @@ angular.module("rooms.config", [])
 .config(function ($stateProvider) {
 	$stateProvider
 	.state("rooms", {
-		url : "/rooms/:roomId",
+		url : "/rooms",
 		templateUrl : "app/rooms/templates/rooms.html",
 		resolve: {
 			hotelId: function() {
@@ -23,8 +23,25 @@ angular.module("rooms.config", [])
 		},
 		controller : "RoomsController"
 	})
+    .state('create-room', {
+        url: '/create-room/:id',
+        templateUrl: 'app/rooms/templates/create-room.html',
+        resolve: {
+            hotelId: function() {
+                return '58726a8e5aa124394eb7dae4';
+            },
+            room: function ($stateParams, ManageRooms, hotelId) {
+                debugger;
+                if ($stateParams.id) {
+                    return ManageRooms.getRoom(hotelId, $stateParams.id);
+                }
+                return {};
+            }
+        },
+        controller: 'CreateRoomController'
+    });
 })
-.factory('ManageRooms', function ($http, $q) {
+.factory('ManageRooms', function ($http, $q, apiEndPoint) {
     return {
         getRooms : function(){
             var deferred = $q.defer();
@@ -75,7 +92,7 @@ angular.module("rooms.config", [])
                     callback();
                 });
         },
-        deleteRoom: function (params, isAdd, callback) {
+        deleteRoom: function (params, callback) {
             var post_url = apiEndPoint + '/room/updateStatus?hotel_id=58726a8e5aa124394eb7dae4';
             $http.post(post_url, angular.toJson(params, true))
                 .then(function () {

@@ -1,100 +1,3 @@
-
-
-<form class="well" ng-show="showAddRoomForm">
-	<div class="row">
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Room Name</label>
-				<div class="">
-					<input type="text" class="form-control" ng-model="room.name"/>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Description</label>
-				<div class="">
-					<textarea class="form-control" ng-model="room.description"> </textarea>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Status</label>
-				<div class="">
-					<label><input type="radio" name="status" ng-model="room.status.checked" value="1" /> Active</label>
-					<label><input type="radio" name="status" ng-model="room.status.checked" value="0" /> Inactive</label>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Room Type</label>
-				<div class="">
-					<select class="form-control" ng-model="room.type" >
-						<option>AC</option>
-						<option>NON AC</option>
-					</select>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Smoking</label>
-				<div class="">
-					<label><input type="radio" ng-model="room.isSmoking" ng-value="true" /> Yes</label>
-					<label><input type="radio" ng-model="room.isSmoking" ng-value="false" /> No</label>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Images</label>
-				<button type="button" class="btn btn-link" ng-click="addImage()"><i class="fa fa-plus"></i> Add Image</button>
-				<div class="">
-					<div class="" ng-repeat="roomImages in room.images">
-						<div class="input-group" >
-							<input type="text" ng-model="roomImages.img_url" />
-							<button type="button" class="btn btn-link" ng-click="room.images.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Max. Adults</label>
-				<div class="">
-					<input type="number" ng-model="room.max_adult" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
-				</div>
-			</div>
-		</div>
-		<div class="col-md-9">
-			<div class="form-group">
-				<label class="">Amenities</label>
-				<div class="">
-
-
-
-					<ul>
-						<li style="display: inline-block;width: 30%" ng-repeat="amenity in room.amenities">
-							<label><input type="checkbox" name="" value="{{amenity.id}}" ng-model="amenity.checked">
-							<i class="{{amenity.icon}}"></i> {{amenity.name}}</label>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="form-group tac">
-				<button type="button" class="btn btn-success" ng-click="saveAddRoom();"><i class="fa fa-save"></i> Save</button>
-			</div>
-		</div>
-	</div>
-</form>
-
 <div class="row">
 	<div class="col-md-12"><h4>Rooms</h4></div>
 	<div class="col-md-3" ng-repeat="room in rooms track by $index">
@@ -105,7 +8,7 @@
 				<img ng-if="!room.src" ng-src="images/no-image.jpg" alt="{{room.name}}" class="img-responsive" />
 				<div class="view-room-controls">
 					<button type="button" ng-click="deleteRoom(room);"><i class="fa fa-times"></i></button>
-					<button type="button" ng-click="editRoom(room);"><i class="fa fa-pencil"></i></button>
+					<button type="button" ng-click="editRoom(room.id);"><i class="fa fa-pencil"></i></button>
 				</div>
 			</div>
 			<div class="room-rateplan-box-desc">
