@@ -19,7 +19,7 @@ angular.module("rooms.controllers", [
         // SHOW ADD ROOM FORM
         $scope.showAddRoomForm = false;
         $scope.addRoomForm = function(){
-            $scope.showAddRoomForm = true;
+            $state.go('create-room');
         };
 
         $scope.room.images = [{name:'', img_url : '', order:''}];
