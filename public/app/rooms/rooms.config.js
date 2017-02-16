@@ -2,7 +2,7 @@ angular.module("rooms.config", [])
 .config(function ($stateProvider) {
 	$stateProvider
 	.state("rooms", {
-		url : "/rooms/:roomId",
+		url : "/rooms",
 		templateUrl : "app/rooms/templates/rooms.html",
 		resolve: {
 			hotelId: function() {
@@ -23,13 +23,30 @@ angular.module("rooms.config", [])
 		},
 		controller : "RoomsController"
 	})
+    .state('create-room', {
+        url: '/create-room/:id',
+        templateUrl: 'app/rooms/templates/create-room.html',
+        resolve: {
+            hotelId: function() {
+                return '58726a8e5aa124394eb7dae4';
+            },
+            room: function ($stateParams, ManageRooms, hotelId) {
+                debugger;
+                if ($stateParams.id) {
+                    return ManageRooms.getRoom(hotelId, $stateParams.id);
+                }
+                return {};
+            }
+        },
+        controller: 'CreateRoomController'
+    });
 })
-.factory('ManageRooms', function ($http, $q) {
+.factory('ManageRooms', function ($http, $q, apiEndPoint) {
     return {
         getRooms : function(){
             var deferred = $q.defer();
             var viewrooms = deferred.promise;
-            $http.get('http://0.0.0.0:8083/room/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+            $http.get(apiEndPoint + '/room/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
                 var viewrooms = response.data;
                 deferred.resolve(viewrooms);
             }, function(error) {
@@ -41,7 +58,7 @@ angular.module("rooms.config", [])
         getRoomAmenities: function() {
             var deferred = $q.defer();
             var amenities = deferred.promise;
-            $http.get('http://0.0.0.0:8083/hotel/amenities').then(function(response) {
+            $http.get(apiEndPoint + '/hotel/amenities').then(function(response) {
                 var amenities = response.data;
                 deferred.resolve(amenities);
             }, function(error) {
@@ -53,7 +70,7 @@ angular.module("rooms.config", [])
         getRoom: function(hotelId, roomId) {
             var deferred = $q.defer();
             var room = deferred.promise;
-            $http.get('http://0.0.0.0:8083/room/create', {
+            $http.get(apiEndPoint + '/room/create', {
                     params: {
                         hotel_id: hotelId,
                         room_id: roomId
@@ -61,7 +78,6 @@ angular.module("rooms.config", [])
                 })
                 .then(function(response) {
                     var room = response.data;
-                    debugger;
                     deferred.resolve(room);
                 }, function(error) {
                     room = null;
@@ -70,14 +86,14 @@ angular.module("rooms.config", [])
             return room;
         },
         save: function (params, isAdd, callback) {
-            var post_url = 'http://0.0.0.0:8083/room/create/';
+            var post_url = apiEndPoint + '/room/create/';
             $http.post(post_url, angular.toJson(params, true))
                 .then(function () {
                     callback();
                 });
         },
-        deleteRoom: function (params, isAdd, callback) {
-            var post_url = 'http://0.0.0.0:8083/room/updateStatus?hotel_id=58726a8e5aa124394eb7dae4';
+        deleteRoom: function (params, callback) {
+            var post_url = apiEndPoint + '/room/updateStatus?hotel_id=58726a8e5aa124394eb7dae4';
             $http.post(post_url, angular.toJson(params, true))
                 .then(function () {
                     callback();

@@ -72,3 +72,24 @@
   color: green;
   border-color: green;
 }
+
+.fieldset-row{
+  margin: 0;
+  background: #f2f2f2;
+  padding: 10px 0 0 0;
+}
+
+fieldset{
+  min-width: 0;
+  padding: 10px;
+  margin: 0 0 10px 0;
+  border: 1px solid #ddd;
+}
+
+fieldset legend{
+  width: auto;
+  padding: 0px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border:0;
+}

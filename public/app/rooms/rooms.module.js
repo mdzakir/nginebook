@@ -1,4 +1,5 @@
 angular.module("rooms.module", [
 	"rooms.config",
-	"rooms.controllers"
+	"rooms.controllers",
+	"create.room.controllers"
 ])
