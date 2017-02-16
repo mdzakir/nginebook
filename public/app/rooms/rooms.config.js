@@ -30,8 +30,10 @@ angular.module("rooms.config", [])
             hotelId: function() {
                 return '58726a8e5aa124394eb7dae4';
             },
+            amenities : function(ManageRooms){
+                return ManageRooms.getRoomAmenities();
+            },
             room: function ($stateParams, ManageRooms, hotelId) {
-                debugger;
                 if ($stateParams.id) {
                     return ManageRooms.getRoom(hotelId, $stateParams.id);
                 }
@@ -70,7 +72,7 @@ angular.module("rooms.config", [])
         getRoom: function(hotelId, roomId) {
             var deferred = $q.defer();
             var room = deferred.promise;
-            $http.get(apiEndPoint + '/room/create', {
+            $http.post(apiEndPoint + '/room/create', {
                     params: {
                         hotel_id: hotelId,
                         room_id: roomId
