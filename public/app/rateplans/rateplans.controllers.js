@@ -1,35 +1,7 @@
 angular.module("rateplans.controllers", [
         "rateplans.module"
     ])
-    .factory('Rateplans', function($http) {
-        return {
-            month: moment(),
-            currentMonth: function() {
-                return parseInt(this.month.format('M'));
-            },
-            currentYear: function() {
-                return parseInt(this.month.format('Y'));
-            },
-            get: function(hotelId, roomId, ratePlanId) {
-                return $http.get('/hotel/optimize/?hotel_id=' + hotelId + '&room_id=' + roomId + '&rate_id=' + ratePlanId + '&date=' + this.currentMonth() + '-' + this.currentYear());
-            },
-            save: function(hotelId, data) {
-                return $http.post('/hotel/override', data);
-            }
-        };
-    })
-    .factory('ManageRateplans', function ($http) {
-        return {
-            save: function (params, isAdd, callback) {
-                var post_url = isAdd ? '/hotel/addrateplan/' : '/hotel/editrateplan/';
-                $http.post(post_url, angular.toJson(params, true))
-                    .then(function () {
-                        callback();
-                    });
-            }
-        }
-    })
-    .controller('RateplansController', ['$state', '$scope', 'Rateplans', 'ManageRateplans', function($scope, $state, Rateplans, ManageRateplans) {
+    .controller('RateplansController', function($scope, $state, ManageRateplans) {
         
         // DATE PICKER
 
@@ -94,4 +66,4 @@ angular.module("rateplans.controllers", [
             });
         };
         
-    }]);
+    });

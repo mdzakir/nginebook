@@ -1,13 +1,13 @@
 <div class="row">
-	<div class="col-md-12"><h4>Rooms</h4></div>
-	<div class="col-md-3" ng-repeat="room in rooms track by $index">
+	<div class="col-md-12"><h4>Rateplans <a style="font-size: 14px;margin-left: 15px;" ui-sref="create-rateplan"><i class="fa fa-plus nrr-btn-add"></i><span>Add New Rateplan</span></a></h4></div>
+	<div class="col-md-3" ng-repeat="rateplan in rateplans track by $index">
 		<div class="room-rateplan-box room-box">
-			<div class="room-rateplan-box-name">{{room.name}}</div>
+			<div class="room-rateplan-box-name">{{rateplan.name}}</div>
 			<div class="room-rateplan-box-img">
-				<img ng-src="/images/{{room.src}}" alt="Room name" class="img-responsive" />
+				<img ng-src="/images/{{rateplan.src}}" alt="Room name" class="img-responsive" />
 			</div>
 			<div class="room-rateplan-box-desc">
-				<p>{{room.desc}}</p>
+				<p>{{rateplan.desc}}</p>
 			</div>
 		</div>
 	</div>
@@ -15,7 +15,7 @@
 		<div class="room-rateplan-box room-box">
 			<div class="new-room-rateplan new-room">
 				<div class="nrr-btn-wrapper">
-					<div class="nrr-btn" ng-click="addRoomForm();">
+					<div class="nrr-btn" ng-click="addRateplanForm();">
 						<i class="fa fa-plus nrr-btn-add"></i>
 						<span>Add New Room</span>
 					</div>
@@ -31,7 +31,7 @@
 			<div class="form-group">
 				<label class="">Room Name</label>
 				<div class="">
-					<input type="text" class="form-control" ng-model="room.name"/>
+					<input type="text" class="form-control" ng-model="rateplan.name"/>
 				</div>
 			</div>
 		</div>
@@ -39,7 +39,7 @@
 			<div class="form-group">
 				<label class="">Description</label>
 				<div class="">
-					<textarea class="form-control" ng-model="room.description"> </textarea>
+					<textarea class="form-control" ng-model="rateplan.description"> </textarea>
 				</div>
 			</div>
 		</div>
@@ -56,7 +56,7 @@
 			<div class="form-group">
 				<label class="">Room Type</label>
 				<div class="">
-					<select class="form-control" ng-model="room.type" >
+					<select class="form-control" ng-model="rateplan.type" >
 						<option>AC</option>
 						<option>NON AC</option>
 					</select>
@@ -67,8 +67,8 @@
 			<div class="form-group">
 				<label class="">Smoking</label>
 				<div class="">
-					<label><input type="radio" ng-model="room.isSmoking" ng-value="true" /> Yes</label>
-					<label><input type="radio" ng-model="room.isSmoking" ng-value="false" /> No</label>
+					<label><input type="radio" ng-model="rateplan.isSmoking" ng-value="true" /> Yes</label>
+					<label><input type="radio" ng-model="rateplan.isSmoking" ng-value="false" /> No</label>
 				</div>
 			</div>
 		</div>
@@ -91,7 +91,7 @@
 			<div class="form-group">
 				<label class="">Min. Adults</label>
 				<div class="">
-					<input type="number" ng-model="room.min_adult" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+					<input type="number" ng-model="rateplan.min_adult" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
 				</div>
 			</div>
 		</div>
@@ -99,20 +99,7 @@
 			<div class="form-group">
 				<label class="">Max. Adults</label>
 				<div class="">
-					<input type="number" ng-model="room.max_adult" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
-				</div>
-			</div>
-		</div>
-		<div class="col-md-9">
-			<div class="form-group">
-				<label class="">Amenities</label>
-				<div class="">
-					<ul>
-						<li style="display: inline-block;width: 30%" ng-repeat="amenity in amenities">
-							<label><input type="checkbox" name="" value="{{amenity.id}}" ng-model="amenity.checked">
-							<i class="{{amenity.icon}}"></i> {{amenity.name}}</label>
-						</li>
-					</ul>
+					<input type="number" ng-model="rateplan.max_adult" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
 				</div>
 			</div>
 		</div>
@@ -120,7 +107,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group tac">
-				<button type="button" class="btn btn-success" ng-click="saveAddRoom();"><i class="fa fa-save"></i> Save</button>
+				<button type="button" class="btn btn-success" ng-click="saveAddRateplan();"><i class="fa fa-save"></i> Save</button>
 			</div>
 		</div>
 	</div>

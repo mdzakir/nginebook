@@ -1,4 +1,5 @@
 angular.module("rateplans.module", [
 	"rateplans.config",
-	"rateplans.controllers"
+	"rateplans.controllers",
+	"create.rateplan.controllers"
 ])
