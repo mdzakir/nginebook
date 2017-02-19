@@ -3,17 +3,25 @@ angular.module("create.room.controllers", [
     ])
     .controller('CreateRoomController', function($state, $scope, $http, $stateParams, ManageRooms, room, amenities, viewRooms) {
         
-        $scope.room = room[0];
-
-        $scope.room.amenities = amenities;
+        $scope.room = room[0] || {};
 
         // AVAILABLE ROOMS
-        $scope.rooms = viewRooms;
-        var isAddRoom = _.isEmpty($scope.rooms);
+        var isAddRoom = _.isEmpty($scope.room);
 
         if(isAddRoom){
-
+            $scope.room.amenities = amenities;
+            $scope.room.images = [{name:'', img_url : '', order:''}];
+            $scope.room.type = "AC";
         }else{
+            $scope.room.images = [{name:'', img_url : '', order:''}];
+            $scope.room.images[0].img_url = $scope.room.img_url;
+
+            $scope.room.max_adult = Number($scope.room.max_adult);
+
+            /*angular.forEach($scope.room.amenities, function (value, key) {
+                value.checked = $scope.rule.days[key];
+            });*/
+
             $scope.showAddRoomForm = true;
         }
         // SHOW ADD ROOM FORM
@@ -22,29 +30,29 @@ angular.module("create.room.controllers", [
             $state.go('create-room');
         };
 
-        $scope.room.images = [{name:'', img_url : '', order:''}];
+        
         $scope.addImage = function(){
             $scope.room.images[$scope.room.images.length] = {};
         };
         $scope.removeImage = function(index){
             $scope.room.images.splice( index, 1 );        
         };
-        $scope.room.amenities = amenities;
 
         $scope.room.isSmoking = "false";
 
 
         $scope.saveAddRoom = function(){
-            $scope.room.selectedAmenities = _.filter($scope.room.amenities, 'checked');
+            /*$scope.room.selectedAmenities = _.filter($scope.room.amenities, 'checked');*/
             var params = {
+                "room_id": _.isEmpty($scope.room) ? " " : $scope.room.id,
                 "hotel_id": "58726a8e5aa124394eb7dae4",
                 "name": $scope.room.name,
                 "description": $scope.room.description,
                 "type" : $scope.room.type,
                 "status" : 1,
-                "is_smoking" : $scope.room.isSmoking,
-                "max_adult" : $scope.room.max_adult,
-                "amenities" : $scope.room.selectedAmenities,
+                "is_smoking" : !$scope.room.isSmoking,
+                "max_adult" : Number($scope.room.max_adult),
+                "amenities" : $scope.room.amenities,
                 "images" : $scope.room.images
             };
 

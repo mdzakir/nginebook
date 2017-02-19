@@ -93,7 +93,7 @@ angular.module("rooms.config", [])
             return room;
         },
         save: function (params, isAdd, callback) {
-            var post_url = apiEndPoint + '/room/create/';
+            var post_url = isAdd ? apiEndPoint + '/room/create/' : apiEndPoint + '/room/edit/' ;
             $http.post(post_url, angular.toJson(params, true))
                 .then(function () {
                     callback();

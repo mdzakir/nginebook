@@ -11,6 +11,10 @@
     position: relative;
 }
 
+.room-rateplan-box-img img{
+  height: 100%;
+}
+
 .room-rateplan-box-name {
     z-index: 1;
     position: absolute;

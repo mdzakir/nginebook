@@ -20,8 +20,8 @@
 			<div class="form-group">
 				<label class="">Status</label>
 				<div class="">
-					<label><input type="radio" name="status" ng-model="room.status.checked" value="1" /> Active</label>
-					<label><input type="radio" name="status" ng-model="room.status.checked" value="0" /> Inactive</label>
+					<label><input type="radio" name="status" ng-model="room.status" value="1"  /> Active</label>
+					<label><input type="radio" name="status" ng-model="room.status" value="0"  /> Inactive</label>
 				</div>
 			</div>
 		</div>
@@ -30,8 +30,8 @@
 				<label class="">Room Type</label>
 				<div class="">
 					<select class="form-control" ng-model="room.type" >
-						<option>AC</option>
-						<option>NON AC</option>
+						<option value="AC">AC</option>
+						<option value="NON AC">NON AC</option>
 					</select>
 				</div>
 			</div>
@@ -40,8 +40,8 @@
 			<div class="form-group">
 				<label class="">Smoking</label>
 				<div class="">
-					<label><input type="radio" ng-model="room.isSmoking" ng-value="true" /> Yes</label>
-					<label><input type="radio" ng-model="room.isSmoking" ng-value="false" /> No</label>
+					<label><input type="radio" ng-model="room.isSmoking" value="true" /> Yes</label>
+					<label><input type="radio" ng-model="room.isSmoking" value="false" /> No</label>
 				</div>
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 			<div class="form-group">
 				<label class="">Max. Adults</label>
 				<div class="">
-					<input type="number" ng-model="room.max_adult" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+					<input type="text" ng-model="room.max_adult" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
 				</div>
 			</div>
 		</div>
