@@ -3,9 +3,7 @@ angular.module("create.room.controllers", [
     ])
     .controller('CreateRoomController', function($state, $scope, $http, $stateParams, ManageRooms, room, amenities, viewRooms) {
         
-        console.log(room);
-
-        $scope.room = room;
+        $scope.room = room[0];
 
         $scope.room.amenities = amenities;
 

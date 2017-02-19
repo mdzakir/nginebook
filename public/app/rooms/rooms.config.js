@@ -75,10 +75,12 @@ angular.module("rooms.config", [])
         getRoom: function(hotelId, roomId) {
             var deferred = $q.defer();
             var room = deferred.promise;
-            $http.get(apiEndPoint + '/room/create', {
+            $http.get(apiEndPoint + '/room/view', {
                     params: {
                         hotel_id: hotelId,
-                        room_id: roomId
+                        room_id: roomId,
+                        status: 1
+
                     }
                 })
                 .then(function(response) {
