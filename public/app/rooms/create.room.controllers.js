@@ -37,7 +37,7 @@ angular.module("create.room.controllers", [
 
 
         $scope.saveAddRoom = function(){
-            $scope.room.selectedAmenities = _.filter($scope.amenities, 'checked');
+            $scope.room.selectedAmenities = _.filter($scope.room.amenities, 'checked');
             var params = {
                 "hotel_id": "58726a8e5aa124394eb7dae4",
                 "name": $scope.room.name,
