@@ -4,8 +4,8 @@
 		<div class="room-rateplan-box room-box">
 			<div class="room-rateplan-box-name">{{room.name}}</div>
 			<div class="room-rateplan-box-img">
-				<img ng-if="room.img_url" ng-src="{{room.img_url}}" alt="{{room.name}}" class="img-responsive" />
-				<img ng-if="!room.img_url" ng-src="images/no-image.jpg" alt="{{room.name}}" class="img-responsive" />
+				<img ng-if="room.images[0].url" ng-src="{{room.images[0].url}}" alt="{{room.name}}" class="img-responsive" />
+				<img ng-if="!room.images[0].url" ng-src="images/no-image.jpg" alt="{{room.name}}" class="img-responsive" />
 				<div class="view-room-controls">
 					<button type="button" ng-click="deleteRoom(room);"><i class="fa fa-times"></i></button>
 					<button type="button" ng-click="editRoom(room.id);"><i class="fa fa-pencil"></i></button>

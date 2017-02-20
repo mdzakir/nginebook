@@ -100,8 +100,8 @@ angular.module("rooms.config", [])
                 });
         },
         deleteRoom: function (params, callback) {
-            var post_url = apiEndPoint + '/room/updateStatus?hotel_id=58726a8e5aa124394eb7dae4';
-            $http.post(post_url, angular.toJson(params, true))
+            var post_url = apiEndPoint + '/room/updateStatus?hotel_id=58726a8e5aa124394eb7dae4&room_id='+params.room_id+'&status=3';
+            $http.get(post_url)
                 .then(function () {
                     callback();
                 });

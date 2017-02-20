@@ -10,12 +10,9 @@ angular.module("create.room.controllers", [
 
         if(isAddRoom){
             $scope.room.amenities = amenities;
-            $scope.room.images = [{name:'', img_url : '', order:''}];
+            $scope.room.images = [{name:'', url : '', order:''}];
             $scope.room.type = "AC";
         }else{
-            $scope.room.images = [{name:'', img_url : '', order:''}];
-            $scope.room.images[0].img_url = $scope.room.img_url;
-
             $scope.room.max_adult = Number($scope.room.max_adult);
 
             /*angular.forEach($scope.room.amenities, function (value, key) {

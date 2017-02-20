@@ -52,7 +52,7 @@
 				<div class="">
 					<div class="" ng-repeat="roomImages in room.images">
 						<div class="input-group" >
-							<input type="text" ng-model="roomImages.img_url" />
+							<input type="text" ng-model="roomImages.url" />
 							<button type="button" class="btn btn-link" ng-click="room.images.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
 						</div>
 					</div>

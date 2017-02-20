@@ -55,7 +55,11 @@ angular.module("rooms.controllers", [
         };
 
         $scope.deleteRoom = function(room){
-            params = {status : 0}
+            params = {
+                "hotel_id": "58726a8e5aa124394eb7dae4",
+                "room_id" : room.id,
+                "status" : 3
+            }
             ManageRooms.deleteRoom(params, function () {
                 $state.go('.', {}, { reload: 'rooms' });
                 //$state.go('rooms', {'roomId': rule.id});
