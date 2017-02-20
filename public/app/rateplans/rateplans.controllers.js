@@ -36,7 +36,7 @@ angular.module("rateplans.controllers", [
         var isAddRateplans = _.isEmpty($scope.rateplans);
 
         $scope.rateplans = [{
-            name: 'CP Customized',
+            name: 'CP Customized for 3 days 4 nights',
             src: 'room_1.jpg',
             desc: 'Rooms Hotel Tbilisi Garden View Twin Room R 2. Theater and the brick, the fireplace, the lighter.'
         }, {

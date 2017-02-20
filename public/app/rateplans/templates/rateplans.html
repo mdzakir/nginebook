@@ -1,114 +1,22 @@
 <div class="row">
 	<div class="col-md-12"><h4>Rateplans <a style="font-size: 14px;margin-left: 15px;" ui-sref="create-rateplan"><i class="fa fa-plus nrr-btn-add"></i><span>Add New Rateplan</span></a></h4></div>
 	<div class="col-md-3" ng-repeat="rateplan in rateplans track by $index">
-		<div class="room-rateplan-box room-box">
-			<div class="room-rateplan-box-name">{{rateplan.name}}</div>
-			<div class="room-rateplan-box-img">
-				<img ng-src="/images/{{rateplan.src}}" alt="Room name" class="img-responsive" />
+		<div class="rateplan-box room-box">
+			<div class="rateplan-box-name" title="{{rateplan.name}}">{{rateplan.name}}</div>
+			<div class="rateplan-box-details">
+				<p>Validity : <span class="rp-label">12 Apr 2017 - 25 May 2017</span></p>
+				<p>Cut-off days : <span class="rp-label">3 days</span></p>
+				<p>Min. &amp; Max. Adults : <span class="rp-label">2 &amp; 4</span></p>
+				<p>Min. &amp; Max. LOS : <span class="rp-label">2 &amp; 5</span></p>
+				<p>Min. &amp; Max. No. of Rooms : <span class="rp-label">2 &amp; 4</span></p>
+				<p>Blackout dates : <span class="rp-label">Click to view</span></p>
+				<p>Inclusions : <span class="rp-label">Click to view</span></p>
+				<p>Exclusions : <span class="rp-label">Click to view</span></p>
 			</div>
-			<div class="room-rateplan-box-desc">
-				<p>{{rateplan.desc}}</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="room-rateplan-box room-box">
-			<div class="new-room-rateplan new-room">
-				<div class="nrr-btn-wrapper">
-					<div class="nrr-btn" ng-click="addRateplanForm();">
-						<i class="fa fa-plus nrr-btn-add"></i>
-						<span>Add New Room</span>
-					</div>
-				</div>
+			<div class="rateplan-box-controls">
+				<button type="button" class="btn"><i class="fa fa-pencil"></i> Edit </button>
+				<button type="button" class="btn"><i class="fa fa-remove"></i> Delete </button>
 			</div>
 		</div>
 	</div>
 </div>
-
-<form class="well" ng-show="showAddRoomForm">
-	<div class="row">
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Room Name</label>
-				<div class="">
-					<input type="text" class="form-control" ng-model="rateplan.name"/>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Description</label>
-				<div class="">
-					<textarea class="form-control" ng-model="rateplan.description"> </textarea>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Status</label>
-				<div class="">
-					<label><input type="radio" name="status" ng-model="status.checked" value="1" /> Active</label>
-					<label><input type="radio" name="status" ng-model="status.checked" value="0" /> Inactive</label>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Room Type</label>
-				<div class="">
-					<select class="form-control" ng-model="rateplan.type" >
-						<option>AC</option>
-						<option>NON AC</option>
-					</select>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Smoking</label>
-				<div class="">
-					<label><input type="radio" ng-model="rateplan.isSmoking" ng-value="true" /> Yes</label>
-					<label><input type="radio" ng-model="rateplan.isSmoking" ng-value="false" /> No</label>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Images</label>
-				<button type="button" class="btn btn-link" ng-click="addImage()"><i class="fa fa-plus"></i> Add Image</button>
-				<div class="">
-					<div class="" ng-repeat="roomImages in images">
-						<div class="input-group" >
-							<input type="text" ng-model="roomImages.img_url" />
-							<button type="button" class="btn btn-link" ng-click="images.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Min. Adults</label>
-				<div class="">
-					<input type="number" ng-model="rateplan.min_adult" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Max. Adults</label>
-				<div class="">
-					<input type="number" ng-model="rateplan.max_adult" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="form-group tac">
-				<button type="button" class="btn btn-success" ng-click="saveAddRateplan();"><i class="fa fa-save"></i> Save</button>
-			</div>
-		</div>
-	</div>
-</form>

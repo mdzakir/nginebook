@@ -1,13 +1,13 @@
 angular.module("create.rateplan.controllers", [
         "rateplans.module"
     ])
-    .controller('CreateRateplanController', function($state, $scope, $http, $stateParams, ManageRateplans, rateplan, viewRateplans) {
+    .controller('CreateRateplanController', function($state, $scope, $http, $stateParams, ManageRateplans) {
         
         console.log(rateplan);
-        $scope.rateplan = rateplan;
+        $scope.rateplan = rateplan || {};
 
         // AVAILABLE RATEPLANS
-        $scope.rateplans = viewRateplans;
+        $scope.rateplans = viewRateplans || [];
         var isAddRateplan = _.isEmpty($scope.rateplans);
 
         if(isAddRateplan){

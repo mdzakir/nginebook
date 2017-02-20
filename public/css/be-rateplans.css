@@ -1,37 +1,68 @@
 
-.room-rateplan-box {
+.rateplan-box {
     position: relative;
     margin-bottom: 10px;
     height: 285px;
 }
 
-.room-rateplan-box-img {
-    width: 100%;
-    height: 175px;
-}
-
-.room-rateplan-box-name {
-    position: absolute;
+.rateplan-box-name {
     color: #fff;
     font-size: 16px;
     padding: 5px 10px;
-    background: linear-gradient(black, transparent);
+    background: #1abc9c;
     width: 100%;
     top: 0;
     text-overflow: ellipsis;
     overflow: hidden;
-    text-shadow: 0 0;
-    white-space: normal;
+    text-shadow: none;
+    white-space: nowrap;
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    line-height: 1.27777;
 }
 
-.room-rateplan-box-desc {
+.rateplan-box-desc {
     padding: 10px;
     background: #fff;
     border: 1px solid #ddd;
     height: 110px;
+    color: #888;
+    font-size: 12px;
+    margin-top: -1px;
 }
 
-.room-rateplan-box-desc p{
+.rateplan-box-details {
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #888;
+    font-size: 12px;
+    margin-top: -1px;
+}
+
+.rateplan-box-controls {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-top: 0;
+    float: left;
+}
+
+.rateplan-box-controls .btn {
+    width: 50%;
+    float: left;
+    background: #fff;
+    border: 0;
+}
+
+.rp-label{
+  color: #333;
+}
+
+.rateplan-box-details p{
+  margin-bottom: 2px;
+}
+
+.rateplan-box-desc p{
   margin: 0;
 }
 

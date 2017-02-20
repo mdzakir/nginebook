@@ -1,10 +1,10 @@
-<form class="well" >
+<form class="well">
 	<div class="row">
 		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Room Name</label>
+				<label class="">Rateplan Name</label>
 				<div class="">
-					<input type="text" class="form-control" ng-model="rateplan.name"/>
+					<input type="text" class="form-control" ng-required="true" ng-model="rateplan.name" />
 				</div>
 			</div>
 		</div>
@@ -12,48 +12,130 @@
 			<div class="form-group">
 				<label class="">Description</label>
 				<div class="">
-					<textarea class="form-control" ng-model="rateplan.description"> </textarea>
+					<textarea class="form-control" ng-required="true" ng-model="rateplan.desciption" ></textarea>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Status</label>
-				<div class="">
-					<label><input type="radio" name="status" ng-model="rateplan.status.checked" value="1" /> Active</label>
-					<label><input type="radio" name="status" ng-model="rateplan.status.checked" value="0" /> Inactive</label>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<fieldset>
+				<legend>Booking Dates</legend>
+				<div class="row fieldset-row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Rateplan Validity Start</label>
+							<div class="">
+								<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="rateplan.booking_start_date" 
+								is-open="booking_start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+								close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_booking_start()"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Rateplan Validity Start</label>
+							<div class="">
+								<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="rateplan.booking_end_date" 
+								is-open="booking_end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+								close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_booking_end()" ng-change="bookingRangeOfDates();" />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Rateplan Cut-off days</label>
+							<div class="">
+								<input type="text" class="form-control" ng-model="rateplan.cut_off_days" ng-required="true" />
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="">Rateplan BLACKOUT dates</label>
+							<div>
+								<div class="input-group">
+									<select class="form-control"
+									    ng-options="option.name for option in rateplan.bookingBlackouts track by option.value"
+									    ng-model="selectedBookingBlackout"></select>
+									<span class="input-group-addon" ng-click="pushBookingBlackouts();"><i class="fa fa-plus"></i></span>
+								</div>
+							</div>
+							<ul>
+								<li ng-repeat="bbl in rateplan.bookingBlackoutsList">{{rateplan.bbl.name}}</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			</div>
+			</fieldset>
 		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Room Type</label>
-				<div class="">
-					<select class="form-control" ng-model="rateplan.type" >
-						<option>AC</option>
-						<option>NON AC</option>
-					</select>
+		<div class="col-md-6">
+			<fieldset>
+				<legend>Booking Dates</legend>
+				<div class="row fieldset-row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Min. Adult</label>
+							<div class="">
+								<input ng-model="rateplan.min_adult" type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Max. Adult</label>
+							<div class="">
+								<input ng-model="rateplan.max_adult" type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Min. LOS</label>
+							<div class="">
+								<input ng-model="rateplan.min_los" type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Max. LOS</label>
+							<div class="">
+								<input ng-model="rateplan.max_los" type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Min. No. of Rooms</label>
+							<div class="">
+								<input ng-model="rateplan.min_no_of_rooms" type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Max. No. of Rooms</label>
+							<div class="">
+								<input ng-model="rateplan.max_no_of_rooms" type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
+			</fieldset>
 		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Smoking</label>
+				<label class="">Inclusions</label>
+				<button type="button" class="btn btn-link" ng-click="addInclusion()"><i class="fa fa-plus"></i> Add Inclusion</button>
 				<div class="">
-					<label><input type="radio" ng-model="rateplan.isSmoking" ng-value="true" /> Yes</label>
-					<label><input type="radio" ng-model="rateplan.isSmoking" ng-value="false" /> No</label>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Images</label>
-				<button type="button" class="btn btn-link" ng-click="addImage()"><i class="fa fa-plus"></i> Add Image</button>
-				<div class="">
-					<div class="" ng-repeat="roomImages in rateplan.images">
+					<div class="" ng-repeat="inclusion in rateplan.inclusions">
 						<div class="input-group" >
-							<input type="text" ng-model="roomImages.img_url" />
-							<button type="button" class="btn btn-link" ng-click="rateplan.images.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
+							<input type="text" ng-model="inclusion" />
+							<button type="button" class="btn btn-link" ng-click="inclusion.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
 						</div>
 					</div>
 				</div>
@@ -61,25 +143,31 @@
 		</div>
 		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Max. Adults</label>
+				<label class="">Exclusions</label>
+				<button type="button" class="btn btn-link" ng-click="addExclusion()"><i class="fa fa-plus"></i> Add Exclusion</button>
 				<div class="">
-					<input type="number" ng-model="rateplan.max_adult" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+					<div class="" ng-repeat="exclusion in rateplan.exclusions">
+						<div class="input-group" >
+							<input type="text" ng-model="exclusion" />
+							<button type="button" class="btn btn-link" ng-click="exclusion.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-9">
+		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Amenities</label>
+				<label class="">&nbsp;</label>
 				<div class="">
-
-
-
-					<ul>
-						<li style="display: inline-block;width: 30%" ng-repeat="amenity in rateplan.amenities">
-							<label><input type="checkbox" name="" value="{{amenity.id}}" ng-model="amenity.checked">
-							<i class="{{amenity.icon}}"></i> {{amenity.name}}</label>
-						</li>
-					</ul>
+					<label><input type="checkbox" name="" ng-model="rateplan.allow_modification" /> Allow modification</label>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Cancellation Policy</label>
+				<div class="">
+					<textarea ng-model="rateplan.cancellation_policy" name="" class="form-control" ></textarea>
 				</div>
 			</div>
 		</div>
@@ -87,7 +175,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group tac">
-				<button type="button" class="btn btn-success" ng-click="saveAddRoom();"><i class="fa fa-save"></i> Save</button>
+				<button type="button" class="btn btn-success" ng-click="saveDeal();"><i class="fa fa-save"></i> Save</button>
 			</div>
 		</div>
 	</div>

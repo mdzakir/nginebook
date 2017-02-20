@@ -8,15 +8,15 @@ angular.module("rateplans.config", [])
 			hotelId: function() {
                 return '58726a8e5aa124394eb7dae4';
             },
-			viewRateplans : function(ManageRateplans){
+			/*viewRateplans : function(ManageRateplans){
 				return ManageRateplans.getRateplans();
-			},
-			getRateplanForEdit : function($stateParams, ManageRateplans, hotelId) {
+			},*/
+			/*getRateplanForEdit : function($stateParams, ManageRateplans, hotelId) {
                 if ($stateParams.rateplanId) {
                     return ManageRateplans.getRateplan(hotelId, $stateParams.rateplanId);
                 }
                 return {};
-            },
+            },*/
 		},
 		controller : "RateplansController"
 	})
@@ -27,7 +27,7 @@ angular.module("rateplans.config", [])
             hotelId: function() {
                 return '58726a8e5aa124394eb7dae4';
             },
-            viewRateplans : function(ManageRateplans){
+            /*viewRateplans : function(ManageRateplans){
                 return ManageRateplans.getRateplans();
             },
             rateplan: function ($stateParams, ManageRateplans, hotelId) {
@@ -35,7 +35,7 @@ angular.module("rateplans.config", [])
                     return ManageRateplans.getRateplan(hotelId, $stateParams.id);
                 }
                 return {};
-            }
+            }*/
         },
         controller: 'CreateRateplanController'
     });
