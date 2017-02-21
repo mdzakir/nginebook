@@ -20,15 +20,15 @@
 	<div class="row">
 		<div class="col-md-6">
 			<fieldset>
-				<legend>Booking Dates</legend>
+				<legend>Validity &amp; Blackout</legend>
 				<div class="row fieldset-row">
 					<div class="col-md-6">
 						<div class="form-group">
 							<label class="">Rateplan Validity Start</label>
 							<div class="">
-								<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="rateplan.booking_start_date" 
-								is-open="booking_start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
-								close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_booking_start()"/>
+								<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="rateplan.rateplan_validity_start" 
+								is-open="rateplan_validity_start_popup.opened" datepicker-options="validityStartOptions" ng-required="true" 
+								close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_rateplan_validity_start()"/>
 							</div>
 						</div>
 					</div>
@@ -36,9 +36,21 @@
 						<div class="form-group">
 							<label class="">Rateplan Validity Start</label>
 							<div class="">
-								<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="rateplan.booking_end_date" 
-								is-open="booking_end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
-								close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_booking_end()" ng-change="bookingRangeOfDates();" />
+								<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="rateplan.rateplan_validity_end" 
+								is-open="rateplan_validity_end_popup.opened" datepicker-options="validityEndOptions" ng-required="true" 
+								close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_rateplan_validity_end()" ng-change="validityRangeOfDates();" />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="">Validity Days of Week</label>
+							<div>
+								<div class="btn-group">
+								    <label class="btn" ng-class="{'btn-primary':bd.checked, 'btn-default': !bd.checked}" 
+			    					ng-repeat="bd in rateplan.rp_applicable_days"
+			    					ng-model="bd.checked" uib-btn-checkbox>{{bd.name}}</label>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -50,20 +62,45 @@
 							</div>
 						</div>
 					</div>
-
-					<div class="col-md-12">
-						<div class="form-group">
-							<label class="">Rateplan BLACKOUT dates</label>
-							<div>
-								<div class="input-group">
-									<select class="form-control"
-									    ng-options="option.name for option in rateplan.bookingBlackouts track by option.value"
-									    ng-model="selectedBookingBlackout"></select>
-									<span class="input-group-addon" ng-click="pushBookingBlackouts();"><i class="fa fa-plus"></i></span>
+					<div class="col-md-12" ng-if="showBlackoutFields">
+						<div class="row">
+							<div class="col-md-5">
+								<div class="form-group">
+									<label class="">Rateplan Blackout Start</label>
+									<div class="">
+										<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="rateplan.rp_blackout_validity_start" 
+										is-open="rp_blackout_validity_start_popup.opened" datepicker-options="blackoutStartOptions" ng-required="true" 
+										close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_rp_blackout_validity_start()" ng-change="setMinDate();"/>
+									</div>
 								</div>
 							</div>
+							<div class="col-md-5">
+								<div class="form-group">
+									<label class="">Rateplan Blackout End</label>
+									<div class="">
+										<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="rateplan.rp_blackout_validity_end" 
+										is-open="rp_blackout_validity_end_popup.opened" datepicker-options="blackoutEndOptions" ng-required="true" 
+										close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_rp_blackout_validity_end()" ng-change="blackoutRangeOfDates();" />
+									</div>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<label class="">&nbsp;</label>
+									<div class="">
+										<button type="button" class="btn btn-default" ng-click="pushBlackouts();"><i class="fa fa-plus"></i></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12" ng-if="showBlackoutFields">
+						<div class="form-group">
 							<ul>
-								<li ng-repeat="bbl in rateplan.bookingBlackoutsList">{{rateplan.bbl.name}}</li>
+								<li ng-repeat="br in blackoutsRangeList track by $index">
+									{{br.start}} - {{br.end}}
+									<button type="button" class="btn btn-link" ng-click="blackoutsRangeList.splice($index, 1)"><i class="fa fa-times"></i></button>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -72,7 +109,7 @@
 		</div>
 		<div class="col-md-6">
 			<fieldset>
-				<legend>Booking Dates</legend>
+				<legend>Min. &amp; Max. Particulars</legend>
 				<div class="row fieldset-row">
 					<div class="col-md-6">
 						<div class="form-group">
@@ -132,12 +169,13 @@
 				<label class="">Inclusions</label>
 				<button type="button" class="btn btn-link" ng-click="addInclusion()"><i class="fa fa-plus"></i> Add Inclusion</button>
 				<div class="">
-					<div class="" ng-repeat="inclusion in rateplan.inclusions">
+					<div class="" ng-repeat="inclusion in rateplan.inclusions track by $index">
 						<div class="input-group" >
-							<input type="text" ng-model="inclusion" />
-							<button type="button" class="btn btn-link" ng-click="inclusion.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
+							<input type="text" ng-model="inclusion.name"/>
+							<button type="button" class="btn btn-link btn-sm" ng-click="rateplan.inclusions.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-times"></i></button>
 						</div>
 					</div>
+					<div ng-if="inclusionValueError" style="color: red;font-size: 12px;">Enter inclusion</div>
 				</div>
 			</div>
 		</div>
@@ -146,12 +184,13 @@
 				<label class="">Exclusions</label>
 				<button type="button" class="btn btn-link" ng-click="addExclusion()"><i class="fa fa-plus"></i> Add Exclusion</button>
 				<div class="">
-					<div class="" ng-repeat="exclusion in rateplan.exclusions">
+					<div class="" ng-repeat="exclusion in rateplan.exclusions track by $index">
 						<div class="input-group" >
-							<input type="text" ng-model="exclusion" />
-							<button type="button" class="btn btn-link" ng-click="exclusion.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
+							<input type="text" ng-model="exclusion.name"/>
+							<button type="button" class="btn btn-link btn-sm" ng-click="rateplan.exclusions.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
 						</div>
 					</div>
+					<div ng-if="exclusionValueError" style="color: red;font-size: 12px;">Enter exclusion</div>
 				</div>
 			</div>
 		</div>
@@ -175,7 +214,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group tac">
-				<button type="button" class="btn btn-success" ng-click="saveDeal();"><i class="fa fa-save"></i> Save</button>
+				<button type="button" class="btn btn-success" ng-click="saveAddRateplan();"><i class="fa fa-save"></i> Save</button>
 			</div>
 		</div>
 	</div>

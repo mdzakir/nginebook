@@ -103,3 +103,7 @@
   color: green;
   border-color: green;
 }
+
+.inc-exc-error{
+  border:1px solid red;
+}
