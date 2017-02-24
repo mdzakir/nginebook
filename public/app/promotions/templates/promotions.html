@@ -4,7 +4,7 @@
 			<div class="form-group">
 				<label class="">Name</label>
 				<div class="">
-					<input type="text" class="form-control" ng-required="true" />
+					<input type="text" class="form-control" ng-required="true" ng-model="name" />
 				</div>
 			</div>
 		</div>
@@ -12,109 +12,173 @@
 			<div class="form-group">
 				<label class="">Description</label>
 				<div class="">
-					<textarea class="form-control" ng-required="true" ></textarea>
+					<textarea class="form-control" ng-required="true" ng-model="desciption" ></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Promotion Type</label>
+				<div class="">
+					<select class="form-control"
+					    ng-options="option.name for option in promotionTypes track by option.id"
+					    ng-model="selectedPromotionType"></select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Status</label>
+				<div class="">
+					<select class="form-control"
+					    ng-options="option.name for option in promotionStatus track by option.id"
+					    ng-model="selectedPromotionStatus"></select>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Booking Start date</label>
-				<div class="">
-					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="start_date" 
-					is-open="start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
-					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_start()"/>
+		<div class="col-md-6">
+			<fieldset>
+				<legend>Booking Dates</legend>
+				<div class="row fieldset-row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Booking Start date</label>
+							<div class="">
+								<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="booking_start_date" 
+								is-open="booking_start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+								close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_booking_start()"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Booking End date</label>
+							<div class="">
+								<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="booking_end_date" 
+								is-open="booking_end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+								close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_booking_end()" ng-change="bookingRangeOfDates();" />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="">Booking Days of Week</label>
+							<div>
+								<div class="btn-group">
+								    <label class="btn" ng-class="{'btn-primary':bd.checked, 'btn-default': !bd.checked}" 
+			    					ng-repeat="bd in bookingdays"
+			    					ng-model="bd.checked" uib-btn-checkbox>{{bd.name}}</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="">Booking Days BLACKOUT</label>
+							<div>
+								<div class="input-group">
+									<select class="form-control"
+									    ng-options="option.name for option in bookingBlackouts track by option.value"
+									    ng-model="selectedBookingBlackout"></select>
+									<span class="input-group-addon" ng-click="pushBookingBlackouts();"><i class="fa fa-plus"></i></span>
+								</div>
+							</div>
+							<ul>
+								<li ng-repeat="bbl in bookingBlackoutsList">{{bbl.name}}</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			</div>
+			</fieldset>
 		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Booking End date</label>
-				<div class="">
-					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="end_date" 
-					is-open="end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
-					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_end()"/>
+		<div class="col-md-6">
+			<fieldset>
+				<legend>Booking Dates</legend>
+				<div class="row fieldset-row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Checkin Start date</label>
+							<div class="">
+								<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="checkin_start_date" 
+								is-open="checkin_start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+								close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_checkin_start()"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Checkin End date</label>
+							<div class="">
+								<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="checkin_end_date" 
+								is-open="checkin_end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+								close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_checkin_end()" ng-change="checkinRangeOfDates();"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="">Checkin Days of Week</label>
+							<div>
+								<div class="btn-group">
+									    <label class="btn" ng-class="{'btn-primary':cd.checked, 'btn-default': !cd.checked}"
+				    					ng-repeat="cd in checkindays"
+				    					ng-model="cd.checked" uib-btn-checkbox>{{cd.name}}</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="">Checkin Days BLACKOUT</label>
+							<div>
+								<div class="input-group">
+								    <select class="form-control"
+									    ng-options="option.name for option in checkinBlackouts track by option.value"
+									    ng-model="selectedCheckinBlackout"></select>
+									<span class="input-group-addon"  ng-click="pushCheckinBlackouts();"><i class="fa fa-plus"></i></span>
+								</div>
+							</div>
+							<ul>
+								<li ng-repeat="cbl in checkinBlackoutsList">{{cbl.name}}</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Booking Days of Week</label>
-				<div class="btn-group">
-
-				</div>
-			</div>
+			</fieldset>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Travel Start date</label>
+				<label class="">Rooms</label>
 				<div class="">
-					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="start_date" 
-					is-open="start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
-					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_start()"/>
+					<select class="form-control" ng-model="roomsSelected" multiple>
+						<option value="11313">Standard Room</option>
+						<option value="1121">Deluxe</option>
+					</select>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Travel End date</label>
+				<label class="">Rateplans</label>
 				<div class="">
-					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="end_date" 
-					is-open="end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
-					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_end()"/>
+					<select class="form-control" ng-model="rateplansSelected" multiple>
+						<option value="313">CP</option>
+						<option value="21">MAP</option>
+					</select>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Travel Days of Week</label>
-				<div class="btn-group">
-					
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Blackout Start date</label>
-				<div class="">
-					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="start_date" 
-					is-open="start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
-					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_start()"/>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Blackout End date</label>
-				<div class="">
-					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="end_date" 
-					is-open="end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
-					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_end()"/>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Blackout Days of Week</label>
-				<div class="btn-group">
-					
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
 		<div class="col-md-3">
 			<div class="form-group">
 				<label class="">Discount Type</label>
 				<div class="">
-					<select class="form-control">
-						<option>Fixed</option>
-						<option>Percentage</option>
+					<select class="form-control" ng-model="discount_type" >
+						<option value="FIXED">Fixed</option>
+						<option value="PERCENTAGE">Percentage</option>
 					</select>
 				</div>
 			</div>
@@ -123,7 +187,7 @@
 			<div class="form-group">
 				<label class="">Amount</label>
 				<div class="">
-					<input type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+					<input ng-model="discount_value" type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
 				</div>
 			</div>
 		</div>
@@ -131,7 +195,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form-group tac">
-				<button type="button" class="btn btn-success"><i class="fa fa-save"></i> Save</button>
+				<button type="button" class="btn btn-success" ng-click="savePromotion();"><i class="fa fa-save"></i> Save</button>
 			</div>
 		</div>
 	</div>
@@ -140,7 +204,7 @@
 <div class="row">
 
 	<div class="col-md-12">
-	 Table to show the existing deals and promotions
+	 Table to show the existing promotions
 	</div>
 
 </div>
