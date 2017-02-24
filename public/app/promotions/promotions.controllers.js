@@ -3,7 +3,7 @@ angular.module("promotions.controllers", [
     ])
     .controller('PromotionsController', function($scope, $state, $http, ManagePromotions) {
         $scope.title = "Manage Promotions";
-        $scope.$emit("pageTitleChanged", "ManagePromotions");
+        $scope.$emit("pageTitleChanged", "Manage Promotions");
 
 /*        // AVAILABLE Promotions
         $scope.promotions = viewPromotions;

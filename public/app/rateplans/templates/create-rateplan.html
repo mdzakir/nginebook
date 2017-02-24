@@ -12,7 +12,37 @@
 			<div class="form-group">
 				<label class="">Description</label>
 				<div class="">
-					<textarea class="form-control" ng-required="true" ng-model="rateplan.desciption" ></textarea>
+					<textarea class="form-control" ng-required="true" ng-model="rateplan.description" ></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Inclusions</label>
+				<button type="button" class="btn btn-link" ng-click="addInclusion()"><i class="fa fa-plus"></i> Add Inclusion</button>
+				<div class="">
+					<div class="" ng-repeat="inclusion in rateplan.inclusions track by $index">
+						<div class="input-group" >
+							<input type="text" ng-model="inclusion.name"/>
+							<button type="button" class="btn btn-link btn-sm" ng-click="rateplan.inclusions.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div ng-if="inclusionValueError" style="color: red;font-size: 12px;">Enter inclusion</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Exclusions</label>
+				<button type="button" class="btn btn-link" ng-click="addExclusion()"><i class="fa fa-plus"></i> Add Exclusion</button>
+				<div class="">
+					<div class="" ng-repeat="exclusion in rateplan.exclusions track by $index">
+						<div class="input-group" >
+							<input type="text" ng-model="exclusion.name"/>
+							<button type="button" class="btn btn-link btn-sm" ng-click="rateplan.exclusions.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
+						</div>
+					</div>
+					<div ng-if="exclusionValueError" style="color: red;font-size: 12px;">Enter exclusion</div>
 				</div>
 			</div>
 		</div>
@@ -97,9 +127,9 @@
 					<div class="col-md-12" ng-if="showBlackoutFields">
 						<div class="form-group">
 							<ul>
-								<li ng-repeat="br in blackoutsRangeList track by $index">
+								<li ng-repeat="br in rateplan.blackoutsRangeList track by $index">
 									{{br.start}} - {{br.end}}
-									<button type="button" class="btn btn-link" ng-click="blackoutsRangeList.splice($index, 1)"><i class="fa fa-times"></i></button>
+									<button type="button" class="btn btn-link" ng-click="rateplan.blackoutsRangeList.splice($index, 1)"><i class="fa fa-times"></i></button>
 								</li>
 							</ul>
 						</div>
@@ -115,7 +145,7 @@
 						<div class="form-group">
 							<label class="">Min. Adult</label>
 							<div class="">
-								<input ng-model="rateplan.min_adult" type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+								<input ng-model="rateplan.min_adults" type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
 							</div>
 						</div>
 					</div>
@@ -123,7 +153,7 @@
 						<div class="form-group">
 							<label class="">Max. Adult</label>
 							<div class="">
-								<input ng-model="rateplan.max_adult" type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+								<input ng-model="rateplan.max_adults" type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
 							</div>
 						</div>
 					</div>
@@ -164,36 +194,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Inclusions</label>
-				<button type="button" class="btn btn-link" ng-click="addInclusion()"><i class="fa fa-plus"></i> Add Inclusion</button>
-				<div class="">
-					<div class="" ng-repeat="inclusion in rateplan.inclusions track by $index">
-						<div class="input-group" >
-							<input type="text" ng-model="inclusion.name"/>
-							<button type="button" class="btn btn-link btn-sm" ng-click="rateplan.inclusions.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-times"></i></button>
-						</div>
-					</div>
-					<div ng-if="inclusionValueError" style="color: red;font-size: 12px;">Enter inclusion</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Exclusions</label>
-				<button type="button" class="btn btn-link" ng-click="addExclusion()"><i class="fa fa-plus"></i> Add Exclusion</button>
-				<div class="">
-					<div class="" ng-repeat="exclusion in rateplan.exclusions track by $index">
-						<div class="input-group" >
-							<input type="text" ng-model="exclusion.name"/>
-							<button type="button" class="btn btn-link btn-sm" ng-click="rateplan.exclusions.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
-						</div>
-					</div>
-					<div ng-if="exclusionValueError" style="color: red;font-size: 12px;">Enter exclusion</div>
-				</div>
-			</div>
-		</div>
+
 		<div class="col-md-3">
 			<div class="form-group">
 				<label class="">&nbsp;</label>
@@ -202,12 +203,48 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-9">
 			<div class="form-group">
 				<label class="">Cancellation Policy</label>
-				<div class="">
-					<textarea ng-model="rateplan.cancellation_policy" name="" class="form-control" ></textarea>
+				<div class="row" ng-repeat="cp in rateplan.cp">
+					<div class="col-md-3">
+						<div class="form-group">
+							<label class="fwn">From</label>
+							<div>
+								<select class="form-control input-sm"
+								    ng-options="option.id for option in cp.from track by option.id"
+								    ng-model="fromSelected"></select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label class="fwn">To</label>
+							<div>
+								<select class="form-control input-sm"
+								    ng-options="option.id for option in cp.from track by option.id"
+								    ng-model="toSelected"></select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label class="fwn">Amount</label>
+							<div>
+								<input ng-model="cp.amount" name="" class="form-control input-sm" />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label class="fwn">&nbsp;</label>
+							<div>
+								<button class="btn btn-sm" type="button" ng-click="addCP();"><i class="fa fa-plus"></i></button>
+							</div>
+						</div>
+					</div>
 				</div>
+				<div ng-if="cpError">Please enter valid amount</div>
 			</div>
 		</div>
 	</div>

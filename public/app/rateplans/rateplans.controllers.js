@@ -2,6 +2,8 @@ angular.module("rateplans.controllers", [
         "rateplans.module"
     ])
     .controller('RateplansController', function($scope, $state, ManageRateplans) {
+        $scope.title = "Manage Rateplans";
+        $scope.$emit("pageTitleChanged", "Manage Rateplans");
 
         // AVAILABLE RATEPLANS
         var isAddRateplans = _.isEmpty($scope.rateplans);
