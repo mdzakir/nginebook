@@ -206,8 +206,8 @@ angular.module("create.rateplan.controllers", [
                 "description": $scope.rateplan.description,
                 "inclusions": $scope.rateplan.inclusions,
                 "exlusions": $scope.rateplan.exclusions,
-                "validity_start": $scope.rateplan.rateplan_validity_start,
-                "validity_end": $scope.rateplan.rateplan_validity_end,
+                "validity_start": moment($scope.rateplan.rateplan_validity_start).format('DD-MM-YYYY'),
+                "validity_end": moment($scope.rateplan.rateplan_validity_end).format('DD-MM-YYYY'),
                 "applicable_days": $scope.rateplan.applicableDays,
                 "blackout_dates": $scope.rateplan.blackoutsRangeList,
                 "min_adults": $scope.rateplan.min_adults,
@@ -217,7 +217,8 @@ angular.module("create.rateplan.controllers", [
                 "min_rooms": $scope.rateplan.min_no_of_rooms,
                 "max_rooms": $scope.rateplan.max_no_of_rooms,
                 "allow_modification": $scope.rateplan.allow_modification,
-                "allow_modification": $scope.rateplan.cp,
+                "cancellation_policy": $scope.rateplan.cp,
+                "cut_off_days": $scope.rateplan.cut_off_days,
             };
 
             ManageRateplans.save(params, isAddRateplan, function() {

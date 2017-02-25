@@ -8,9 +8,9 @@ angular.module("rateplans.config", [])
 			hotelId: function() {
                 return '58726a8e5aa124394eb7dae4';
             },
-			/*viewRateplans : function(ManageRateplans){
+			viewRateplans : function(ManageRateplans){
 				return ManageRateplans.getRateplans();
-			},*/
+			},
 			/*getRateplanForEdit : function($stateParams, ManageRateplans, hotelId) {
                 if ($stateParams.rateplanId) {
                     return ManageRateplans.getRateplan(hotelId, $stateParams.rateplanId);
@@ -54,7 +54,7 @@ angular.module("rateplans.config", [])
             });
             return viewrateplans;
         },
-        getRateplan: function(hotelId, rateplanId) {
+        /*getRateplan: function(hotelId, rateplanId) {
             var deferred = $q.defer();
             var rateplan = deferred.promise;
             $http.get(apiEndPoint + '/ratePlan/view', {
@@ -71,7 +71,7 @@ angular.module("rateplans.config", [])
                     deferred.reject(error);
                 });
             return rateplan;
-        },
+        },*/
         save: function (params, isAdd, callback) {
             var post_url = apiEndPoint + '/ratePlan/create/';
             $http.post(post_url, angular.toJson(params, true))

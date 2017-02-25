@@ -4,11 +4,11 @@
 		<div class="rateplan-box room-box">
 			<div class="rateplan-box-name" title="{{rateplan.name}}">{{rateplan.name}}</div>
 			<div class="rateplan-box-details">
-				<p>Validity : <span class="rp-label">12 Apr 2017 - 25 May 2017</span></p>
-				<p>Cut-off days : <span class="rp-label">3 days</span></p>
-				<p>Min. &amp; Max. Adults : <span class="rp-label">2 &amp; 4</span></p>
-				<p>Min. &amp; Max. LOS : <span class="rp-label">2 &amp; 5</span></p>
-				<p>Min. &amp; Max. No. of Rooms : <span class="rp-label">2 &amp; 4</span></p>
+				<p>Validity : <span class="rp-label">{{rateplan.validity_start}} - {{rateplan.validity_end}}</span></p>
+				<p>Cut-off days : <span class="rp-label">{{rateplan.cut_off_days}} days</span></p>
+				<p>Min. &amp; Max. Adults : <span class="rp-label">{{rateplan.min_adults}} &amp; {{rateplan.max_adults}}</span></p>
+				<p>Min. &amp; Max. LOS : <span class="rp-label">{{rateplan.min_los}} &amp; {{rateplan.max_los}}</span></p>
+				<p>Min. &amp; Max. No. of Rooms : <span class="rp-label">{{rateplan.min_rooms}} &amp; {{rateplan.max_rooms}}</span></p>
 				<p>Blackout dates : <span class="rp-label">Click to view</span></p>
 				<p>Inclusions : <span class="rp-label">Click to view</span></p>
 				<p>Exclusions : <span class="rp-label">Click to view</span></p>
