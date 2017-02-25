@@ -34,7 +34,7 @@ angular.module("manual-booking.config", [])
                 controller: 'CreateManualBookingController'
             });
     })
-    .factory('ManualBooking', function($http, $q) {
+    .factory('ManualBooking', function($http, $q, apiEndPoint) {
         return {
             getBookings: function() {
                 var deferred = $q.defer();

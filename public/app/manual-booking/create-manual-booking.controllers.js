@@ -50,7 +50,12 @@ angular.module("create-manual-booking.controllers", [
         ];
         $scope.selectedNoOfChildren = $scope.noOfChildren[0];
 
-        $scope.rooms = {};
+        $scope.rooms = [
+          {id: '1', name: 'Standard'},
+          {id: '2', name: 'Deluxe'},
+          {id: '3', name: 'Luxury'},
+          {id: '4', name: 'Suite'}
+        ];
         $scope.selectedRoom = $scope.rooms[0];
 
         $scope.ratePlans = [
@@ -113,7 +118,7 @@ angular.module("create-manual-booking.controllers", [
             };
 
             ManualBooking.save(params, function () {
-                $state.go('.', {}, { reload: 'manual-bookings' });
+                $state.go('manual-bookings');
             });
         };
 
