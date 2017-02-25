@@ -63,16 +63,24 @@
 					<th>Guest Name</th>
 					<th>Payment Mode</th>
 					<th>Status</th>
+					<th>Booking Time</th>
+					<th>Check-In</th>
+					<th>Check-Out</th>
+					<th>Amount</th>
 					<th>Remark</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="booking in bookingData">
-					<td>{{booking.bookingId}}</td>
+					<td>{{booking.reference_id}}</td>
 					<td>{{booking.guestName}}</td>
-					<td>{{booking.paymentMode}}</td>
+					<td>{{booking.payment_type}}</td>
 					<td>{{booking.status}}</td>
+					<td>{{booking.generation_time}}</td>
+					<td>{{booking.checkin_date}}</td>
+					<td>{{booking.checkout_date}}</td>
+					<td>{{booking.total_amount}}</td>
 					<td>{{booking.remark}}</td>
 					<td>
 					    <div class="btn-group" uib-dropdown is-open="status.isopen">
