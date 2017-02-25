@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-md-12"><h4>Manual bookings <a style="font-size: 14px;margin-left: 15px;" ui-sref="create-manual-booking"><i class="fa fa-plus nrr-btn-add"></i><span>Add New manual-booking</span></a></h4></div>
+	<div class="col-md-3" ng-repeat="mb in manualBookings track by $index">
+		<div class="manual-booking-box room-box">
+			<div class="manual-booking-box-name" title="{{mb.name}}">{{mb.name}}</div>
+			<div class="manual-booking-box-details">
+				<p>Validity : <span class="rp-label">{{mb.validity_start}} - {{mb.validity_end}}</span></p>
+				<p>Cut-off days : <span class="rp-label">{{mb.cut_off_days}} days</span></p>
+				<p>Min. &amp; Max. Adults : <span class="rp-label">{{mb.min_adults}} &amp; {{mb.max_adults}}</span></p>
+				<p>Min. &amp; Max. LOS : <span class="rp-label">{{mb.min_los}} &amp; {{mb.max_los}}</span></p>
+				<p>Min. &amp; Max. No. of Rooms : <span class="rp-label">{{mb.min_rooms}} &amp; {{mb.max_rooms}}</span></p>
+				<p>Blackout dates : <span class="rp-label">Click to view</span></p>
+				<p>Inclusions : <span class="rp-label">Click to view</span></p>
+				<p>Exclusions : <span class="rp-label">Click to view</span></p>
+			</div>
+			<div class="manual-booking-box-controls">
+				<button type="button" class="btn"><i class="fa fa-pencil"></i> Edit </button>
+				<button type="button" class="btn"><i class="fa fa-remove"></i> Delete </button>
+			</div>
+		</div>
+	</div>
+</div>

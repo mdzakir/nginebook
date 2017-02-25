@@ -1,101 +1,108 @@
 angular.module("manual-booking.config", [])
-.config(function ($stateProvider) {
-	$stateProvider
-	.state("manual-booking", {
-		url : "/manual-booking",
-		templateUrl : "app/manual-booking/templates/manual-booking.html",
-		resolve: {
-			hotelId: function() {
-                return '58726a8e5aa124394eb7dae4';
-            },
-			viewRooms : function(ManualBooking){
-				return ManualBooking.getRooms();
-			},
-            viewRateplans : function(ManualBooking){
-                return ManualBooking.getRateplans();
-            },
-			amenities : function(ManualBooking){
-				return ManualBooking.getRoomAmenities();
-			},
-			room : function($stateParams, ManualBooking, hotelId) {
-                if (Number($stateParams.roomId)) {
-                    return ManualBooking.room(hotelId, $stateParams.roomId);
-                }
-                return {};
-            },
-		},
-		controller : "ManualBookingController"
-	})
-})
-.factory('ManualBooking', function ($http, $q) {
-    return {
-        getRooms : function(){
-            var deferred = $q.defer();
-            var viewrooms = deferred.promise;
-            $http.get(apiEndPoint + '/room/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
-                var viewrooms = response.data;
-                deferred.resolve(viewrooms);
-            }, function(error) {
-                viewrooms = null;
-                deferred.reject(error);
-            });
-            return viewrooms;
-        },
-        getRateplans : function(){
-            var deferred = $q.defer();
-            var viewRateplans = deferred.promise;
-            $http.get(apiEndPoint + '/rate-plan/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
-                var viewRateplans = response.data;
-                deferred.resolve(viewRateplans);
-            }, function(error) {
-                viewRateplans = null;
-                deferred.reject(error);
-            });
-            return viewRateplans;
-        },
-        getRoomAmenities: function() {
-            var deferred = $q.defer();
-            var amenities = deferred.promise;
-            $http.get(apiEndPoint + '/hotel/amenities').then(function(response) {
-                var amenities = response.data;
-                deferred.resolve(amenities);
-            }, function(error) {
-                amenities = null;
-                deferred.reject(error);
-            });
-            return amenities;
-        },
-        room: function(hotelId, roomId) {
-            var deferred = $q.defer();
-            var room = deferred.promise;
-            $http.get(apiEndPoint + '/room/view', {
-                    params: {
-                        hotel_id: hotelId,
-                        room_id: roomId
+    .config(function($stateProvider) {
+        $stateProvider
+            .state("manual-bookings", {
+                url: "/manual-bookings",
+                templateUrl: "app/manual-booking/templates/manual-bookings.html",
+                resolve: {
+                    hotelId: function() {
+                        return '58726a8e5aa124394eb7dae4';
+                    },
+                    booking: function($stateParams, ManualBooking, hotelId) {
+                        if (Number($stateParams.bookingId)) {
+                            return ManualBooking.booking(hotelId, $stateParams.bookingId);
+                        }
+                        return {};
+                    },
+                },
+                controller: "ManualBookingController"
+            })
+            .state('create-manual-booking', {
+                url: '/create-manual-booking/:id',
+                templateUrl: 'app/manual-booking/templates/create-manual-booking.html',
+                resolve: {
+                    hotelId: function() {
+                        return '58726a8e5aa124394eb7dae4';
+                    },
+                    booking: function($stateParams, ManualBooking, hotelId) {
+                        if ($stateParams.id) {
+                            return ManualBooking.getRoom(hotelId, $stateParams.id);
+                        }
+                        return {};
                     }
-                })
-                .then(function(response) {
-                    var room = response.data;
-                    deferred.resolve(room);
+                },
+                controller: 'CreateManualBookingController'
+            });
+    })
+    .factory('ManualBooking', function($http, $q) {
+        return {
+            getBookings: function() {
+                var deferred = $q.defer();
+                var viewbookings = deferred.promise;
+                $http.get(apiEndPoint + '/booking/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+                    var viewbookings = response.data;
+                    deferred.resolve(viewbookings);
                 }, function(error) {
-                    room = null;
+                    viewbookings = null;
                     deferred.reject(error);
                 });
-            return room;
-        },
-        save: function (params, callback) {
-            var post_url = apiEndPoint + '/booking/createBooking/';
-            $http.post(post_url, angular.toJson(params, true))
-                .then(function () {
-                    callback();
+                return viewbookings;
+            },
+            getRooms: function() {
+                var deferred = $q.defer();
+                var viewrooms = deferred.promise;
+                $http.get(apiEndPoint + '/room/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+                    var viewrooms = response.data;
+                    deferred.resolve(viewrooms);
+                }, function(error) {
+                    viewrooms = null;
+                    deferred.reject(error);
                 });
-        },
-        deleteBooking: function (params, callback) {
-            var post_url = apiEndPoint + '/booking/updateStatus?hotel_id=58726a8e5aa124394eb7dae4';
-            $http.post(post_url, angular.toJson(params, true))
-                .then(function () {
-                    callback();
+                return viewrooms;
+            },
+            getRateplans: function() {
+                var deferred = $q.defer();
+                var viewRateplans = deferred.promise;
+                $http.get(apiEndPoint + '/rate-plan/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+                    var viewRateplans = response.data;
+                    deferred.resolve(viewRateplans);
+                }, function(error) {
+                    viewRateplans = null;
+                    deferred.reject(error);
                 });
-        }
-    };
-})
+                return viewRateplans;
+            },
+            booking: function(hotelId, bookingId) {
+                var deferred = $q.defer();
+                var booking = deferred.promise;
+                $http.get(apiEndPoint + '/booking/view', {
+                        params: {
+                            hotel_id: hotelId,
+                            booking_id: bookingId
+                        }
+                    })
+                    .then(function(response) {
+                        var booking = response.data;
+                        deferred.resolve(booking);
+                    }, function(error) {
+                        booking = null;
+                        deferred.reject(error);
+                    });
+                return booking;
+            },
+            save: function(params, callback) {
+                var post_url = apiEndPoint + '/booking/createBooking/';
+                $http.post(post_url, angular.toJson(params, true))
+                    .then(function() {
+                        callback();
+                    });
+            },
+            deleteBooking: function(params, callback) {
+                var post_url = apiEndPoint + '/booking/updateStatus?hotel_id=58726a8e5aa124394eb7dae4';
+                $http.post(post_url, angular.toJson(params, true))
+                    .then(function() {
+                        callback();
+                    });
+            }
+        };
+    })
