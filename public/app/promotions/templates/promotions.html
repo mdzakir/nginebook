@@ -18,21 +18,19 @@
 		</div>
 		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Promotion Type</label>
+				<label class="">Promo Code</label>
 				<div class="">
-					<select class="form-control"
-					    ng-options="option.name for option in promotionTypes track by option.id"
-					    ng-model="selectedPromotionType"></select>
+					<input type="text" class="form-control" ng-required="true" ng-model="code" />
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3">
 			<div class="form-group">
-				<label class="">Status</label>
+				<label class="">Type</label>
 				<div class="">
 					<select class="form-control"
-					    ng-options="option.name for option in promotionStatus track by option.id"
-					    ng-model="selectedPromotionStatus"></select>
+					    ng-options="option.name for option in promotionTypes track by option.id"
+					    ng-model="selectedPromotionType"></select>
 				</div>
 			</div>
 		</div>

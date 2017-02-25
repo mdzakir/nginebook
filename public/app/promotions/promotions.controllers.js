@@ -21,16 +21,10 @@ angular.module("promotions.controllers", [
 
         // Select options
         $scope.promotionTypes = [
-          {id: 'BASIC', name: 'Basic'},
-          {id: 'EARLY BIRD', name: 'Early Bird'}
+          {id: 'One Time', name: 'One Time'},
+          {id: 'Multiple Time', name: 'Multiple Time'}
         ];
         $scope.selectedPromotionType = $scope.promotionTypes[0];
-
-        $scope.PromotionStatus = [
-          {id: 'ACTIVE', name: 'Active'},
-          {id: 'INACTIVE', name: 'Inactive'}
-        ];
-        $scope.selectedPromotionStatus = $scope.PromotionStatus[0];
 
         // DATE PICKER
 
@@ -222,7 +216,7 @@ angular.module("promotions.controllers", [
                 "name": $scope.name,
                 "description": $scope.desciption,
                 "type": $scope.selectedPromotionType.id,
-                "status": $scope.selectedPromotionStatus.id,
+                "code": $scope.code,
                 "check_in_period": {
                     "start_date": moment($scope.checkin_start_date).format('DD-MM-YYYY'),
                     "end_date": moment($scope.checkin_end_date).format('DD-MM-YYYY'),
