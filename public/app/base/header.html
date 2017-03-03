@@ -1,29 +1,23 @@
 <div ng-controller="HeaderController">
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	    <div class="fluid-container">
-	        <div class="navbar-header">
-	            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	                <span class="sr-only">Toggle navigation</span>
-	                <span class="icon-bar"></span>
-	                <span class="icon-bar"></span>
-	                <span class="icon-bar"></span>
-	            </button>
-	            <a class="navbar-brand" ui-sref="#">Admin</a>
-	        </div>
-
-	        <div class="row">
-				<div class="col-md-4">
-					<div class="form-group hotel-search-wrapper">
-						<select class="form-control">
-							<option>Hotel Vythiri Village</option>
-							<option>Hotel Krishna</option>
-						</select>
-					</div>
-				</div>
-			</div>
-
-	        <div id="hotel-search" class="hotel-search">
-	            <ui-select ng-model="selectedHotel" class="hotel-list" ng-change="hotelChanged($select.selected.id);">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="fluid-container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ui-sref="#">Admin</a>
+            </div>
+            <div class="hotel-search-wrapper">
+                <select class="form-control">
+                    <option>Hotel Vythiri Village</option>
+                    <option>Hotel Krishna</option>
+                </select>
+            </div>
+            <div id="hotel-search" class="hotel-search">
+                <ui-select ng-model="selectedHotel" class="hotel-list" ng-change="hotelChanged($select.selected.id);">
                     <ui-select-match>
                         <span ng-bind="$select.selected.name"></span>
                     </ui-select-match>
@@ -31,9 +25,17 @@
                         <span ng-bind="hotel.name"></span>
                     </ui-select-choices>
                 </ui-select>
-	        </div>
-	        <!--/.nav-collapse -->
-	    </div>
-	</nav>
+            </div>
+            <!--/.nav-collapse -->
+            <ul class="nav navbar-nav navbar-right user-menu-wrapper">
+                <li class="dropdown" uib-dropdown>
+                    <a class="dropdown-toggle user-menu-icon" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="profile-setting" uib-dropdown-toggle><i class="fa fa-user  fa-1x"></i> Beedu <span class="caret"></span></a>
+                    <ul class="dropdown-menu user-menu" uib-dropdown-menu role="menu" aria-labelledby="profile-setting">
+                        <li class="divider"></li>
+                        <li><a href="" ng-click="logout()"><i class="fa fa-power-off"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </div>
-

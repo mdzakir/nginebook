@@ -202,3 +202,21 @@ body{
 .fwn{
   font-weight: normal;
 }
+
+.hotel-search-wrapper{
+  width: 300px;
+  float: left;
+}
+
+.user-menu-wrapper{
+  margin-right: 20px;
+}
+
+.navbar-inverse .user-menu-wrapper.navbar-nav>li>a:focus, .navbar-inverse .user-menu-wrapper.navbar-nav>li>a:hover{
+  color: #333;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    color: #503d3d;
+    background-color: #eee;
+}
