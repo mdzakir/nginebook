@@ -1,24 +1,31 @@
 angular.module("create.rateplan.controllers", [
         "rateplans.module"
     ])
-    .controller('CreateRateplanController', function($state, $scope, $http, $stateParams, ManageRateplans) {
+    .controller('CreateRateplanController', function($state, $scope, $http, $stateParams, ManageRateplans, rateplan, viewRateplans) {
 
         $scope.title = "Create Rateplan";
         $scope.$emit("pageTitleChanged", "Create Rateplan");
 
-        $scope.rateplan = {};
+        $scope.rateplan = rateplan[0] || {};
 
-        // AVAILABLE RATEPLANS
-        $scope.rateplans = [];
-        var isAddRateplan = _.isEmpty($scope.rateplans);
+        // Available Rateplans
+        var isAddRateplan = _.isEmpty($scope.rateplan);
 
         if (isAddRateplan) {
-
+            $scope.rateplan.inclusions = [{ name: '' }];
+            $scope.rateplan.exclusions = [{ name: '' }];
+            $scope.rateplan.allow_modification = "false";
+            $scope.rateplan.blackoutsRangeList = [];
+            $scope.rateplan.rp_applicable_days = [];
         } else {
-            $scope.showAddRateplanForm = true;
-        }
 
-        $scope.rateplan.inclusions = [{ name: '' }];
+            $scope.rateplan.rateplan_validity_start = Number(moment($scope.rateplan.rateplan_validity_start).format('x'));
+            $scope.rateplan.rateplan_validity_end = Number(moment($scope.rateplan.rateplan_validity_end).format('x'));
+
+            debugger;
+
+        }
+        
         $scope.addInclusion = function() {
             if ($scope.rateplan.inclusions[$scope.rateplan.inclusions.length - 1].name) {
                 $scope.inclusionValueError = false;
@@ -28,8 +35,7 @@ angular.module("create.rateplan.controllers", [
             }
 
         };
-
-        $scope.rateplan.exclusions = [{ name: '' }];
+        
         $scope.addExclusion = function() {
             if ($scope.rateplan.exclusions[$scope.rateplan.exclusions.length - 1].name) {
                 $scope.exclusionValueError = false;
@@ -39,8 +45,6 @@ angular.module("create.rateplan.controllers", [
             }
         };
 
-        $scope.rateplan.allow_modification = "false";
-
         var fromList = [{ id: 1, selected: false }, { id: 2, selected: true }, { id: 3, selected: false }, { id: 4, selected: false }];
         var toList = [{ id: 1, selected: true }, { id: 2, selected: false }, { id: 3, selected: false }, { id: 4, selected: false }];
 
@@ -48,15 +52,13 @@ angular.module("create.rateplan.controllers", [
         $scope.fromSelected = $scope.rateplan.cp[0].from[1];
         $scope.toSelected = $scope.rateplan.cp[0].to[0];
         $scope.addCP = function() {
-            if ($scope.rateplan.cp[$scope.rateplan.cp.length - 1].amount > 0 ) {
+            if ($scope.rateplan.cp[$scope.rateplan.cp.length - 1].amount > 0) {
                 $scope.cpError = false;
                 $scope.rateplan.cp[$scope.rateplan.cp.length] = { from: fromList, to: toList, amount: 0 };
             } else {
                 $scope.cpError = true;
             }
         };
-
-
 
         // DATE PICKER
 
@@ -161,7 +163,6 @@ angular.module("create.rateplan.controllers", [
             $scope.open_rp_blackout_validity_start();
         };
 
-        $scope.rateplan.blackoutsRangeList = [];
         $scope.pushBlackouts = function() {
             if ($scope.rateplan.rp_blackout_validity_start && $scope.rateplan.rp_blackout_validity_end) {
                 var blackout_range = {
@@ -172,9 +173,7 @@ angular.module("create.rateplan.controllers", [
                     $scope.rateplan.blackoutsRangeList.push(blackout_range);
                 }
             }
-        }
-
-        $scope.rateplan.rp_applicable_days = [];
+        };
 
         $scope.rateplan.rp_applicable_days = [{
             name: 'Mon',
@@ -205,10 +204,10 @@ angular.module("create.rateplan.controllers", [
                 "name": $scope.rateplan.name,
                 "description": $scope.rateplan.description,
                 "inclusions": $scope.rateplan.inclusions,
-                "exlusions": $scope.rateplan.exclusions,
-                "validity_start": moment($scope.rateplan.rateplan_validity_start).format('DD-MM-YYYY'),
-                "validity_end": moment($scope.rateplan.rateplan_validity_end).format('DD-MM-YYYY'),
-                "applicable_days": $scope.rateplan.applicableDays,
+                "exclusions": $scope.rateplan.exclusions,
+                "rateplan_validity_start": moment($scope.rateplan.rateplan_validity_start).format('DD-MM-YYYY'),
+                "rateplan_validity_end": moment($scope.rateplan.rateplan_validity_end).format('DD-MM-YYYY'),
+                "applicable_days": $scope.rateplan.rp_applicable_days,
                 "blackout_dates": $scope.rateplan.blackoutsRangeList,
                 "min_adults": $scope.rateplan.min_adults,
                 "max_adults": $scope.rateplan.max_adults,

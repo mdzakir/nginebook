@@ -11,7 +11,7 @@ angular.module("rooms.controllers", [
 
         $scope.room = getRoomForEdit || {};
 
-        if(isAddRoom){
+        if(isAddRoom){ 
 
         }else{
             $scope.showAddRoomForm = true;

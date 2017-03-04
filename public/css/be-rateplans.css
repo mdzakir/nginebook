@@ -107,3 +107,8 @@
 .inc-exc-error{
   border:1px solid red;
 }
+
+.no-rps-created{
+  text-align: center;
+  padding: 50px;
+}
