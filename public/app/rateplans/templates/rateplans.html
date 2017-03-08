@@ -1,23 +1,23 @@
 <div class="row">
     <div class="col-md-12">
-        <h4>Rateplans <a ng-if="rateplans.length" style="font-size: 14px;margin-left: 15px;" ui-sref="create-rateplan"><i class="fa fa-plus nrr-btn-add"></i><span>Create New Rateplan</span></a></h4></div>
+        <h4>Rateplans <a ng-if="rateplans.length" style="font-size: 14px;margin-left: 15px;" ui-sref="create-rateplan"><i class="fa fa-plus nrr-btn-add"></i><span> Create New Rateplan</span></a></h4></div>
 
     <div class="col-md-3" ng-repeat="rateplan in rateplans track by $index" ng-if="rateplans.length">
         <div class="rateplan-box">
             <div class="rateplan-box-name" title="{{rateplan.name}}">{{rateplan.name}}</div>
             <div class="rateplan-box-details">
-                <p>Validity : <span class="rp-label">{{rateplan.validity_start}} - {{rateplan.validity_end}}</span></p>
+                <p>Validity : <span class="rp-label">{{rateplan.rateplan_validity_start | date:' d MMM y' }} - {{rateplan.rateplan_validity_end | date:'d MMM y' }}</span></p>
                 <p>Cut-off days : <span class="rp-label">{{rateplan.cut_off_days}} days</span></p>
                 <p>Min. &amp; Max. Adults : <span class="rp-label">{{rateplan.min_adults}} &amp; {{rateplan.max_adults}}</span></p>
                 <p>Min. &amp; Max. LOS : <span class="rp-label">{{rateplan.min_los}} &amp; {{rateplan.max_los}}</span></p>
-                <p>Min. &amp; Max. No. of Rooms : <span class="rp-label">{{rateplan.min_rooms}} &amp; {{rateplan.max_rooms}}</span></p>
+                <p>Min. &amp; Max. No. of Rooms : <span class="rp-label">{{rateplan.min_no_of_rooms}} &amp; {{rateplan.max_no_of_rooms}}</span></p>
                 <p>Blackout dates : <span class="rp-label">Click to view</span></p>
                 <p>Inclusions : <span class="rp-label">Click to view</span></p>
                 <p>Exclusions : <span class="rp-label">Click to view</span></p>
             </div>
             <div class="rateplan-box-controls">
-                <button type="button" ng-click="deleteRateplan(rateplan);"><i class="fa fa-times"></i></button>
-                <button type="button" ng-click="editRateplan(rateplan.id);"><i class="fa fa-pencil"></i></button>
+                <button type="button" class="btn" title="Delete Rateplan" ng-click="deleteRateplan(rateplan);"><i class="fa fa-times"></i></button>
+                <button type="button" class="btn" title="Edit Rateplan" ng-click="editRateplan(rateplan.id);"><i class="fa fa-pencil"></i></button>
             </div>
         </div>
     </div>

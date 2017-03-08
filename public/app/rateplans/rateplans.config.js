@@ -80,11 +80,11 @@ angular.module("rateplans.config", [])
                 });
         },
         deleteRateplan: function (params, callback) {
-            var post_url = apiEndPoint + '/ratePlan/updateStatus?hotel_id=58726a8e5aa124394eb7dae4';
-            $http.post(post_url, angular.toJson(params, true))
+            var post_url = apiEndPoint + '/ratePlan/updateStatus?hotel_id=58726a8e5aa124394eb7dae4&rate_id='+params.rateplan_id+'&status=3';
+            $http.get(post_url)
                 .then(function () {
                     callback();
-                });
+                }); 
         }
     };
 })

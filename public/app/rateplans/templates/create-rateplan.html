@@ -19,12 +19,16 @@
 		<div class="col-md-3">
 			<div class="form-group">
 				<label class="">Inclusions</label>
-				<button type="button" class="btn btn-link" ng-click="addInclusion()"><i class="fa fa-plus"></i> Add Inclusion</button>
 				<div class="">
-					<div class="" ng-repeat="inclusion in rateplan.inclusions track by $index">
+					<div class="inc-exc-row" ng-repeat="inclusion in rateplan.inclusions track by $index">
 						<div class="input-group" >
-							<input type="text" ng-model="inclusion.name"/>
-							<button type="button" class="btn btn-link btn-sm" ng-click="rateplan.inclusions.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-times"></i></button>
+							<input type="text" class="form-control" ng-model="inclusion.name"/>
+							<span class="input-group-btn" ng-if="$index == 0">
+								<button type="button" class="btn btn-default" ng-click="addInclusion()" ><i class="fa fa-plus"></i></button>
+							</span>
+							<span class="input-group-btn" ng-if="$index != 0">
+								<button type="button" class="btn btn-default" ng-click="rateplan.inclusions.splice($index, 1)" ><i class="fa fa-minus"></i></button>
+							</span>
 						</div>
 					</div>
 					<div ng-if="inclusionValueError" style="color: red;font-size: 12px;">Enter inclusion</div>
@@ -34,12 +38,16 @@
 		<div class="col-md-3">
 			<div class="form-group">
 				<label class="">Exclusions</label>
-				<button type="button" class="btn btn-link" ng-click="addExclusion()"><i class="fa fa-plus"></i> Add Exclusion</button>
 				<div class="">
-					<div class="" ng-repeat="exclusion in rateplan.exclusions track by $index">
+					<div class="inc-exc-row" ng-repeat="exclusion in rateplan.exclusions track by $index">
 						<div class="input-group" >
-							<input type="text" ng-model="exclusion.name"/>
-							<button type="button" class="btn btn-link btn-sm" ng-click="rateplan.exclusions.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
+							<input type="text" class="form-control" ng-model="exclusion.name"/>
+							<span class="input-group-btn" ng-if="$index == 0">
+								<button type="button" class="btn btn-default" ng-click="addExclusion()" ng-if="$index == 0"><i class="fa fa-plus"></i></button>
+							</span>
+							<span class="input-group-btn" ng-if="$index != 0">
+								<button type="button" class="btn btn-default" ng-click="rateplan.exclusions.splice($index, 1)"><i class="fa fa-minus"></i></button>
+							</span>
 						</div>
 					</div>
 					<div ng-if="exclusionValueError" style="color: red;font-size: 12px;">Enter exclusion</div>
@@ -127,9 +135,9 @@
 					<div class="col-md-12" ng-if="showBlackoutFields">
 						<div class="form-group">
 							<ul>
-								<li ng-repeat="br in rateplan.blackoutsRangeList track by $index">
+								<li ng-repeat="br in rateplan.blackout_dates track by $index">
 									{{br.start}} - {{br.end}}
-									<button type="button" class="btn btn-link" ng-click="rateplan.blackoutsRangeList.splice($index, 1)"><i class="fa fa-times"></i></button>
+									<button type="button" class="btn btn-link" ng-click="rateplan.blackout_dates.splice($index, 1)"><i class="fa fa-times"></i></button>
 								</li>
 							</ul>
 						</div>
@@ -207,27 +215,37 @@
 			<div class="form-group">
 				<label class="">Cancellation Policy</label>
 				<div class="row" ng-repeat="cp in rateplan.cp">
-					<div class="col-md-3">
+					<div class="col-md-2">
 						<div class="form-group">
 							<label class="fwn">From</label>
 							<div>
 								<select class="form-control input-sm"
-								    ng-options="option.id for option in cp.from track by option.id"
+								    ng-options="option.id for option in cp.from_checkin track by option.id"
 								    ng-model="fromSelected"></select>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-2">
 						<div class="form-group">
 							<label class="fwn">To</label>
 							<div>
 								<select class="form-control input-sm"
-								    ng-options="option.id for option in cp.from track by option.id"
+								    ng-options="option.id for option in cp.to_checkin track by option.id"
 								    ng-model="toSelected"></select>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-3">
+						<div class="form-group">
+							<label class="fwn">Amount Type</label>
+							<div>
+								<select class="form-control input-sm"
+								    ng-options="option.name for option in cp.amount_type track by option.id"
+								    ng-model="typeSelected"></select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2">
 						<div class="form-group">
 							<label class="fwn">Amount</label>
 							<div>
@@ -235,7 +253,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-2">
 						<div class="form-group">
 							<label class="fwn">&nbsp;</label>
 							<div>

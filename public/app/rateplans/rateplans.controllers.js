@@ -6,7 +6,6 @@ angular.module("rateplans.controllers", [
         $scope.$emit("pageTitleChanged", "Manage Rateplans");
 
         $scope.rateplans = _.isArray(viewRateplans) ? viewRateplans : [];
-        debugger;
         // AVAILABLE RATEPLANS
         var isAddRateplans = _.isEmpty($scope.rateplans);
 
@@ -16,7 +15,7 @@ angular.module("rateplans.controllers", [
                 "rateplan_id": rateplan.id,
                 "status": 3
             }
-            ManageRateplans.deleteRoom(params, function() {
+            ManageRateplans.deleteRateplan(params, function() {
                 $state.go('.', {}, { reload: 'rateplans' });
             });
         };
