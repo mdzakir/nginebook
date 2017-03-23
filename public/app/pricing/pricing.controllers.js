@@ -19,7 +19,7 @@ angular.module("pricing.controllers", [
         };
 
     })
-    .controller('PricingController', ['$scope', 'Pricing', 'apiEndPoint', '$http', '$state', function($scope, Pricing, apiEndPoint, $http, $state) {
+    .controller('PricingController', ['$scope', '$http', '$state', 'Pricing', 'apiEndPoint', function($scope, $http, $state, Pricing, apiEndPoint) {
         $scope.title = "Pricing";
         $scope.$emit("pageTitleChanged", "Pricing");
 
@@ -126,11 +126,11 @@ angular.module("pricing.controllers", [
                 "end_date": "2017-03-31"
             };
 
-            var post_url = apiEndPoint + '/ratePlan/price/'
-            $http.post(post_url, angular.toJson(params, true))
-                .then(function() {
-                    $state.go('.', {}, { reload: 'pricing' });
-                });
+            // var post_url = apiEndPoint + '/ratePlan/price/'
+            // $http.post(post_url, angular.toJson(params, true))
+            //     .then(function() {
+            //         $state.go('.', {}, { reload: 'pricing' });
+            //     });
 
             // Pricing.updatePricing(params, function() {
             //     $state.go('.', {}, { reload: 'pricing' });

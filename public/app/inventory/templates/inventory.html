@@ -24,11 +24,7 @@
 			<div class="form-group">
 				<label class="">Room Type</label>
 				<div class="">
-					<select class="form-control">
-						<option>Standard</option>
-						<option>Deluxe</option>
-						<option>Luxury</option>
-					</select>
+				<select class="form-control" ng-model="room" ng-change="roomChange(room);" ng-options="room.id as room.name for room in rooms"></select>
 				</div>
 			</div>
 		</div>
@@ -36,7 +32,7 @@
 			<div class="form-group">
 				<label class="">Inventory</label>
 				<div class="">
-					<input type="number" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+					<input type="number" ng-model="availablity" ng-maxlength="200" name="" class="form-control" />
 				</div>
 			</div>
 		</div>
@@ -70,7 +66,7 @@
 			<ul class="">
 				<li ng-repeat="day in allDaysOfMonth track by $index">
 					<div class="inv-date">{{day.date}}</div>
-					<div class="inv-value">{{day.value}}</div>
+					<div class="inv-value">{{day.available}}</div>
 				</li>
 			</ul> 
 		</div>

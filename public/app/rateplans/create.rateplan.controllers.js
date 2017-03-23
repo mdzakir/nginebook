@@ -23,8 +23,6 @@ angular.module("create.rateplan.controllers", [
             $scope.rateplan.rateplan_validity_start = Number(moment($scope.rateplan.rateplan_validity_start).format('x'));
             $scope.rateplan.rateplan_validity_end = Number(moment($scope.rateplan.rateplan_validity_end).format('x'));
 
-            debugger;
-
         }
 
         $scope.addInclusion = function() {

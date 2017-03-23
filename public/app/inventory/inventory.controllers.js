@@ -2,11 +2,16 @@ angular.module("inventory.controllers", [
         "inventory.module"
     ])
 	
-    .controller('InventoryController', ['$scope', 'Inventory', 'viewInventory', function($scope, Inventory, viewInventory) {
+    .controller('InventoryController', ['$scope', '$state', 'ManageInventory', 'viewInventory', 'viewRooms', function($scope, $state, ManageInventory, viewInventory, viewRooms) {
         $scope.title = "Inventory";
         $scope.$emit("pageTitleChanged", "Inventory");
 
 		// DATE PICKER
+
+		$scope.inventoryData = viewInventory;
+
+		$scope.rooms = viewRooms;
+		$scope.room = $scope.rooms[0].id;
 
 		$scope.dateOptions = {
 			formatYear: 'yy',
@@ -51,8 +56,8 @@ angular.module("inventory.controllers", [
 		// GENERATE INVENTORY TABLE
 
 		function generateInventoryTable() {
-			var year = Inventory.currentYear();
-            var month = Inventory.currentMonth() - 1;
+			var year = ManageInventory.currentYear();
+            var month = ManageInventory.currentMonth() - 1;
 
             $scope.currentMonth = moment(month).format('MMMM');
             $scope.currentYear = year;
@@ -80,27 +85,32 @@ angular.module("inventory.controllers", [
 			     $scope.daysInMonth.push({
 			     	date : monthDate.format('DD'), 
 			     	fullDate : monthDate.format('YYYY-MM-DD'),
-			     	value : 12
 			     }); 
 			     monthDate.add(1, 'day');
 			});
 
-			$scope.allDaysOfMonthWeekWise = setOffset(weeksetOffset.concat($scope.daysInMonth));
+			$scope.invDataFeed = _.merge($scope.daysInMonth, $scope.inventoryData);
+
+			$scope.allDaysOfMonthWeekWise = setOffset(weeksetOffset.concat($scope.invDataFeed));
 			$scope.allDaysOfMonth = _.flatten($scope.allDaysOfMonthWeekWise)
 
 		}
 
 		generateInventoryTable();
 
+		$scope.roomChange = function(room){
+			$scope.room = room;
+		}
+
 		$scope.updateInventory = function(){
 			var params = {
 				"hotel_id":"58726a8e5aa124394eb7dae4",
-				"room_id":"58a9ecfc7159cc2806591106",
-				"availablity":5,
-				"start_date":"2017-03-01",
-				"end_date":"2017-03-31"
+				"room_id": $scope.room,
+				"availablity":$scope.availablity,
+				"start_date": moment($scope.start_date).format("YYYY-MM-DD"),
+				"end_date": moment($scope.end_date).format("YYYY-MM-DD")
 			};
-			Inventory.updateInv(params, function(){
+			ManageInventory.updateInv(params, function(){
 				$state.go('.', {}, { reload: 'inventory' });
 			});
 		};
