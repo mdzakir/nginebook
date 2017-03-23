@@ -1,25 +1,8 @@
 angular.module("inventory.controllers", [
         "inventory.module"
     ])
-	.factory('Inventory', function ($http) {
-        return {
-            month: moment(),
-            currentMonth: function () {
-                return parseInt(this.month.format('M'));
-            },
-            currentYear: function () {
-                return parseInt(this.month.format('Y'));
-            },
-            get: function (hotelId, roomId, ratePlanId) {
-                return $http.get('/hotel/optimize/?hotel_id=' + hotelId + '&room_id=' + roomId + '&rate_id=' + ratePlanId + '&date=' + this.currentMonth() + '-' + this.currentYear());
-            },
-            save: function (hotelId, data) {
-                return $http.post('/hotel/override', data);
-            }
-        };
-
-	})
-    .controller('InventoryController', ['$scope', 'Inventory', function($scope, Inventory) {
+	
+    .controller('InventoryController', ['$scope', 'Inventory', 'viewInventory', function($scope, Inventory, viewInventory) {
         $scope.title = "Inventory";
         $scope.$emit("pageTitleChanged", "Inventory");
 
@@ -108,5 +91,18 @@ angular.module("inventory.controllers", [
 		}
 
 		generateInventoryTable();
+
+		$scope.updateInventory = function(){
+			var params = {
+				"hotel_id":"58726a8e5aa124394eb7dae4",
+				"room_id":"58a9ecfc7159cc2806591106",
+				"availablity":5,
+				"start_date":"2017-03-01",
+				"end_date":"2017-03-31"
+			};
+			Inventory.update(params, function(){
+				$state.go('.', {}, { reload: 'inventory' });
+			});
+		};
 
 }]);
