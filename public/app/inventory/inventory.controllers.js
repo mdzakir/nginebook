@@ -100,7 +100,7 @@ angular.module("inventory.controllers", [
 				"start_date":"2017-03-01",
 				"end_date":"2017-03-31"
 			};
-			Inventory.update(params, function(){
+			Inventory.updateInv(params, function(){
 				$state.go('.', {}, { reload: 'inventory' });
 			});
 		};

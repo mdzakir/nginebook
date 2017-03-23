@@ -48,8 +48,8 @@ angular.module("inventory.config", [])
                 debugger;
                 return inventory;
             },
-            update: function(params, callback) {
-                var post_url = isAdd ? apiEndPoint + '/room/create/' : apiEndPoint + '/room/edit/';
+            updateInv: function(params, callback) {
+                var post_url = apiEndPoint + '/room/inventory/';
                 $http.post(post_url, angular.toJson(params, true))
                     .then(function() {
                         callback();
