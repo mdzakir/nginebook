@@ -45,7 +45,7 @@ angular.module("inventory.config", [])
             getInventory: function(hotelId, roomId) {
                 var deferred = $q.defer();
                 var inventory = deferred.promise;
-                $http.get(apiEndPoint + '/room/viewInventory', {
+                $http.get(apiEndPoint + '/room/inventoryView', {
                         params: {
                             hotel_id: hotelId,
                             room_id: roomId,
