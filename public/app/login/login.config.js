@@ -9,15 +9,4 @@ angular.module("login.config", [])
                 },
                 controller: "LoginController",
             });
-    })
-    .factory('ManageLogin', function($http, $q, apiEndPoint) {
-        return {
-            save: function(params, callback) {
-                var post_url = apiEndPoint + '/auth/login/';
-                $http.post(post_url, angular.toJson(params, true))
-                    .then(function() {
-                        callback();
-                    });
-            },
-        };
-    })
+    });

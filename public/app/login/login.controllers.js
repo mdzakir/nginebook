@@ -1,33 +1,20 @@
 angular.module("login.controllers", [
-	"login.module"
+    "login.module"
 ])
 
-.controller('LoginController', function ($scope, $http,viewBooking) {
-	$scope.title = "Login";
-	$scope.$emit("pageTitleChanged", "Login");
+.controller('LoginController', function($scope, $http, User) {
+    $scope.title = "Login";
+    $scope.$emit("pageTitleChanged", "Login");
 
-	$scope.loginSubmit = function(){
-		var params = {
-			email_id: $scope.email_id,
-			password: $scope.password
-		};
-		
-	}
+    $scope.loginSubmit = function() {
+        User.login($scope.email_id, $scope.password).then(function() {
+            if (User.getToken('auth-token') == 'invalid') {
+                $scope.invalidLogin = true;
+            } else {
+                $scope.invalidLogin = false;
+            }
+
+        });
+    };
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

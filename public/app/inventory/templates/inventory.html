@@ -1,4 +1,10 @@
-<form class="well">
+<h2 class="page-title">Inventory 
+	<button type="button" ng-if="!showUpdateInventoryForm" class="btn btn-primary pull-right" ng-click="showUpdateInventoryFormFn();">Update Inventory</button>
+	<button type="button" ng-if="showUpdateInventoryForm" class="btn btn-primary pull-right" ng-click="hideUpdateInventoryFormFn();"><i class="fa fa-times"></i> Close Form</button>
+</h2>
+
+<form class="well" ng-if="showUpdateInventoryForm">
+	<h4>Update Inventory</h4>
 	<div class="row">
 		<div class="col-md-3">
 			<div class="form-group">
@@ -41,6 +47,54 @@
 		<div class="col-md-12">
 			<div class="form-group tac">
 				<button type="button" class="btn btn-success" ng-click="updateInventory();"><i class="fa fa-save"></i> Update</button>
+			</div>
+		</div>
+	</div>
+</form>
+<form class="well">
+	<div class="row">
+		<div class="col-md-2">
+			<div class="form-group">
+				<label class="">Start date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="filter_start_date" 
+					is-open="filter_start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_filter_start()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="form-group">
+				<label class="">End date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="filter_end_date" 
+					is-open="filter_end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_filter_end()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Room Type</label>
+				<div class="">
+				<select class="form-control" ng-model="filter_room" ng-change="filterRoomChange(filter_room);" ng-options="filter_room.id as filter_room.name for filter_room in filter_rooms"></select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Inventory</label>
+				<div class="">
+					<input type="number" ng-model="filter_availablity" ng-maxlength="200" name="" class="form-control" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="form-group">
+				<label class="">&nbsp;</label>
+				<div>
+					<button type="button" class="btn btn-success" ng-click="showInventoryTable();"><i class="fa fa-save"></i> Search</button>
+				</div>
 			</div>
 		</div>
 	</div>

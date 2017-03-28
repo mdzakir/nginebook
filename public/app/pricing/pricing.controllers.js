@@ -1,29 +1,15 @@
 angular.module("pricing.controllers", [
         "pricing.module"
     ])
-    .factory('Pricing', function($http) {
-        return {
-            month: moment(),
-            currentMonth: function() {
-                return parseInt(this.month.format('M'));
-            },
-            currentYear: function() {
-                return parseInt(this.month.format('Y'));
-            },
-            get: function(hotelId, roomId, ratePlanId) {
-                return $http.get('/hotel/optimize/?hotel_id=' + hotelId + '&room_id=' + roomId + '&rate_id=' + ratePlanId + '&date=' + this.currentMonth() + '-' + this.currentYear());
-            },
-            save: function(hotelId, data) {
-                return $http.post('/hotel/override', data);
-            }
-        };
-
-    })
-    .controller('PricingController', ['$scope', '$http', '$state', 'Pricing', 'apiEndPoint', function($scope, $http, $state, Pricing, apiEndPoint) {
+    .controller('PricingController', ['$scope', '$http', '$state', 'Pricing', 'apiEndPoint', 'viewPricing', function($scope, $http, $state, Pricing, apiEndPoint, viewPricing) {
         $scope.title = "Pricing";
         $scope.$emit("pageTitleChanged", "Pricing");
 
         // DATE PICKER
+
+        $scope.pricingData = viewPricing;
+
+        console.log($scope.pricingData);
 
         $scope.dateOptions = {
             formatYear: 'yy',
@@ -132,9 +118,9 @@ angular.module("pricing.controllers", [
             //         $state.go('.', {}, { reload: 'pricing' });
             //     });
 
-            // Pricing.updatePricing(params, function() {
-            //     $state.go('.', {}, { reload: 'pricing' });
-            // });
+            Pricing.updatePricing(params, function() {
+                $state.go('.', {}, { reload: 'pricing' });
+            });
         };
 
 
