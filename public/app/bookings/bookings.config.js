@@ -31,7 +31,7 @@ angular.module("bookings.config", [])
                 var viewBookings = response.data;
                 deferred.resolve(viewBookings);
             }, function(error) {
-                viewBookings = null;
+                viewBookings = [];
                 deferred.reject(error);
             });
             return viewBookings;

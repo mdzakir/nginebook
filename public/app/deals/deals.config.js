@@ -56,7 +56,7 @@ angular.module("deals.config", [])
             return deal;
         },*/
         save: function (params, callback) {
-            var post_url = 'http://0.0.0.0:8083/deal/create/';
+            var post_url = 'http://0.0.0.0:8000/deal/create/';
             $http.post(post_url, angular.toJson(params, true))
                 .then(function () {
                     callback();

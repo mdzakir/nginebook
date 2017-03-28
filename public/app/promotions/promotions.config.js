@@ -54,7 +54,7 @@ angular.module("promotions.config", [])
             return promotion;
         },*/
         save: function (params, callback) {
-            var post_url = 'http://0.0.0.0:8083/promotion/create/';
+            var post_url = 'http://0.0.0.0:8000/promotion/create/';
             $http.post(post_url, angular.toJson(params, true))
                 .then(function () {
                     callback();

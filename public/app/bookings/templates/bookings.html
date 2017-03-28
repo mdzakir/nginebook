@@ -61,7 +61,7 @@
 				<tr>
 					<th>Booking ID</th>
 					<th>Guest Name</th>
-					<th>Payment Mode</th>
+					<th>Rooms</th>
 					<th>Status</th>
 					<th>Booking Time</th>
 					<th>Check-In</th>
@@ -74,8 +74,8 @@
 			<tbody>
 				<tr ng-repeat="booking in bookingData track by $index">
 					<td>{{booking.reference_id}}</td>
-					<td>{{booking.guestName}}</td>
-					<td>{{booking.payment_type}}</td>
+					<td>{{booking.guest_name}}</td>
+					<td>{{booking.no_of_rooms}}</td>
 					<td>{{booking.status}}</td>
 					<td>{{booking.generation_time}}</td>
 					<td>{{booking.checkin_date}}</td>

@@ -238,7 +238,8 @@ angular.module("deals.controllers", [
                 "rooms": $scope.roomsSelected,
                 "rate_plans": $scope.rateplansSelected,
                 "discount_type": $scope.discount_type,
-                "discount_value": $scope.discount_value
+                "discount_value": $scope.discount_value,
+                "applicable_on": $scope.applicable_on
             };
 
             console.log(params);
