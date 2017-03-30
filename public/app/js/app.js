@@ -5,6 +5,7 @@ angular.module("productApp", [
     "login.module",
     "app.config",
     "app.controllers",
+    "base.module",
     "home.module",
     "bookings.module",
     "rooms.module",

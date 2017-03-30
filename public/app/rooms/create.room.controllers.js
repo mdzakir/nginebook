@@ -54,7 +54,7 @@ angular.module("create.room.controllers", [
             };
 
             ManageRooms.save(params, isAddRoom, function () {
-                $state.go('rooms');
+                $state.go('base.rooms');
             });
         };
         

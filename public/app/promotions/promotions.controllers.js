@@ -236,7 +236,7 @@ angular.module("promotions.controllers", [
             };
 
             ManagePromotions.save(params, function() {
-                $state.go('.', {}, { reload: 'rooms' });
+                $state.go('.', {}, { reload: 'base.promotions' });
             });
         };
     });

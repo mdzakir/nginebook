@@ -1,7 +1,7 @@
 angular.module("inventory.config", [])
     .config(function($stateProvider) {
         $stateProvider
-            .state("inventory", {
+            .state("base.inventory", {
                 url: "/inventory",
                 templateUrl: "app/inventory/templates/inventory.html",
                 resolve: {

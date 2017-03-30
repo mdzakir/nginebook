@@ -1,7 +1,7 @@
 angular.module("rateplans.config", [])
 .config(function ($stateProvider) {
 	$stateProvider
-	.state("rateplans", {
+	.state("base.rateplans", {
 		url : "/rateplans",
 		templateUrl : "app/rateplans/templates/rateplans.html",
 		resolve: {
@@ -20,7 +20,7 @@ angular.module("rateplans.config", [])
 		},
 		controller : "RateplansController"
 	})
-    .state('create-rateplan', {
+    .state('base.create-rateplan', {
         url: '/create-rateplan/:id',
         templateUrl: 'app/rateplans/templates/create-rateplan.html',
         resolve: {

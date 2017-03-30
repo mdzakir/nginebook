@@ -1,7 +1,7 @@
 angular.module("pricing.config", [])
     .config(function($stateProvider) {
         $stateProvider
-            .state("pricing", {
+            .state("base.pricing", {
                 url: "/pricing",
                 templateUrl: "app/pricing/templates/pricing.html",
                 resolve: {

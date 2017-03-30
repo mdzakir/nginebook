@@ -251,7 +251,7 @@ angular.module("create.rateplan.controllers", [
             };
 
             ManageRateplans.save(params, isAddRateplan, function() {
-                $state.go('rateplans');
+                $state.go('base.rateplans');
             });
         };
 
