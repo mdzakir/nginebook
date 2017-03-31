@@ -1,7 +1,7 @@
 angular.module("rooms.config", [])
 .config(function ($stateProvider) {
 	$stateProvider
-	.state("rooms", {
+	.state("base.rooms", {
 		url : "/rooms",
 		templateUrl : "app/rooms/templates/rooms.html",
 		resolve: {
@@ -23,7 +23,7 @@ angular.module("rooms.config", [])
 		},
 		controller : "RoomsController"
 	})
-    .state('create-room', {
+    .state('base.create-room', {
         url: '/create-room/:id',
         templateUrl: 'app/rooms/templates/create-room.html',
         resolve: {

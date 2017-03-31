@@ -1,7 +1,7 @@
 angular.module("manual-booking.config", [])
     .config(function($stateProvider) {
         $stateProvider
-            .state("manual-bookings", {
+            .state("base.manual-bookings", {
                 url: "/manual-bookings",
                 templateUrl: "app/manual-booking/templates/manual-bookings.html",
                 resolve: {
@@ -17,7 +17,7 @@ angular.module("manual-booking.config", [])
                 },
                 controller: "ManualBookingController"
             })
-            .state('create-manual-booking', {
+            .state('base.create-manual-booking', {
                 url: '/create-manual-booking/:id',
                 templateUrl: 'app/manual-booking/templates/create-manual-booking.html',
                 resolve: {

@@ -21,18 +21,10 @@
     </style>
 </head>
 
-<body>
+<body ng-cloak ng-csp>
 
     <div class="app-container">
-        <ng-include src="'app/base/header.html'"></ng-include>
-        <div class="main-container">
-            <ng-include src="'app/base/mainsidebar.html'"></ng-include>
-            <div class="page-content">
-                <div class="container page-container">
-                    <ui-view></ui-view>
-                </div>
-            </div>
-        </div>
+        <ui-view></ui-view>
     </div>
 
     <script type="text/javascript" src="/components/angular/angular.js"></script>
@@ -52,9 +44,9 @@
     <script type="text/javascript" src="/app/js/angular-cache.js"></script>
     <script type="text/javascript" src="/app/js/angular-cookies.js"></script>
 
-    <script type="text/javascript" src="/app/js/basefeed/baseFeed.controllers.js"></script>
-    <script type="text/javascript" src="/app/js/basefeed/baseFeed.module.js"></script>
-    <script type="text/javascript" src="/app/js/basefeed/baseFeed.config.js"></script>
+    <script type="text/javascript" src="/app/base/base.controllers.js"></script>
+    <script type="text/javascript" src="/app/base/base.module.js"></script>
+    <script type="text/javascript" src="/app/base/base.config.js"></script>
 
     <script type="text/javascript" src="/app/login/login.controllers.js"></script>
     <script type="text/javascript" src="/app/login/login.module.js"></script>

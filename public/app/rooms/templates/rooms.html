@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-12"><h4>Rooms <a style="font-size: 14px;margin-left: 15px;" ui-sref="create-room"><i class="fa fa-plus nrr-btn-add"></i><span>Add New Room</span></a></h4></div>
+	<div class="col-md-12"><h4>Rooms <a style="font-size: 14px;margin-left: 15px;" ui-sref="base.create-room"><i class="fa fa-plus nrr-btn-add"></i><span>Add New Room</span></a></h4></div>
 	<div class="col-md-3" ng-repeat="room in rooms track by $index">
 		<div class="room-rateplan-box room-box">
 			<div class="room-rateplan-box-name">{{room.name}}</div>
@@ -22,7 +22,7 @@
 				<div class="nrr-btn-wrapper">
 					<!-- <div class="nrr-btn" ng-click="addRoomForm();"> -->
 					<div class="nrr-btn" >
-						<a ui-sref="create-room">
+						<a ui-sref="base.create-room">
 							<i class="fa fa-plus nrr-btn-add"></i>
 							<span>Add New Room</span>
 						</a>

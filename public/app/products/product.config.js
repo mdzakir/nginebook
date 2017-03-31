@@ -1,11 +1,11 @@
 angular.module("product.config", [])
 .config(function ($stateProvider) {
     $stateProvider
-    .state("products", {
+    .state("base.products", {
         url: "/products",
         templateUrl: "app/products/templates/product-home.html"
     })
-    .state("products.list", {
+    .state("base.products.list", {
         url:"/list",
         views: {
             "": {
@@ -18,13 +18,13 @@ angular.module("product.config", [])
         }
     })
 
-    .state("products.view", {
+    .state("base.products.view", {
     	url:"/view/:id",
     	controller:"ProductViewController",
     	templateUrl:"app/products/templates/product-view.html"
     })
 
-    .state("products.edit", {
+    .state("base.products.edit", {
         url:"/edit/:id",
         views: {
             "": {
@@ -37,13 +37,13 @@ angular.module("product.config", [])
         }
     })
 
-    .state("products.create", {
+    .state("base.products.create", {
         url:"/create",
         controller:"ProductEditController",
         templateUrl:"app/products/templates/product-edit.html"
     })
 
-    .state("products.components", {
+    .state("base.products.components", {
         url:"/components",
         template: "<products></products>"
     })

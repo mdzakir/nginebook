@@ -1,7 +1,7 @@
 angular.module("deals.config", [])
 .config(function ($stateProvider) {
 	$stateProvider
-	.state("deals", {
+	.state("base.deals", {
 		url : "/deals/:dealId",
 		templateUrl : "app/deals/templates/deals.html",
 		resolve: {/*

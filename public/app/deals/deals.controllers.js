@@ -241,11 +241,9 @@ angular.module("deals.controllers", [
                 "discount_value": $scope.discount_value,
                 "applicable_on": $scope.applicable_on
             };
-
-            console.log(params);
-
+            
             ManageDeals.save(params, function() {
-                $state.go('.', {}, { reload: 'rooms' });
+                $state.go('.', {}, { reload: 'base.deals' });
             });
         };
     }]);

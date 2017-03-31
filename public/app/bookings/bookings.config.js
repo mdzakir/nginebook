@@ -1,7 +1,7 @@
 angular.module("bookings.config", [])
 .config(function ($stateProvider) {
 	$stateProvider
-	.state("bookings", {
+	.state("base.bookings", {
 		url : "/bookings",
 		templateUrl : "app/bookings/templates/bookings.html",
 		resolve: {

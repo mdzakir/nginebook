@@ -71,7 +71,7 @@
 					<th>Actions</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody ng-if="bookingData != 'No Booking found'">
 				<tr ng-repeat="booking in bookingData track by $index">
 					<td>{{booking.reference_id}}</td>
 					<td>{{booking.guest_name}}</td>
@@ -91,6 +91,14 @@
 					        <li role="menuitem"><a href="#">Add Remark</a></li>
 					      </ul>
 					    </div>
+					</td>
+				</tr>
+			</tbody>
+			<tbody ng-if="bookingData == 'No Booking found'">
+				<tr>
+					<td style="padding: 30px;" class="tac" colspan="10">
+						<p><i class="fa fa-thumbs-o-down"></i> No booking data available.</p>
+    					<a style="font-size: 14px;" ui-sref="base.create-manual-booking"><i class="fa fa-plus nrr-btn-add"></i><span> Create a Booking</span></a>
 					</td>
 				</tr>
 			</tbody>
