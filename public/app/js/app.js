@@ -30,6 +30,45 @@ angular.module("productApp", [
 })
 
 .run(function(DEBUG) {})
+.constant('startState', 'base.home')
+.config(function($urlRouterProvider, startState) {
+    $urlRouterProvider.otherwise(function($injector) {
+        var state = $injector.get('$state');
+        state.go(startState);
+    });
+})
+.run(function($rootScope, $state, startState) {
+    $rootScope.$on('userLoggedIn', function() {
+        $state.go(startState);
+    });
+    $rootScope.$on('userLoggedOut', function() {
+        $state.go('login');
+    });
+    $rootScope.$on('authenticationRequired', function() {
+        $state.go('login');
+    });
+    $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
+        console.log(error);
+    });
+    $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
+        // if(loggedIn) {
+        //     $state.go('app.dashboard');
+        // }
+        $rootScope.$on('userLoggedIn', function() {
+            $state.go(startState);
+        });
+        // if (toState.module === 'base' && !$cookies.Session) {
+        //     // If logged out and transitioning to a logged in page:
+        //     e.preventDefault();
+        //     $state.go('login');
+        // } else if (toState.module === 'login' && $cookies.Session) {
+        //     // If logged in and transitioning to a logged out page:
+        //     e.preventDefault();
+        //     $state.go(toState);
+        // };
+    });
+})
+
 
 .run(function($rootScope) {
         $rootScope.$on("pageTitleChanged", function($event, title) {

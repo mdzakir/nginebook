@@ -2,9 +2,11 @@ angular.module("login.controllers", [
     "login.module"
 ])
 
-.controller('LoginController', function($scope, $http, User) {
+.controller('LoginController', function($scope, $http, User, $rootScope) {
     $scope.title = "Login";
     $scope.$emit("pageTitleChanged", "Login");
+
+    
 
     $scope.loginSubmit = function() {
         User.login($scope.email_id, $scope.password).then(function() {
