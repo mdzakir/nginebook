@@ -18,7 +18,8 @@ angular.module("productApp", [
     "manual-booking.module",
     "product.module",
     "about.module",
-    "ngResource"
+    "ngResource",
+    "upload-images.module"
 ])
 
 .constant('DEBUG', true)
