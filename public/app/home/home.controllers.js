@@ -15,7 +15,6 @@ angular.module("home.controllers", [
 		}
 	];
 
-	console.log($scope.hotels);
     $scope.hotelId = 'kri';
     $scope.indexOfSelectedHotel = _.findIndex($scope.hotels, function (o) {
         return o.id == $scope.hotelId;
