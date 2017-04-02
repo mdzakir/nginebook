@@ -1,20 +1,50 @@
 <form class="well" name="fileUploadForm" id="fileUploadForm" enctype="multipart/form-data">
-	<div class="row">
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Select File</label>
-				<div class="">
-					<input type="file" class="form-control" ng-model="docfile" />
-				</div>
-			</div>
-		</div>
-		
-		
-	<div class="row">
-		<div class="col-md-12">
-			<div class="form-group tac">
-				<button type="button" class="btn btn-success" ng-click="saveImage();"><i class="fa fa-save"></i> Upload</button>
-			</div>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="">Select File</label>
+                <div class="">
+                    <input type="file" class="form-control" ng-file-model="obj.file_data" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group tac">
+                <button type="button" class="btn btn-success" ng-click="saveImage(obj);"><i class="fa fa-save"></i> Upload</button>
+            </div>
+        </div>
+    </div>
 </form>
+
+<form name="fileUploadForm2">
+    <fieldset>
+        <br>Photo:
+        <input type="file" ngf-select ng-model="picFile" name="file" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFile">
+        <i ng-show="fileUploadForm2.file.$error.required">*required</i>
+        <br>
+        <i ng-show="fileUploadForm2.file.$error.maxSize">File too large 
+          {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
+        <img ng-show="fileUploadForm2.file.$valid" ngf-thumbnail="picFile" class="thumb">
+        <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+        <br>
+        <button ng-disabled="!fileUploadForm2.$valid" ng-click="uploadPic(picFile)">Submit</button>
+        <span class="progress" ng-show="picFile.progress >= 0">
+        <div style="width:{{picFile.progress}}%" 
+            ng-bind="picFile.progress + '%'"></div>
+      </span>
+        <span ng-show="picFile.result">Upload Successful</span>
+        <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+    </fieldset>
+    <br>
+</form>
+<style type="text/css">
+.thumb {
+    width: 24px;
+    height: 24px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+</style>
