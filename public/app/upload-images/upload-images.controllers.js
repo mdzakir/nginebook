@@ -26,10 +26,10 @@ angular.module("upload-images.controllers", [
 
         $scope.saveImage = function(obj) {
             //var params = $scope.docfile;
-            console.log(obj.file_data);
-            // UploadFactory.save(params, function() {
-            //     $state.go('.', {}, { reload: 'base.upload' });
-            // });
+            var params = { docfile: obj.file_data };
+            UploadFactory.save(params, function() {
+                $state.go('.', {}, { reload: 'base.upload' });
+            });
         }
 
     });
