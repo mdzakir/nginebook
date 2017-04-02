@@ -1,9 +1,21 @@
 angular.module("upload-images.controllers", [
         "upload-images.module"
     ])
-    .controller('UploadController', function($state, $http, $scope, UploadFactory, Upload, $timeout, apiEndPoint) {
+    .controller('UploadController', function($state, $http, $scope, UploadFactory, Upload, $timeout, apiEndPoint, viewRooms) {
         $scope.title = "Upload Files";
         $scope.$emit("pageTitleChanged", "Upload Files");
+
+        $scope.rooms = viewRooms;
+        $scope.room = $scope.rooms[0].id;
+
+        $scope.imageCategories = [{
+            "id": "Balcony",
+            "name": "Balcony"
+        }, {
+            "id": "Front Desk",
+            "name": "Front Desk"
+        }];
+        $scope.selectedImageCategory = $scope.imageCategories[0].id;
 
         $scope.uploadPic = function(file) {
             file.upload = Upload.upload({
@@ -26,7 +38,12 @@ angular.module("upload-images.controllers", [
 
         $scope.saveImage = function(obj) {
             //var params = $scope.docfile;
-            var params = { docfile: obj.file_data };
+            var params = {
+                "hotel_id": "58726a8e5aa124394eb7dae4",
+                "room_id": $scope.room,
+                "image_category": $scope.selectedImageCategory,
+                "docfile": obj.file_data
+            };
             UploadFactory.save(params, function() {
                 $state.go('.', {}, { reload: 'base.upload' });
             });

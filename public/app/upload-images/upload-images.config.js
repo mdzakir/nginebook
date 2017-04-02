@@ -7,7 +7,10 @@ angular.module("upload-images.config", [])
                 resolve: {
                     hotelId: function() {
                         return '58726a8e5aa124394eb7dae4';
-                    }
+                    },
+                    viewRooms: function(UploadFactory) {
+                        return UploadFactory.getRooms();
+                    },
 
                 },
                 controller: "UploadController"
@@ -15,6 +18,18 @@ angular.module("upload-images.config", [])
     })
     .factory('UploadFactory', function($http, $q, apiEndPoint) {
         return {
+        	getRooms: function() {
+                var deferred = $q.defer();
+                var viewrooms = deferred.promise;
+                $http.get(apiEndPoint + '/room/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+                    var viewrooms = response.data;
+                    deferred.resolve(viewrooms);
+                }, function(error) {
+                    viewrooms = null;
+                    deferred.reject(error);
+                });
+                return viewrooms;
+            },
             save: function(params, callback) {
                 $http.post(apiEndPoint + '/upload/list/', params)
                     .then(function() {

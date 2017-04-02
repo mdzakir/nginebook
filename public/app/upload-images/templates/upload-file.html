@@ -2,6 +2,22 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
+                <label class="">Select Room</label>
+                <div class="">
+                    <select class="form-control" ng-model="room" ng-change="roomChange(room);" ng-options="room.id as room.name for room in rooms"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="">Image Category</label>
+                <div class="">
+                    <select class="form-control" ng-model="selectedImageCategory" ng-change="imageCategoryChange(selectedImageCategory);" ng-options="selectedImageCategory.id as selectedImageCategory.name for selectedImageCategory in imageCategories"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
                 <label class="">Select File</label>
                 <div class="">
                     <input type="file" class="form-control" ng-file-model="obj.file_data" />
