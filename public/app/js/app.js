@@ -16,6 +16,7 @@ angular.module("productApp", [
     "angular-cache",
     "ngCookies",
     "promotions.module",
+    "taxes.module",
     "manual-booking.module",
     "product.module",
     "about.module",
@@ -158,6 +159,9 @@ angular.module("productApp", [
                 var User = $injector.get('User');
                 if (rejection.status === 401 || rejection.status === 403) {
                     User.setToken();
+                    if (rejection.config.url != "/user/multipleauth") {
+                        $rootScope.$broadcast('authenticationRequired');
+                    }
                 }
                 return $q.reject(rejection);
             },

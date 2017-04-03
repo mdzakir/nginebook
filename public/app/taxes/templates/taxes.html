@@ -1,0 +1,34 @@
+<div class="row">
+	<div class="col-md-12"><h4>Rooms <a style="font-size: 14px;margin-left: 15px;" ui-sref="base.create-room"><i class="fa fa-plus nrr-btn-add"></i><span>Add New Room</span></a></h4></div>
+	<div class="col-md-3" ng-repeat="room in rooms track by $index">
+		<div class="room-rateplan-box room-box">
+			<div class="room-rateplan-box-name">{{room.name}}</div>
+			<div class="room-rateplan-box-img">
+				<img ng-if="room.images[0].url" ng-src="{{room.images[0].url}}" alt="{{room.name}}" class="img-responsive" />
+				<img ng-if="!room.images[0].url" ng-src="images/no-image.jpg" alt="{{room.name}}" class="img-responsive" />
+				<div class="view-room-controls">
+					<button type="button" ng-click="deleteRoom(room);"><i class="fa fa-times"></i></button>
+					<button type="button" ng-click="editRoom(room.id);"><i class="fa fa-pencil"></i></button>
+				</div>
+			</div>
+			<div class="room-rateplan-box-desc">
+				<p>{{room.description}}</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="room-rateplan-box room-box">
+			<div class="new-room-rateplan new-room">
+				<div class="nrr-btn-wrapper">
+					<!-- <div class="nrr-btn" ng-click="addRoomForm();"> -->
+					<div class="nrr-btn" >
+						<a ui-sref="base.create-room">
+							<i class="fa fa-plus nrr-btn-add"></i>
+							<span>Add New Room</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
