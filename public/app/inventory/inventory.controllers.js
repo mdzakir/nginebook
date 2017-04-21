@@ -9,10 +9,54 @@ angular.module("inventory.controllers", [
     // DATE PICKER
 
     $scope.inventoryData = viewInventory;
+    console.log(viewInventory);
 
+    // Calendar Start Date
+    $scope.calDateOptions = {
+        formatYear: 'yy',
+        maxDate: new Date(2020, 5, 22),
+        //minDate: new Date(),
+        startingDay: 1,
+        "setDate": new Date(),
+        defaultDate : new Date()
+    }
+
+    $scope.cal_start_date = new Date();
+
+    $scope.open_cal_start = function() {
+        $scope.open_cal_start_popup.opened = true;
+    };
+
+    $scope.open_cal_start_popup = {
+        opened: false
+    };
+
+    $scope.startDateChanged = function(){
+        console.log($scope.cal_start_date);
+    };
+
+    $scope.previousDates = function(){
+        var current_start_date = moment($scope.cal_start_date);
+        var new_start_date = current_start_date.subtract(15,'days');
+        new_start_date = new_start_date.format("dd MMM yyyy");
+        console.log(new_start_date);
+        $scope.cal_start_date = new Date(parseInt(moment(new_start_date).format('x')));
+    };
+
+    $scope.nextDates = function(){
+        var current_start_date = moment($scope.cal_start_date);
+        var new_start_date = current_start_date.add(15,'days');
+        new_start_date = new_start_date.format("dd MMM yyyy");
+        console.log(new_start_date);
+        $scope.cal_start_date = new Date(parseInt(moment(new_start_date).format('x')));
+        debugger;
+    };
+
+    // Rooms
     $scope.rooms = _.clone(viewRooms);
     $scope.room = $scope.rooms[0].id;
 
+    // Date options for form
     $scope.dateOptions = {
         formatYear: 'yy',
         maxDate: new Date(2020, 5, 22),
@@ -25,7 +69,6 @@ angular.module("inventory.controllers", [
     $scope.altInputFormats = ['M!/d!/yyyy'];
 
     $scope.datesSet = []
-
 
     //Filters Form
 

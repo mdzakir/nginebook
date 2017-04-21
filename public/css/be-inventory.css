@@ -2,89 +2,91 @@ h2.page-title {
     margin-top: 0;
 }
 
+
 /* INVENTORY PAGE STYLING */
 
-.month-nav{
-  text-align: center;
-  margin-bottom: 10px;
+.month-nav {
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-.inventory-calendar{
-/*  padding: 0 15px;*/
+.inventory-calendar {
+    /*  padding: 0 15px;*/
 }
 
 .inventory-calendar .month-header ul,
-.inventory-calendar .month-body ul{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  float: left;
+.inventory-calendar .month-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    float: left;
 }
 
-.inventory-calendar .month-header ul{
-  border: 1px solid #ddd;
-  background: #fff;
+.inventory-calendar .month-header ul {
+    border: 1px solid #ddd;
+    background: #fff;
 }
 
-.inventory-calendar .month-body ul{
-  border-left: 1px solid #ddd;
-  border-top: 1px solid #ddd;
-  background: #fff; 
+.inventory-calendar .month-body ul {
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    background: #fff;
 }
 
 .inventory-calendar .month-header ul li,
-.inventory-calendar .month-body ul li{
-  width: 14.2857142857%;
-  float: left;
+.inventory-calendar .month-body ul li {
+    width: 14.2857142857%;
+    float: left;
 }
 
-.inventory-calendar .month-header ul li{
-  padding: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
+.inventory-calendar .month-header ul li {
+    padding: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.inventory-calendar .month-body ul li{
-  height: 60px;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  position: relative;
+.inventory-calendar .month-body ul li {
+    height: 60px;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    position: relative;
 }
 
-.inv-date{
-  font-size: 10px;
-  color: #777;
+.inv-date {
+    font-size: 10px;
+    color: #777;
 }
 
-.inv-value{
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  font-size: 14px;
-  font-weight: bold;
+.inv-value {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
+.invDatesColumn .left-col {
+    width: 16.7%;
+    float: left;
+}
 
+.inv-data-row {
+    width: 83.26%;
+    float: left;
+}
 
+.data-table-title {
+    padding: 20px 10px;
+    font-size: 20px;
+    height: 69px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.hexInventoryPage{
-  min-width:930px;
+.hexInventoryPage {
+    min-width: 930px;
 }
 
 .preloadedValue {
@@ -93,33 +95,36 @@ h2.page-title {
 }
 
 .seasonDisplayBlock .panel-heading {
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.barDisplayBlock {
-  
+.barDisplayBlock {}
+
+.dateImg img {
+    position: absolute;
+    right: 8px;
+    top: 8px;
 }
 
-.dateImg img{
-  position:absolute;
-  right:8px;
-  top:8px;
+.nav-tabs {
+    margin-bottom: 10px;
 }
 
-.nav-tabs{
-  margin-bottom:10px;
+.fwb {
+    font-weight: bold;
 }
 
-.fwb{font-weight:bold;}
-.tdu{text-decoration:underline;}
-
-.hexInventoryPage .table{
-  margin-bottom:0;
-  font:11px lato, Open Sans, Arial;
+.tdu {
+    text-decoration: underline;
 }
 
-.hexInventoryPage .table tbody th{
-  font-family:Open Sans, Lato, Arial;
+.hexInventoryPage .table {
+    margin-bottom: 0;
+    font: 11px lato, Open Sans, Arial;
+}
+
+.hexInventoryPage .table tbody th {
+    font-family: Open Sans, Lato, Arial;
 }
 
 .hexInventoryPage .table > thead > tr > th,
@@ -127,34 +132,36 @@ h2.page-title {
 .hexInventoryPage .table > tfoot > tr > th,
 .hexInventoryPage .table > thead > tr > td,
 .hexInventoryPage .table > tbody > tr > td,
-.hexInventoryPage .table > tfoot > tr > td{
-  padding:0px;
-  text-align:center;
-  font-weight:normal;
-  vertical-align: middle;
+.hexInventoryPage .table > tfoot > tr > td {
+    padding: 0px;
+    text-align: center;
+    font-weight: normal;
+    vertical-align: middle;
 }
 
-.hexInventoryPage .dataTables_scroll{
-  overflow:auto;
+.hexInventoryPage .dataTables_scroll {
+    overflow: auto;
 }
 
 .dateBlockHeadingTop {
-  background-color: #A0B2EB;
+    background-color: #A0B2EB;
 }
 
 .dateBlockHeadingBottom {
     background-color: #F0F0F0;
 }
 
-.hexInventoryPage .table > tbody > tr > td{/* min-width:50px; */}
-
-.tab-content{
-  padding-bottom:10px;
-  border-bottom:1px solid #DDD;
-  margin-bottom:10px;
+.hexInventoryPage .table > tbody > tr > td {
+    /* min-width:50px; */
 }
 
-.hexInventoryRoomName{
+.tab-content {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 10px;
+}
+
+.hexInventoryRoomName {
     display: block;
     max-width: 100px;
     overflow: hidden;
@@ -163,8 +170,8 @@ h2.page-title {
     white-space: nowrap;
 }
 
-.hexInventoryUpdateForm .panel{
-  margin-bottom:0;
+.hexInventoryUpdateForm .panel {
+    margin-bottom: 0;
 }
 
 .inventoryChart {
@@ -173,6 +180,8 @@ h2.page-title {
     box-shadow: 0 0 1px #CCCCCC;
     float: left;
     width: 100%;
+    clear: both;
+    background: #fff;
 }
 
 .roomsColumn {
@@ -193,20 +202,26 @@ h2.page-title {
     border-bottom: 1px solid #DDDDDD;
     font-size: 13px;
     height: 55px;
-    padding: 10px 5px;
+    padding: 10px;
+    border-right: 1px solid #ddd;
 }
 
-.invCol.not-allocated{
-  padding:18px 20px;
-  background-color: #e8e8e8;
+.invCol.not-allocated {
+    padding: 18px 20px;
+    background-color: #e8e8e8;
     background-image: repeating-linear-gradient(130deg, transparent, transparent 8px, rgba(255, 255, 255, .3) 8px, rgba(255, 255, 255, .3) 15px);
+}
+
+.data-table-header {
+    float: left;
+    width: 100%;
 }
 
 .datesRow {
     float: left;
     font-size: 11px;
     height: 69px;
-    width: 100%;
+    width: 83.26%;
 }
 
 .datesWrapper {
@@ -215,12 +230,12 @@ h2.page-title {
     border-right: 1px solid #DDDDDD;
     float: left;
     width: 6.6666667%;
-    display:inline-block;
+    display: inline-block;
     height: 69px;
 }
 
-.datesWrapper:last-child{
-  border-right: 0;
+.datesWrapper:last-child {
+    border-right: 0;
 }
 
 .datesWrapper > span {
@@ -238,13 +253,13 @@ h2.page-title {
 
 .invDatesColumn {
     float: left;
-    width: 83.26%;
+    width: 100%;
 }
 
 .invRow {
     float: left;
     font-size: 11px;
-    width:100%;
+    width: 100%;
 }
 
 .invCol {
@@ -257,8 +272,8 @@ h2.page-title {
     text-align: center;
 }
 
-.invCol:last-child{
-  border-right: 0;
+.invCol:last-child {
+    border-right: 0;
 }
 
 .top-bar {
@@ -266,14 +281,14 @@ h2.page-title {
     width: 100%;
 }
 
-.left-space{
-  border-bottom: 1px solid #DDDDDD;
-  width: 16.74%;
-  float:left;
-  height:49px;
+.left-space {
+    border-bottom: 1px solid #DDDDDD;
+    width: 16.74%;
+    float: left;
+    height: 49px;
 }
 
-.nav-bar{
+.nav-bar {
     background-color: #F6F6F6;
     border: 1px solid #DDDDDD;
     border-top: 0;
@@ -295,28 +310,37 @@ h2.page-title {
     width: 48px;
 }
 
-.inv-nav:hover{
+.inv-nav:hover {
     background-color: #e9e9e9;
     color: #006BCA;
 }
 
-.inv-nav:focus, .inv-nav:active{
-  box-shadow: 0 0 5px #999 inset;
+.inv-nav:focus,
+.inv-nav:active {
+    box-shadow: 0 0 5px #999 inset;
 }
 
-.left-nav{
-  float:left;
-  border-right:1px solid #ebebeb;
+.left-nav {
+    float: left;
+    border-right: 1px solid #ebebeb;
 }
 
-.right-nav{
-  float:right;
-  border-left:1px solid #ebebeb;
+.right-nav {
+    float: right;
+    border-left: 1px solid #ebebeb;
 }
 
 .invsq {}
-.close-inv {color:#ff0000;}
-.open-inv {color:#3cc051;}
+
+.close-inv {
+    color: #ff0000;
+}
+
+.open-inv {
+    color: #3cc051;
+}
+
+
 /* .icon-history{color:#2D6CA2;} */
 
 .invCol span {
@@ -328,9 +352,11 @@ h2.page-title {
     width: 45%;
 }
 
-.invCol .open-inv, .invCol .close-inv, .invCol .icon-history{
-  cursor:pointer;
-  padding:10px 0 9px;
+.invCol .open-inv,
+.invCol .close-inv,
+.invCol .icon-history {
+    cursor: pointer;
+    padding: 10px 0 9px;
 }
 
 .invCol .available_soldout {
@@ -338,9 +364,9 @@ h2.page-title {
     width: 100%;
 }
 
-.invCol .block_unblock{
-  float: left;
-  width:100%;
+.invCol .block_unblock {
+    float: left;
+    width: 100%;
 }
 
 .invCol span.block_unblock_cb {
@@ -349,18 +375,16 @@ h2.page-title {
     height: 29px;
     padding: 8px 1px;
     font-size: 11px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.invCol span.block_unblock_cb.inv-unblocked{
-  color: green;
+.invCol span.block_unblock_cb.inv-unblocked {
+    color: green;
 }
 
-.invCol span.block_unblock_cb.inv-blocked{
-  color: red;
+.invCol span.block_unblock_cb.inv-blocked {
+    color: red;
 }
-
-
 
 .invCol .invsq {
     width: 50%;
@@ -370,16 +394,16 @@ h2.page-title {
     text-align: center;
 }
 
-.invCol span:last-child{
-  border-right:0;
+.invCol span:last-child {
+    border-right: 0;
 }
 
-#hexInventoryUpdateForm .modal-body{
-  padding-bottom:0;
+#hexInventoryUpdateForm .modal-body {
+    padding-bottom: 0;
 }
 
-#hexInventoryUpdateForm .form-group:last-child{
-  margin-bottom:0;
+#hexInventoryUpdateForm .form-group:last-child {
+    margin-bottom: 0;
 }
 
 .icon-labels {
@@ -396,58 +420,72 @@ h2.page-title {
     padding: 0 10px 0 0;
 }
 
-.icon-labels > span:last-child{border-right: 0;}
-
-.icon-labels .label-close i{color:#ff0000;}
-.icon-labels .label-open i{color:#3cc051;}
-.icon-labels .label-history i{color:#2D6CA2;}
-
-.updateButton{
-  float:right;
-  margin-bottom:10px;
-  float:right;
+.icon-labels > span:last-child {
+    border-right: 0;
 }
 
-
-.close-open-all .invCol span{
-  display: inline-block;
-  float: none;
-  width: 100%;
+.icon-labels .label-close i {
+    color: #ff0000;
 }
 
-.modal-body{padding-bottom:0;}
-.modal-body .form-group:last-child{margin-bottom:0;}
-
-.invCol span.greenBG{
-  background-color : #D2F2C6;
+.icon-labels .label-open i {
+    color: #3cc051;
 }
 
-.invCol span.orangeBG{
-  background-color : #f3c985;
+.icon-labels .label-history i {
+    color: #2D6CA2;
 }
 
-.invCol span.yellowBG{
-  background-color : #F9E8BB;
+.updateButton {
+    float: right;
+    margin-bottom: 10px;
+    float: right;
 }
 
-.invCol span.redBG{
-  background-color : #FA8258
+.close-open-all .invCol span {
+    display: inline-block;
+    float: none;
+    width: 100%;
 }
 
-.invCol span.historyBG{
-  background-color : #F2F2F2
+.modal-body {
+    padding-bottom: 0;
+}
+
+.modal-body .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.invCol span.greenBG {
+    background-color: #D2F2C6;
+}
+
+.invCol span.orangeBG {
+    background-color: #f3c985;
+}
+
+.invCol span.yellowBG {
+    background-color: #F9E8BB;
+}
+
+.invCol span.redBG {
+    background-color: #FA8258
+}
+
+.invCol span.historyBG {
+    background-color: #F2F2F2
 }
 
 .daterangepicker.dropdown-menu {
     z-index: 10052 !important;
 }
 
-.btn-group .tooltip + .btn{
-  margin-left:-1px;
+.btn-group .tooltip + .btn {
+    margin-left: -1px;
 }
 
-.btn-group .btn:last-child:hover + .tooltip{
-  border-radius: 0 4px 4px 0;
+.btn-group .btn:last-child:hover + .tooltip {
+    border-radius: 0 4px 4px 0;
 }
 
 .invsq > input {
@@ -458,22 +496,23 @@ h2.page-title {
     height: 100%;
     text-align: center;
     width: 100%;
-    padding:9px 0 10px;
+    padding: 9px 0 10px;
 }
+
 .datepick-popup {
     z-index: 10051 !important;
 }
 
-.btn-group .btn + .tooltip{
-  margin-left: -1px;
+.btn-group .btn + .tooltip {
+    margin-left: -1px;
 }
 
-.btn-group .tooltip + .btn{
-  margin-left: -1px;
+.btn-group .tooltip + .btn {
+    margin-left: -1px;
 }
 
-.labels-inv{
-  float:left;
+.labels-inv {
+    float: left;
 }
 
 .labels-inv > ul {
@@ -483,36 +522,45 @@ h2.page-title {
 }
 
 .labels-inv li {
-  color: #777777;
+    color: #777777;
     font-size: 11px;
     padding-top: 10px;
 }
 
-.labels-inv .label-closed-inv{background-color:#FA8258;}
-.labels-inv .label-notalloc-inv{background-color:#F9E8BB;}
-.labels-inv .label-open-inv{background-color:#D2F2C6;}
+.labels-inv .label-closed-inv {
+    background-color: #FA8258;
+}
+
+.labels-inv .label-notalloc-inv {
+    background-color: #F9E8BB;
+}
+
+.labels-inv .label-open-inv {
+    background-color: #D2F2C6;
+}
 
 .start-date-form {
     color: #555555;
     margin-top: 7px;
 }
 
+
 /* History Pop-up */
 
-#history-popup .modal-dialog{
-  width:800px;
+#history-popup .modal-dialog {
+    width: 800px;
 }
 
-#history-popup .modal-body{
-  padding-bottom:20px;
+#history-popup .modal-body {
+    padding-bottom: 20px;
 }
 
-#history-popup .modal-body .form-row label{
-  display: block;
+#history-popup .modal-body .form-row label {
+    display: block;
 }
 
-#history-popup .modal-body #tableData{
-  margin-top:15px;
+#history-popup .modal-body #tableData {
+    margin-top: 15px;
 }
 
 .hexInventoryPage #history-popup .table > thead > tr > th,
@@ -520,33 +568,34 @@ h2.page-title {
 .hexInventoryPage #history-popup .table > tfoot > tr > th,
 .hexInventoryPage #history-popup .table > thead > tr > td,
 .hexInventoryPage #history-popup .table > tbody > tr > td,
-.hexInventoryPage #history-popup .table > tfoot > tr > td{
-  padding:8px;
+.hexInventoryPage #history-popup .table > tfoot > tr > td {
+    padding: 8px;
 }
 
 .hexInventoryPage #history-popup .table > thead > tr > th,
 .hexInventoryPage #history-popup .table > tbody > tr > th,
-.hexInventoryPage #history-popup .table > tfoot > tr > th{
-  font-weight:bold;
+.hexInventoryPage #history-popup .table > tfoot > tr > th {
+    font-weight: bold;
 }
 
 .hexInventoryPage #history-popup .table > thead > tr > td,
 .hexInventoryPage #history-popup .table > tbody > tr > td,
-.hexInventoryPage #history-popup .table > tfoot > tr > td{
-  font-size:12px;
+.hexInventoryPage #history-popup .table > tfoot > tr > td {
+    font-size: 12px;
 }
 
-.no-log-results{
+.no-log-results {
     color: #888;
-    font: italic 20px Times New Roman,Lato,Open Sans,Sans;
+    font: italic 20px Times New Roman, Lato, Open Sans, Sans;
     padding: 30px;
     text-align: center;
 }
 
-.no-log-results i{
-  font-size: 20px;
-  padding:0 5px 0 0;
+.no-log-results i {
+    font-size: 20px;
+    padding: 0 5px 0 0;
 }
+
 
 /* Modal Blue */
 
@@ -556,8 +605,8 @@ h2.page-title {
     text-shadow: 0 0;
 }
 
-.modal-body{
-  background-color: #fff;
+.modal-body {
+    background-color: #fff;
 }
 
 .modal-close-button {
@@ -567,24 +616,24 @@ h2.page-title {
     font-size: 15px;
 }
 
-.no-of-rooms-cnt{
-  border-left: 1px solid #eee;
-  padding: 10px;
-  margin-top: -10px;
-  font-weight: bold;
-  float:right;
-  max-width:27px; 
+.no-of-rooms-cnt {
+    border-left: 1px solid #eee;
+    padding: 10px;
+    margin-top: -10px;
+    font-weight: bold;
+    float: right;
+    max-width: 27px;
 }
 
-.daterangepicker .ranges{
-  display:block;
+.daterangepicker .ranges {
+    display: block;
 }
 
-.allocation-field{
-  position:relative;
+.allocation-field {
+    position: relative;
 }
 
-.allocation-val-error{
+.allocation-val-error {
     bottom: -18px;
     color: #ff0000;
     display: block;
@@ -592,28 +641,32 @@ h2.page-title {
     left: 0;
     padding: 0 0 0 15px;
     position: absolute;
-  display:none;
+    display: none;
 }
-input[readonly], select[readonly], textarea[readonly] {
+
+input[readonly],
+select[readonly],
+textarea[readonly] {
     background-color: transparent !important;
     cursor: default;
 }
 
-.errorClass{
-  border-color: red !important;
+.errorClass {
+    border-color: red !important;
 }
 
+.update-inv-form {
+    clear: both;
+    margin-top: 20px;
+    float: left;
+    width: 100%;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.block-unblock{
+  text-align: center;
+  clear: both;
+  float: left;
+  width: 100%;
+  padding: 7px 1px;
+  cursor: pointer;
+}

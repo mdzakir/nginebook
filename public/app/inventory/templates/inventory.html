@@ -13,44 +13,50 @@
     <div class="top-bar">
         <div class="left-space">&nbsp;</div>
         <div class="nav-bar">
-            <span class="icon-arrow-left-3 left-nav inv-nav col-md-1" onclick="prev();"><i class="fa fa-chevron-left"></i></span>
+            <span class="icon-arrow-left-3 left-nav inv-nav col-md-1" ng-click="previousDates();"><i class="fa fa-chevron-left"></i></span>
             <div class="form-horizontal start-date-form col-md-8 col-md-offset-1">
                 <div class="form-group">
                     <label class="control-label col-md-4"></label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control uidp uidpInventory" name="nextDate" onchange="setNewDates()" id="nextDate" readonly="readonly">
-                    </div>
-                    <div class="col-md-4">
-                        <button style="display:none;" id="fetchInventoryButton" onclick="fetchInv(this);" type="button" class="btn btn-flat-inverse">Fetch</button>
+                        <input type="text" class="form-control dp uidpInventory" uib-datepicker-popup="{{format}}" ng-model="cal_start_date" ng-change="startDateChanged();" 
+						is-open="open_cal_start_popup.opened" datepicker-options="calDateOptions" ng-required="true" 
+						close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_cal_start()" readonly="readonly"/>
                     </div>
                 </div>
             </div>
-            <span class="icon-arrow-right-3 right-nav inv-nav col-md-1" onclick="next();"><i class="fa fa-chevron-right"></i></span>
+            <span class="icon-arrow-right-3 right-nav inv-nav col-md-1" ng-click="nextDates();"><i class="fa fa-chevron-right"></i></span>
         </div>
     </div>
-    <div class="roomsColumn">
-        
-    </div>
+    
     <div class="invDatesColumn">
-        <div class="datesRow" id="datesCount">
-            <div class="datesWrapper">
-                <span>Apr</span>
-                <span>2017</span>
-                <span>Wed</span> <span class="datesq">19</span>
-            </div>
-        </div>
-        <div class="invRowWrapper">
-	        <div class="invRow">
-	            <div class="invCol" ng-repeat="dates in datesSet">
-	                <span class="invsq greenBG"><input type="text" readonly="readonly" value="17"></span>
-	                <span id="closedate_19042017" class="open-inv icon-checkmark-circle historyBG" onclick="setcloseRoomId(12516,'19/04/2017');" data-toggle="modal" data-target="#close-inventory" data-title="Close Inventory"></span>
+    	<div class="data-table-header">
+	    	<div class="left-col"><div class="data-table-title">Rooms</div></div>
+	        <div class="datesRow" id="datesCount">
+	            <div class="datesWrapper" ng-repeat="(key, value) in inventoryData[0].inventory_list track by $index" ng-if="$index < 15">
+	                <span>{{key | date:'MMM'}}</span>
+	                <span>{{key | date:'yyyy'}}</span>
+	                <span>{{key | date:'EEE'}}</span> <span class="datesq">{{key | date:'dd'}}</span>
 	            </div>
+	        </div>
+	    </div>
+        <div class="invRowWrapper">
+	        <div class="invRow" ng-repeat="inventory_list in inventoryData">
+			    <div class="left-col">
+			    	<div class="room-list">{{inventory_list.room_name}}</div>
+			    </div>
+			    <div class="inv-data-row">
+		            <div class="invCol" ng-repeat="(key, value) in inventory_list.inventory_list  track by $index" ng-if="$index < 15">
+		                <span class="invsq greenBG">{{value.available}}</span>
+		                <span class="invsq orangeBG">{{value.booked}}</span>
+		                <div class="block-unblock" ng-click="blockUnblock(key);">Block</div>
+		            </div>
+		        </div>
 	        </div>
         </div>
     </div>
 </div>
 
-<form class="well" ng-if="showUpdateInventoryForm">
+<form class="well update-inv-form" ng-if="showUpdateInventoryForm">
 	<h4>Update Inventory</h4>
 	<div class="row">
 		<div class="col-md-3">
@@ -98,70 +104,3 @@
 		</div>
 	</div>
 </form>
-<form class="well">
-	<div class="row">
-		<div class="col-md-2">
-			<div class="form-group">
-				<label class="">Start date</label>
-				<div class="">
-					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="filter_start_date" 
-					is-open="filter_start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
-					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_filter_start()"/>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-2">
-			<div class="form-group">
-				<label class="">End date</label>
-				<div class="">
-					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="filter_end_date" 
-					is-open="filter_end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
-					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_filter_end()"/>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Room Type</label>
-				<div class="">
-				<select class="form-control" ng-model="filter_room" ng-change="filterRoomChange(filter_room);" ng-options="filter_room.id as filter_room.name for filter_room in filter_rooms"></select>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-2">
-			<div class="form-group">
-				<label class="">&nbsp;</label>
-				<div>
-					<button type="button" class="btn btn-success" ng-click="showInventoryTable();"><i class="fa fa-save"></i> Search</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</form>
-
-<div class="row inventory-calendar">
-
-	<div class="col-md-12 month-nav">
-		<i class="fa fa-chevron-left"></i> &nbsp;&nbsp;
-		{{currentMonth}} {{currentYear}} &nbsp;&nbsp;
-		<i class="fa fa-chevron-right"></i>
-	</div>
-
-	<div class="col-md-12 ic-left">
-		<div class="month-header">
-			<ul class="">
-				<li ng-repeat="weekDay in weekDays">
-					{{weekDay}}
-				</li>
-			</ul> 
-		</div>
-		<div class="month-body">
-			<ul class="">
-				<li ng-repeat="day in allDaysOfMonth track by $index">
-					<div class="inv-date">{{day.date}}</div>
-					<div class="inv-value">{{day.available}}</div>
-				</li>
-			</ul> 
-		</div>
-	</div>
-</div>
