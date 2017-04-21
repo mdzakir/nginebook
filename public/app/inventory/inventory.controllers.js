@@ -24,6 +24,8 @@ angular.module("inventory.controllers", [
     $scope.format = $scope.formats[2];
     $scope.altInputFormats = ['M!/d!/yyyy'];
 
+    $scope.datesSet = []
+
 
     //Filters Form
 

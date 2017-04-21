@@ -3,6 +3,53 @@
 	<button type="button" ng-if="showUpdateInventoryForm" class="btn btn-primary pull-right" ng-click="hideUpdateInventoryFormFn();"><i class="fa fa-times"></i> Close Form</button>
 </h2>
 
+<div class="pull-right">
+    <span class="label label label-warning">Sold</span>
+    <span class="label label-success">Available</span>
+    <span class="label label label-danger">Blocked</span>
+</div>
+
+<div class="inventoryChart">
+    <div class="top-bar">
+        <div class="left-space">&nbsp;</div>
+        <div class="nav-bar">
+            <span class="icon-arrow-left-3 left-nav inv-nav col-md-1" onclick="prev();"><i class="fa fa-chevron-left"></i></span>
+            <div class="form-horizontal start-date-form col-md-8 col-md-offset-1">
+                <div class="form-group">
+                    <label class="control-label col-md-4"></label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control uidp uidpInventory" name="nextDate" onchange="setNewDates()" id="nextDate" readonly="readonly">
+                    </div>
+                    <div class="col-md-4">
+                        <button style="display:none;" id="fetchInventoryButton" onclick="fetchInv(this);" type="button" class="btn btn-flat-inverse">Fetch</button>
+                    </div>
+                </div>
+            </div>
+            <span class="icon-arrow-right-3 right-nav inv-nav col-md-1" onclick="next();"><i class="fa fa-chevron-right"></i></span>
+        </div>
+    </div>
+    <div class="roomsColumn">
+        
+    </div>
+    <div class="invDatesColumn">
+        <div class="datesRow" id="datesCount">
+            <div class="datesWrapper">
+                <span>Apr</span>
+                <span>2017</span>
+                <span>Wed</span> <span class="datesq">19</span>
+            </div>
+        </div>
+        <div class="invRowWrapper">
+	        <div class="invRow">
+	            <div class="invCol" ng-repeat="dates in datesSet">
+	                <span class="invsq greenBG"><input type="text" readonly="readonly" value="17"></span>
+	                <span id="closedate_19042017" class="open-inv icon-checkmark-circle historyBG" onclick="setcloseRoomId(12516,'19/04/2017');" data-toggle="modal" data-target="#close-inventory" data-title="Close Inventory"></span>
+	            </div>
+	        </div>
+        </div>
+    </div>
+</div>
+
 <form class="well" ng-if="showUpdateInventoryForm">
 	<h4>Update Inventory</h4>
 	<div class="row">

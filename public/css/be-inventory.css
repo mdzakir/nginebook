@@ -83,3 +83,537 @@ h2.page-title {
 
 
 
+.hexInventoryPage{
+  min-width:930px;
+}
+
+.preloadedValue {
+    font-weight: normal;
+    padding: 11px 0 0;
+}
+
+.seasonDisplayBlock .panel-heading {
+    cursor:pointer;
+}
+
+.barDisplayBlock {
+  
+}
+
+.dateImg img{
+  position:absolute;
+  right:8px;
+  top:8px;
+}
+
+.nav-tabs{
+  margin-bottom:10px;
+}
+
+.fwb{font-weight:bold;}
+.tdu{text-decoration:underline;}
+
+.hexInventoryPage .table{
+  margin-bottom:0;
+  font:11px lato, Open Sans, Arial;
+}
+
+.hexInventoryPage .table tbody th{
+  font-family:Open Sans, Lato, Arial;
+}
+
+.hexInventoryPage .table > thead > tr > th,
+.hexInventoryPage .table > tbody > tr > th,
+.hexInventoryPage .table > tfoot > tr > th,
+.hexInventoryPage .table > thead > tr > td,
+.hexInventoryPage .table > tbody > tr > td,
+.hexInventoryPage .table > tfoot > tr > td{
+  padding:0px;
+  text-align:center;
+  font-weight:normal;
+  vertical-align: middle;
+}
+
+.hexInventoryPage .dataTables_scroll{
+  overflow:auto;
+}
+
+.dateBlockHeadingTop {
+  background-color: #A0B2EB;
+}
+
+.dateBlockHeadingBottom {
+    background-color: #F0F0F0;
+}
+
+.hexInventoryPage .table > tbody > tr > td{/* min-width:50px; */}
+
+.tab-content{
+  padding-bottom:10px;
+  border-bottom:1px solid #DDD;
+  margin-bottom:10px;
+}
+
+.hexInventoryRoomName{
+    display: block;
+    max-width: 100px;
+    overflow: hidden;
+    padding: 0 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hexInventoryUpdateForm .panel{
+  margin-bottom:0;
+}
+
+.inventoryChart {
+    border: 1px solid #CCCCCC;
+    border-bottom: 0;
+    box-shadow: 0 0 1px #CCCCCC;
+    float: left;
+    width: 100%;
+}
+
+.roomsColumn {
+    float: left;
+    width: 16.74%;
+    border-right: 1px solid #DDDDDD;
+}
+
+.room-heading {
+    background-color: #D3D2EC;
+    border-bottom: 1px solid #DDDDDD;
+    font: 300 30px lato;
+    height: 69px;
+    padding: 17px 5px 0;
+}
+
+.room-list {
+    border-bottom: 1px solid #DDDDDD;
+    font-size: 13px;
+    height: 55px;
+    padding: 10px 5px;
+}
+
+.invCol.not-allocated{
+  padding:18px 20px;
+  background-color: #e8e8e8;
+    background-image: repeating-linear-gradient(130deg, transparent, transparent 8px, rgba(255, 255, 255, .3) 8px, rgba(255, 255, 255, .3) 15px);
+}
+
+.datesRow {
+    float: left;
+    font-size: 11px;
+    height: 69px;
+    width: 100%;
+}
+
+.datesWrapper {
+    background-color: #fbfbfb;
+    border-bottom: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    float: left;
+    width: 6.6666667%;
+    display:inline-block;
+    height: 69px;
+}
+
+.datesWrapper:last-child{
+  border-right: 0;
+}
+
+.datesWrapper > span {
+    display: block;
+    padding: 0 5px;
+    text-align: center;
+}
+
+.datesWrapper > .datesq {
+    background-color: #EEEEEE;
+    border-top: 1px solid #DFDFDF;
+    height: 22px;
+    padding-top: 2px;
+}
+
+.invDatesColumn {
+    float: left;
+    width: 83.26%;
+}
+
+.invRow {
+    float: left;
+    font-size: 11px;
+    width:100%;
+}
+
+.invCol {
+    float: left;
+    border-bottom: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    height: 55px;
+    padding: 0;
+    width: 6.6666667%;
+    text-align: center;
+}
+
+.invCol:last-child{
+  border-right: 0;
+}
+
+.top-bar {
+    float: left;
+    width: 100%;
+}
+
+.left-space{
+  border-bottom: 1px solid #DDDDDD;
+  width: 16.74%;
+  float:left;
+  height:49px;
+}
+
+.nav-bar{
+    background-color: #F6F6F6;
+    border: 1px solid #DDDDDD;
+    border-top: 0;
+    border-right: 0;
+    float: left;
+    height: 49px;
+    width: 83.26%;
+}
+
+.inv-nav {
+    background-color: #efefef;
+    color: #306BCA;
+    cursor: pointer;
+    font-size: 20px;
+    height: 48px;
+    padding-top: 14px;
+    position: relative;
+    text-align: center;
+    width: 48px;
+}
+
+.inv-nav:hover{
+    background-color: #e9e9e9;
+    color: #006BCA;
+}
+
+.inv-nav:focus, .inv-nav:active{
+  box-shadow: 0 0 5px #999 inset;
+}
+
+.left-nav{
+  float:left;
+  border-right:1px solid #ebebeb;
+}
+
+.right-nav{
+  float:right;
+  border-left:1px solid #ebebeb;
+}
+
+.invsq {}
+.close-inv {color:#ff0000;}
+.open-inv {color:#3cc051;}
+/* .icon-history{color:#2D6CA2;} */
+
+.invCol span {
+    background-color: #FBFBFB;
+    border-right: 1px solid #EEEEEE;
+    float: left;
+    font-size: 11px;
+    line-height: 15px;
+    width: 45%;
+}
+
+.invCol .open-inv, .invCol .close-inv, .invCol .icon-history{
+  cursor:pointer;
+  padding:10px 0 9px;
+}
+
+.invCol .available_soldout {
+    float: left;
+    width: 100%;
+}
+
+.invCol .block_unblock{
+  float: left;
+  width:100%;
+}
+
+.invCol span.block_unblock_cb {
+    display: block;
+    width: 100%;
+    height: 29px;
+    padding: 8px 1px;
+    font-size: 11px;
+    cursor:pointer;
+}
+
+.invCol span.block_unblock_cb.inv-unblocked{
+  color: green;
+}
+
+.invCol span.block_unblock_cb.inv-blocked{
+  color: red;
+}
+
+
+
+.invCol .invsq {
+    width: 50%;
+    height: 25px;
+    font-size: 13px;
+    padding: 5px 1px;
+    text-align: center;
+}
+
+.invCol span:last-child{
+  border-right:0;
+}
+
+#hexInventoryUpdateForm .modal-body{
+  padding-bottom:0;
+}
+
+#hexInventoryUpdateForm .form-group:last-child{
+  margin-bottom:0;
+}
+
+.icon-labels {
+    float: left;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.icon-labels > span {
+    border-right: 1px solid #ddd;
+    color: #777;
+    font-size: 11px;
+    margin: 0 5px 0 0;
+    padding: 0 10px 0 0;
+}
+
+.icon-labels > span:last-child{border-right: 0;}
+
+.icon-labels .label-close i{color:#ff0000;}
+.icon-labels .label-open i{color:#3cc051;}
+.icon-labels .label-history i{color:#2D6CA2;}
+
+.updateButton{
+  float:right;
+  margin-bottom:10px;
+  float:right;
+}
+
+
+.close-open-all .invCol span{
+  display: inline-block;
+  float: none;
+  width: 100%;
+}
+
+.modal-body{padding-bottom:0;}
+.modal-body .form-group:last-child{margin-bottom:0;}
+
+.invCol span.greenBG{
+  background-color : #D2F2C6;
+}
+
+.invCol span.orangeBG{
+  background-color : #f3c985;
+}
+
+.invCol span.yellowBG{
+  background-color : #F9E8BB;
+}
+
+.invCol span.redBG{
+  background-color : #FA8258
+}
+
+.invCol span.historyBG{
+  background-color : #F2F2F2
+}
+
+.daterangepicker.dropdown-menu {
+    z-index: 10052 !important;
+}
+
+.btn-group .tooltip + .btn{
+  margin-left:-1px;
+}
+
+.btn-group .btn:last-child:hover + .tooltip{
+  border-radius: 0 4px 4px 0;
+}
+
+.invsq > input {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0 none;
+    font-size: 12px;
+    font-weight: bold;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    padding:9px 0 10px;
+}
+.datepick-popup {
+    z-index: 10051 !important;
+}
+
+.btn-group .btn + .tooltip{
+  margin-left: -1px;
+}
+
+.btn-group .tooltip + .btn{
+  margin-left: -1px;
+}
+
+.labels-inv{
+  float:left;
+}
+
+.labels-inv > ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0 0 0 5px;
+}
+
+.labels-inv li {
+  color: #777777;
+    font-size: 11px;
+    padding-top: 10px;
+}
+
+.labels-inv .label-closed-inv{background-color:#FA8258;}
+.labels-inv .label-notalloc-inv{background-color:#F9E8BB;}
+.labels-inv .label-open-inv{background-color:#D2F2C6;}
+
+.start-date-form {
+    color: #555555;
+    margin-top: 7px;
+}
+
+/* History Pop-up */
+
+#history-popup .modal-dialog{
+  width:800px;
+}
+
+#history-popup .modal-body{
+  padding-bottom:20px;
+}
+
+#history-popup .modal-body .form-row label{
+  display: block;
+}
+
+#history-popup .modal-body #tableData{
+  margin-top:15px;
+}
+
+.hexInventoryPage #history-popup .table > thead > tr > th,
+.hexInventoryPage #history-popup .table > tbody > tr > th,
+.hexInventoryPage #history-popup .table > tfoot > tr > th,
+.hexInventoryPage #history-popup .table > thead > tr > td,
+.hexInventoryPage #history-popup .table > tbody > tr > td,
+.hexInventoryPage #history-popup .table > tfoot > tr > td{
+  padding:8px;
+}
+
+.hexInventoryPage #history-popup .table > thead > tr > th,
+.hexInventoryPage #history-popup .table > tbody > tr > th,
+.hexInventoryPage #history-popup .table > tfoot > tr > th{
+  font-weight:bold;
+}
+
+.hexInventoryPage #history-popup .table > thead > tr > td,
+.hexInventoryPage #history-popup .table > tbody > tr > td,
+.hexInventoryPage #history-popup .table > tfoot > tr > td{
+  font-size:12px;
+}
+
+.no-log-results{
+    color: #888;
+    font: italic 20px Times New Roman,Lato,Open Sans,Sans;
+    padding: 30px;
+    text-align: center;
+}
+
+.no-log-results i{
+  font-size: 20px;
+  padding:0 5px 0 0;
+}
+
+/* Modal Blue */
+
+.modal-header {
+    background-color: #3D84C2;
+    color: #FFFFFF;
+    text-shadow: 0 0;
+}
+
+.modal-body{
+  background-color: #fff;
+}
+
+.modal-close-button {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    color: #DDDDDD;
+    font-size: 15px;
+}
+
+.no-of-rooms-cnt{
+  border-left: 1px solid #eee;
+  padding: 10px;
+  margin-top: -10px;
+  font-weight: bold;
+  float:right;
+  max-width:27px; 
+}
+
+.daterangepicker .ranges{
+  display:block;
+}
+
+.allocation-field{
+  position:relative;
+}
+
+.allocation-val-error{
+    bottom: -18px;
+    color: #ff0000;
+    display: block;
+    font-size: 12px;
+    left: 0;
+    padding: 0 0 0 15px;
+    position: absolute;
+  display:none;
+}
+input[readonly], select[readonly], textarea[readonly] {
+    background-color: transparent !important;
+    cursor: default;
+}
+
+.errorClass{
+  border-color: red !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
