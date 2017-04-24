@@ -49,8 +49,8 @@ angular.module("inventory.config", [])
                         params: {
                             hotel_id: hotelId,
                             room_id: roomId,
-                            start_date: "2017-03-01",
-                            end_date: "2017-03-31"
+                            start_date: "2017-04-25",
+                            end_date: "2017-05-09"
                         }
                     })
                     .then(function(response) {

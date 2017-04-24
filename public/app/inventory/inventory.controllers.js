@@ -11,6 +11,10 @@ angular.module("inventory.controllers", [
     $scope.inventoryData = viewInventory;
     console.log(viewInventory);
 
+    _.map($scope.inventoryData, function(data){
+
+    });
+
     // Calendar Start Date
     $scope.calDateOptions = {
         formatYear: 'yy',
@@ -31,8 +35,88 @@ angular.module("inventory.controllers", [
         opened: false
     };
 
+    $scope.viewInventory = function(start_date, end_date){
+        _generateInventoryTable(viewInventory);
+
+        console.log(_generateInventoryTable(viewInventory));
+    };
+
+    var start = moment();
+    if(localStorage.startDate){
+        start = localStorage.startDate;
+    }
+    var end = moment(start).add(14, 'days');
+    localStorage.startDate = start;
+    localStorage.endDate = end;
+
+    function _generateInventoryTable(inventory){
+        var output = {};
+        output.roomsList = {};
+        output.roomsList.invListData = [];
+        var roomDetails = [];
+        for(var i=0;i<inventory.length;i++){
+            var startDate = localStorage.startDate;
+            var endDate = localStorage.endDate;
+            var datesList = [];
+            var invList = [];
+            roomDetails.push({
+                "room_id" : inventory[i].room_id,
+                "room_name" : inventory[i].room_name
+            });
+
+            for(var date = moment(startDate); (date.isBefore(endDate) || date.isSame(endDate)); date.add(1, 'days')) {
+                var dateValue = moment(date).format("YYYY-MM-DD");
+
+                datesList.push({
+                    "year" : moment(date).format("YYYY"),
+                    "month" : moment(date).format("MMM"),
+                    "date" : moment(date).format("DD"),
+                    "day" : moment(date).format("ddd")
+                });
+                
+                if(inventory[i].inventory_list[dateValue]){
+                    invList.push({
+                        "available" : inventory[i].inventory_list[dateValue].available,
+                        "booked" : inventory[i].inventory_list[dateValue].booked,
+                        "blocked" : inventory[i].inventory_list[dateValue].blocked,
+                        "date" : dateValue,
+                        "room_id" : inventory[i].room_id,
+                        "room_name" : inventory[i].room_name
+                    })
+                } else {
+                    invList.push({
+                        "available" : "NA",
+                        "blocked" : "",
+                        "date" : dateValue,
+                        "room_id" : inventory[i].room_id,
+                        "room_name" : inventory[i].room_name
+                    })
+                }
+            }
+            output.dates = datesList;
+            output.roomsList.invListData.push(invList);
+
+        }
+        output.roomsList.roomData = roomDetails;
+        return output;
+    }
+
+    $scope.inventoryTable = _generateInventoryTable(viewInventory);
+
+    console.log(_generateInventoryTable(viewInventory));
+
+    $scope.setNewDates = function(new_start_date){
+        debugger;
+        var start = moment(new_start_date, "YYYY-MM-DD");
+        var end = moment(new_start_date, "YYYY-MM-DD").add(14, 'days');
+        localStorage.startDate = start;
+        localStorage.endDate = end;
+        $scope.viewInventory(start.format("YYYY-MM-DD"),end.format("YYYY-MM-DD"));
+    }
+
     $scope.startDateChanged = function(){
         console.log($scope.cal_start_date);
+        $scope.setNewDates($scope.cal_start_date);
     };
 
     $scope.previousDates = function(){
@@ -169,28 +253,29 @@ angular.module("inventory.controllers", [
 
     $scope.showUpdateInventoryForm = false;
     $scope.showUpdateInventoryFormFn = function(){
-    	$scope.showUpdateInventoryForm = true;
+        $scope.showUpdateInventoryForm = true;
     };
 
     $scope.hideUpdateInventoryFormFn = function(){
-    	$scope.showUpdateInventoryForm = false;	
+        $scope.showUpdateInventoryForm = false; 
     }
 
     $scope.roomChange = function(room) {
         $scope.room = room;
     }
 
-	$scope.filterRoomChange = function(filter_room){
-		$scope.filter_room = filter_room;
-	}
+    $scope.filterRoomChange = function(filter_room){
+        $scope.filter_room = filter_room;
+    }
 
     $scope.updateInventory = function() {
         var params = {
             "hotel_id": "58726a8e5aa124394eb7dae4",
             "room_id": $scope.room,
-            "availablity": $scope.availablity,
+            "availability": 12, //$scope.availability,
             "start_date": moment($scope.start_date).format("YYYY-MM-DD"),
-            "end_date": moment($scope.end_date).format("YYYY-MM-DD")
+            "end_date": "2017-06-25", //moment($scope.end_date).format("YYYY-MM-DD"),
+            "days":[true,true,true,true,true,true,true]
         };
         ManageInventory.updateInv(params, function() {
             $state.go('.', {}, { reload: 'inventory' });

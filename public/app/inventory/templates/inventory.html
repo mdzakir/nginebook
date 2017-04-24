@@ -3,11 +3,11 @@
 	<button type="button" ng-if="showUpdateInventoryForm" class="btn btn-primary pull-right" ng-click="hideUpdateInventoryFormFn();"><i class="fa fa-times"></i> Close Form</button>
 </h2>
 
-<div class="pull-right">
-    <span class="label label label-warning">Sold</span>
-    <span class="label label-success">Available</span>
-    <span class="label label label-danger">Blocked</span>
-</div>
+    <div class="pull-right" style="margin-bottom: 5px;">
+        <span class="label" style="font-weight:normal;background-color: #f3c985;color:#000;border:1px solid #f3c985;">Sold</span>
+        <span class="label" style="font-weight:normal;background-color: #d2f2c6;color:#000;border:1px solid #d2f2c6;">Available</span>
+        <span class="label" style="font-weight:normal;color:red;border:1px solid red;">Blocked</span>
+    </div>
 
 <div class="inventoryChart">
     <div class="top-bar">
@@ -28,29 +28,26 @@
         </div>
     </div>
     
+    <div class="roomsColumn">
+    	<div class="room-heading">Rooms</div>
+		<div class="room-list" ng-repeat="room in inventoryTable.roomsList.roomData">{{room.room_name}}</div>
+	</div>
+
     <div class="invDatesColumn">
-    	<div class="data-table-header">
-	    	<div class="left-col"><div class="data-table-title">Rooms</div></div>
-	        <div class="datesRow" id="datesCount">
-	            <div class="datesWrapper" ng-repeat="(key, value) in inventoryData[0].inventory_list track by $index" ng-if="$index < 15">
-	                <span>{{key | date:'MMM'}}</span>
-	                <span>{{key | date:'yyyy'}}</span>
-	                <span>{{key | date:'EEE'}}</span> <span class="datesq">{{key | date:'dd'}}</span>
-	            </div>
-	        </div>
-	    </div>
+        <div class="datesRow" id="datesCount">
+            <div class="datesWrapper" ng-repeat="date in inventoryTable.dates track by $index" >
+                <span>{{date.month}}</span>
+                <span>{{date.year}}</span>
+                <span>{{date.day}}</span> <span class="datesq">{{date.date}}</span>
+            </div>
+        </div>
         <div class="invRowWrapper">
-	        <div class="invRow" ng-repeat="inventory_list in inventoryData">
-			    <div class="left-col">
-			    	<div class="room-list">{{inventory_list.room_name}}</div>
-			    </div>
-			    <div class="inv-data-row">
-		            <div class="invCol" ng-repeat="(key, value) in inventory_list.inventory_list  track by $index" ng-if="$index < 15">
-		                <span class="invsq greenBG">{{value.available}}</span>
-		                <span class="invsq orangeBG">{{value.booked}}</span>
-		                <div class="block-unblock" ng-click="blockUnblock(key);">Block</div>
-		            </div>
-		        </div>
+	        <div class="invRow" ng-repeat="invData in inventoryTable.roomsList.invListData">
+	            <div class="invCol" ng-repeat="inv in invData">
+	                <span class="invsq greenBG">{{inv.available}}</span>
+	                <span class="invsq orangeBG">{{inv.booked}}</span>
+	                <div class="block-unblock" ng-click="blockUnblock(inv);">Block</div>
+	            </div>
 	        </div>
         </div>
     </div>
@@ -91,8 +88,9 @@
 			<div class="form-group">
 				<label class="">Inventory</label>
 				<div class="">
-					<input type="number" ng-model="availablity" ng-maxlength="200" name="" class="form-control" />
+					<input type="text" ng-model="availability" name="" class="form-control" />
 				</div>
+				{{availability}}
 			</div>
 		</div>
 	</div>
