@@ -8,11 +8,11 @@ angular.module("addOns.config", [])
 			hotelId: function() {
                 return '58726a8e5aa124394eb7dae4';
             },
-			viewAddOns : function(ManageRooms){
-				return ManageRooms.getRooms();
+			viewAddOns : function(ManageAddOns){
+				return ManageAddOns.getAddOns();
 			},
 		},
-		controller : "RoomsController"
+		controller : "AddOnsController"
 	})
     .state('base.create-addOns', {
         url: '/addOns/:id',
@@ -21,11 +21,11 @@ angular.module("addOns.config", [])
             hotelId: function() {
                 return '58726a8e5aa124394eb7dae4';
             },
-            viewRooms : function(ManageAddOns){
+            viewAddOns : function(ManageAddOns){
                 return ManageAddOns.getAddOns();
             }
         },
-        controller: 'CreateRoomController'
+        controller: 'CreateAddOnsController'
     });
 })
 .factory('ManageAddOns', function ($http, $q, apiEndPoint) {
