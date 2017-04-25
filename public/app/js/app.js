@@ -17,6 +17,7 @@ angular.module("productApp", [
     "ngCookies",
     "promotions.module",
     "taxes.module",
+    "addOns.module",
     "manual-booking.module",
     "product.module",
     "about.module",
