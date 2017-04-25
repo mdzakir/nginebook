@@ -60,7 +60,7 @@
 			<div class="form-group">
 				<label class="">Start date</label>
 				<div class="">
-					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="start_date" 
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="updateFormElements.start_date" 
 					is-open="start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
 					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_start()"/>
 				</div>
@@ -70,7 +70,7 @@
 			<div class="form-group">
 				<label class="">End date</label>
 				<div class="">
-					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="end_date" 
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="updateFormElements.end_date" 
 					is-open="end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
 					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_end()"/>
 				</div>
@@ -88,9 +88,8 @@
 			<div class="form-group">
 				<label class="">Inventory</label>
 				<div class="">
-					<input type="text" ng-model="availability" name="" class="form-control" />
+					<input type="text" ng-model="updateFormElements.availability" name="" class="form-control" />
 				</div>
-				{{availability}}
 			</div>
 		</div>
 	</div>

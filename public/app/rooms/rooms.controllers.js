@@ -19,7 +19,7 @@ angular.module("rooms.controllers", [
         // SHOW ADD ROOM FORM
         $scope.showAddRoomForm = false;
         $scope.addRoomForm = function(){
-            $state.go('create-room');
+            $state.go('base.create-room');
         };
 
         $scope.room.images = [{name:'', img_url : '', order:''}];
@@ -50,7 +50,7 @@ angular.module("rooms.controllers", [
             };
 
             ManageRooms.save(params, isAddRoom, function () {
-                $state.go('.', {}, { reload: 'rooms' });
+                $state.go('.', {}, { reload: 'base.rooms' });
             });
         };
 
@@ -61,13 +61,13 @@ angular.module("rooms.controllers", [
                 "status" : 3
             }
             ManageRooms.deleteRoom(params, function () {
-                $state.go('.', {}, { reload: 'rooms' });
+                $state.go('.', {}, { reload: 'base.rooms' });
                 //$state.go('rooms', {'roomId': rule.id});
             });
         };
 
         $scope.editRoom = function(id){
-            $state.go("create-room", {"id" : id});
+            $state.go("base.create-room", {"id" : id});
         };
 
     });

@@ -11,11 +11,23 @@ angular.module("inventory.config", [])
                     roomId: function() {
                         return '58a9ecfc7159cc2806591106';
                     },
+                    dateRange : function(){
+                        if(!localStorage.startDate){
+                            var start = moment();
+                            if(localStorage.startDate){
+                                start = localStorage.startDate;
+                            }
+                            var end = moment(start).add(14, 'days');
+                            localStorage.startDate = start;
+                            localStorage.endDate = end;
+                        }
+                        return localStorage;
+                    },
                     viewRooms: function(ManageInventory) {
                         return ManageInventory.getRooms();
                     },
-                    viewInventory: function(ManageInventory, hotelId, roomId) {
-                        return ManageInventory.getInventory(hotelId, roomId);
+                    viewInventory: function(ManageInventory, hotelId, roomId, dateRange) {
+                        return ManageInventory.getInventory(hotelId, roomId, dateRange);
                     },
                 },
                 controller: "InventoryController"
@@ -42,15 +54,15 @@ angular.module("inventory.config", [])
                 });
                 return viewrooms;
             },
-            getInventory: function(hotelId, roomId) {
+            getInventory: function(hotelId, roomId, dateRange) {
                 var deferred = $q.defer();
                 var inventory = deferred.promise;
                 $http.get(apiEndPoint + '/room/inventoryView', {
                         params: {
                             hotel_id: hotelId,
                             room_id: roomId,
-                            start_date: "2017-04-25",
-                            end_date: "2017-05-09"
+                            start_date: moment(dateRange.startDate).format('YYYY-MM-DD'),
+                            end_date: moment(dateRange.endDate).format('YYYY-MM-DD')
                         }
                     })
                     .then(function(response) {
