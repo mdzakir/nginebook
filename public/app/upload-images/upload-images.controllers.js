@@ -37,15 +37,21 @@ angular.module("upload-images.controllers", [
         }
 
         $scope.saveImage = function(obj) {
-            //var params = $scope.docfile;
-            var params = {
-                "hotel_id": "58726a8e5aa124394eb7dae4",
-                "room_id": $scope.room,
-                "image_category": $scope.selectedImageCategory,
-                "docfile": obj.file_data
-            };
-            UploadFactory.save(params, function() {
-                $state.go('.', {}, { reload: 'base.upload' });
+            obj.upload = Upload.upload({
+                url: apiEndPoint + '/upload/list/',
+                data: { "docfile": obj.file_data },
+            });
+
+            obj.upload.then(function(response) {
+                $timeout(function() {
+                    obj.result = response.data;
+                });
+            }, function(response) {
+                if (response.status > 0)
+                    $scope.errorMsg = response.status + ': ' + response.data;
+            }, function(evt) {
+                // Math.min is to fix IE which reports 200% sometimes
+                obj.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
         }
 
