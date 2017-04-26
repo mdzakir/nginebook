@@ -3,5 +3,8 @@ angular.module("addOns.controllers", [
     ])
     .controller('AddOnsController', function($state, $scope,viewAddOns) {
     	$scope.addOnsList = viewAddOns;
+    	$scope.editAddOns = function(id){
+            $state.go("base.create-addOns", {"id" : id});
+        };
 
     });

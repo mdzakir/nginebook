@@ -23,8 +23,15 @@ angular.module("addOns.config", [])
             },
             viewAddOns : function(ManageAddOns){
                 return ManageAddOns.getAddOns();
+            },
+            addOn : function($stateParams, ManageAddOns, hotelId) {
+            if ($stateParams.id) {
+                return ManageAddOns.getAddOn(hotelId, $stateParams.id);
+            }
+            return {};
             }
         },
+
         controller: 'CreateAddOnsController'
     });
 })
@@ -48,6 +55,24 @@ angular.module("addOns.config", [])
                 .then(function () {
                     callback();
                 });
-        }
+        },
+        getAddOn: function(hotelId, addOnId) {
+            var deferred = $q.defer();
+            var addOn = deferred.promise;
+            $http.get(apiEndPoint + '/addOns/view', {
+                    params: {
+                        hotel_id: hotelId,
+                        id: addOnId
+                    }
+                })
+                .then(function(response) {
+                    var addOn = response.data;
+                    deferred.resolve(addOn[0]);
+                }, function(error) {
+                    addOn = null;
+                    deferred.reject(error);
+                });
+            return addOn;
+        },
     };
 })

@@ -43,10 +43,18 @@
 			<div class="form-group">
 				<label class="">Charge Type</label>
 				<div class="">
-					<select class="form-control" ng-model="addOns.chargeType" >
+					<select class="form-control" ng-model="addOns.charge_type" >
 						<option value="1">FREE</option>
 						<option value="2">FIXED</option>
 					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Charge Value</label>
+				<div class="">
+					<input type="text" class="form-control" ng-model="addOns.charge_value" ng-required="true"/>
 				</div>
 			</div>
 		</div>
