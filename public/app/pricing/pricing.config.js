@@ -14,6 +14,12 @@ angular.module("pricing.config", [])
                     rateplanId: function() {
                         return '58c054a47159cc491aa489c3';
                     },
+                    viewRooms: function(Pricing) {
+                        return Pricing.getRooms();
+                    },
+                    viewRateplans: function(Pricing) {
+                        return Pricing.getRateplans();
+                    },
                     viewPricing : function(Pricing, hotelId, roomId, rateplanId) {
                         return Pricing.getPricing(hotelId, roomId, rateplanId);
                     }
@@ -29,6 +35,33 @@ angular.module("pricing.config", [])
             },
             currentYear: function() {
                 return parseInt(this.month.format('Y'));
+            },
+            viewRooms: function(ManageInventory) {
+                return ManageInventory.getRooms();
+            },
+            getRooms: function() {
+                var deferred = $q.defer();
+                var viewrooms = deferred.promise;
+                $http.get(apiEndPoint + '/room/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+                    var viewrooms = response.data;
+                    deferred.resolve(viewrooms);
+                }, function(error) {
+                    viewrooms = null;
+                    deferred.reject(error);
+                });
+                return viewrooms;
+            },
+            getRateplans : function(){
+                var deferred = $q.defer();
+                var viewrateplans = deferred.promise;
+                $http.get(apiEndPoint + '/ratePlan/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+                    var viewrateplans = response.data;
+                    deferred.resolve(viewrateplans);
+                }, function(error) {
+                    viewrateplans = null;
+                    deferred.reject(error);
+                });
+                return viewrateplans;
             },
             getPricing: function(hotelId, roomId, rateplanId) {
                 var deferred = $q.defer();

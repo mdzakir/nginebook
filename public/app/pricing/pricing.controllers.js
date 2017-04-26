@@ -1,9 +1,19 @@
 angular.module("pricing.controllers", [
         "pricing.module"
     ])
-    .controller('PricingController', ['$scope', '$http', '$state', 'Pricing', 'apiEndPoint', 'viewPricing', function($scope, $http, $state, Pricing, apiEndPoint, viewPricing) {
+    .controller('PricingController', ['$scope', '$http', '$state', 'Pricing', 'apiEndPoint', 'viewPricing', 'viewRooms', 'viewRateplans', 'hotelId', 'roomId', 
+        function($scope, $http, $state, Pricing, apiEndPoint, viewPricing, viewRooms, viewRateplans, hotelId, roomId) {
         $scope.title = "Pricing";
         $scope.$emit("pageTitleChanged", "Pricing");
+
+        // Rooms
+        $scope.rooms = _.clone(viewRooms);
+        $scope.room = $scope.rooms[0].id;
+
+        // Rateplans
+        $scope.rateplans = _.clone(viewRateplans);
+        $scope.rateplan = $scope.rateplans[0].id;
+
 
         // DATE PICKER
 
@@ -98,18 +108,18 @@ angular.module("pricing.controllers", [
         $scope.updatePricing = function() {
             var params = {
                 "hotel_id": "58726a8e5aa124394eb7dae4",
-                "room_id": "58a9ecfc7159cc2806591106",
-                "rate_id": "58c054a47159cc491aa489c3",
+                "room_id": $scope.room,
+                "rate_id": $scope.rateplan,
                 "price_details": {
-                    "1": 2400,
-                    "2": 3400,
-                    "3": 4000,
-                    "4": 5000,
-                    "5": 1000,
-                    "6": 1000
+                    "1": $scope.single,
+                    "2": $scope.double,
+                    "3": $scope.triple,
+                    "4": $scope.extra_adult,
+                    "5": $scope.extra_child,
+                    "6": $scope.extra_bed
                 },
-                "start_date": "2017-03-01",
-                "end_date": "2017-03-31"
+                "start_date": moment($scope.start_date).format("YYYY-MM-DD"),
+                "end_date": moment($scope.end_date).format("YYYY-MM-DD")
             };
 
             // var post_url = apiEndPoint + '/ratePlan/price/'
@@ -119,7 +129,7 @@ angular.module("pricing.controllers", [
             //     });
 
             Pricing.updatePricing(params, function() {
-                $state.go('.', {}, { reload: 'pricing' });
+                $state.go('.', {}, { reload: 'base.pricing' });
             });
         };
 
