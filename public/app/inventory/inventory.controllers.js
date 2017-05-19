@@ -270,7 +270,7 @@ angular.module("inventory.controllers", [
 
     }
 
-    generateInventoryTable();
+    //generateInventoryTable();
 
     $scope.showUpdateInventoryForm = false;
     $scope.showUpdateInventoryFormFn = function(){

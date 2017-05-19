@@ -11,8 +11,20 @@ angular.module("pricing.config", [])
                     roomId: function() {
                         return '58a9ecfc7159cc2806591106';
                     },
-                    rateplanId: function() {
+                    ratePlanId: function() {
                         return '58c054a47159cc491aa489c3';
+                    },
+                    dateRange : function(){
+                        if(!localStorage.startDate){
+                            var start = moment();
+                            if(localStorage.startDate){
+                                start = localStorage.startDate;
+                            }
+                            var end = moment(start).add(14, 'days');
+                            localStorage.startDate = start;
+                            localStorage.endDate = end;
+                        }
+                        return localStorage;
                     },
                     viewRooms: function(Pricing) {
                         return Pricing.getRooms();
@@ -20,8 +32,8 @@ angular.module("pricing.config", [])
                     viewRateplans: function(Pricing) {
                         return Pricing.getRateplans();
                     },
-                    viewPricing : function(Pricing, hotelId, roomId, rateplanId) {
-                        return Pricing.getPricing(hotelId, roomId, rateplanId);
+                    viewPricing : function(Pricing, hotelId, roomId, ratePlanId, dateRange) {
+                        return Pricing.getPricing(hotelId, roomId, ratePlanId, dateRange);
                     }
                 },
                 controller: "PricingController"
@@ -63,16 +75,16 @@ angular.module("pricing.config", [])
                 });
                 return viewrateplans;
             },
-            getPricing: function(hotelId, roomId, rateplanId) {
+            getPricing: function(hotelId, roomId, ratePlanId, dateRange) {
                 var deferred = $q.defer();
                 var price = deferred.promise;
-                $http.get(apiEndPoint + '/ratePlan/viewPricing/', {
+                $http.get(apiEndPoint + '/ratePlan/pricing/', {
                         params: {
                             hotel_id: hotelId,
                             room_id: roomId,
-                            rate_id: rateplanId,
-                            start_date: "2017-03-01",
-                            end_date: "2017-03-31"
+                            rate_id: ratePlanId,
+                            start_date: moment(dateRange.startDate).format('YYYY-MM-DD'),
+                            end_date: moment(dateRange.endDate).format('YYYY-MM-DD')
                         }
                     })
                     .then(function(response) {

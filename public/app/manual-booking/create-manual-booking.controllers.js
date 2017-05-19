@@ -118,7 +118,7 @@ angular.module("create-manual-booking.controllers", [
             };
 
             ManualBooking.save(params, function () {
-                $state.go('bookings');
+                $state.go('base.bookings');
             });
         };
 
