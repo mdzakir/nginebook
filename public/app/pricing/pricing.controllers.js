@@ -178,7 +178,7 @@ angular.module("pricing.controllers", [
 
         // Rooms
         $scope.rooms = _.clone(viewRooms);
-        $scope.room = $scope.rooms[0].id;
+        $scope.priceUpdate.room = $scope.rooms[0].id;
 
         // Date options for form
         $scope.dateOptions = {
@@ -254,12 +254,6 @@ angular.module("pricing.controllers", [
             $scope.filter_room = filter_room;
         }
 
-        $scope.updateFormElements = {
-            start_date : '',
-            end_date : '',
-            availability : '',
-        }
-
         // Room occupancy tabs
 
         $scope.roomOccupancy = function(occId){
@@ -269,18 +263,18 @@ angular.module("pricing.controllers", [
         $scope.updatePricing = function() {
             var params = {
                 "hotel_id": "58726a8e5aa124394eb7dae4",
-                "room_id": $scope.room,
-                "rate_id": $scope.rateplan,
+                "room_id": $scope.priceUpdate.room,
+                "rate_id": $scope.priceUpdate.rateplan,
                 "price_details": {
-                    "1": $scope.single,
-                    "2": $scope.double,
-                    "3": $scope.triple,
-                    "4": $scope.extra_adult,
-                    "5": $scope.extra_child,
-                    "6": $scope.extra_bed
+                    "1": $scope.priceUpdate.single,
+                    "2": $scope.priceUpdate.double,
+                    "3": $scope.priceUpdate.triple,
+                    "4": $scope.priceUpdate.extra_adult,
+                    "5": $scope.priceUpdate.extra_child,
+                    "6": $scope.priceUpdate.extra_bed
                 },
-                "start_date": moment($scope.start_date).format("YYYY-MM-DD"),
-                "end_date": moment($scope.end_date).format("YYYY-MM-DD")
+                "start_date": moment($scope.priceUpdate.start_date).format("YYYY-MM-DD"),
+                "end_date": moment($scope.priceUpdate.end_date).format("YYYY-MM-DD")
             };
 
             Pricing.updatePricing(params, function() {
