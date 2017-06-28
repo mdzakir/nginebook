@@ -21,7 +21,7 @@ angular.module("rateplans.controllers", [
         };
 
         $scope.editRateplan = function(id) {
-            $state.go("create-rateplan", { "id": id });
+            $state.go("base.create-rateplan", { "id": id });
         };
 
         // ADD ROOM

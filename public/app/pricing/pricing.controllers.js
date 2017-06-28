@@ -6,19 +6,31 @@ angular.module("pricing.controllers", [
         $scope.title = "Pricing";
         $scope.$emit("pageTitleChanged", "Pricing");
 
+        $scope.priceUpdate = {
+            start_date : '',
+            end_date : '',
+            roomType : '',
+            ratePlan : '',
+            single : '',
+            double : '',
+            triple : '',
+            extra_adult : '',
+            extra_child : '',
+            extra_bed : ''
+        }
+
         // Rooms
         $scope.rooms = _.clone(viewRooms);
-        $scope.room = $scope.rooms[0].id;
+        $scope.priceUpdate.room = $scope.rooms[0].id;
 
         // Rateplans
         $scope.rateplans = _.clone(viewRateplans);
-        $scope.rateplan = $scope.rateplans[0].id;
+        $scope.priceUpdate.rateplan = $scope.rateplans[0].id;
 
         // Room Occupancy Selected
         $scope.roomOccupancySelected = "1";
 
         $scope.pricingData = viewPricing;
-        console.log($scope.pricingData);
 
         // Calendar Start Date
         $scope.calDateOptions = {
@@ -42,7 +54,6 @@ angular.module("pricing.controllers", [
 
         $scope.viewPricing = function(start_date, end_date){
             _generatePricingTable(viewPricing);
-            console.log(_generatePricingTable(viewPricing));
         };
 
         function _dateRange(){
@@ -119,10 +130,7 @@ angular.module("pricing.controllers", [
 
         $scope.pricingTable = _generatePricingTable(viewPricing);
 
-        console.log(_generatePricingTable(viewPricing));
-
         $scope.setNewDates = function(new_start_date){
-            debugger;
             var start = moment(new_start_date, "YYYY-MM-DD");
             var end = moment(new_start_date, "YYYY-MM-DD").add(14, 'days');
             localStorage.startDate = start;
@@ -131,8 +139,6 @@ angular.module("pricing.controllers", [
         }
 
         $scope.startDateChanged = function(){
-            console.log($scope.cal_start_date);
-            //$scope.setNewDates($scope.cal_start_date);
 
             var start = moment($scope.cal_start_date, "YYYY-MM-DD");
             var end = moment($scope.cal_start_date, "YYYY-MM-DD").add(14, 'days');
@@ -241,7 +247,7 @@ angular.module("pricing.controllers", [
         }
 
         $scope.roomChange = function(room) {
-            $scope.room = room;
+            $scope.priceUpdate.room = room;
         }
 
         $scope.filterRoomChange = function(filter_room){

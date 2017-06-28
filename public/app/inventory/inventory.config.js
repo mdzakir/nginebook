@@ -28,7 +28,7 @@ angular.module("inventory.config", [])
                     },
                     viewInventory: function(ManageInventory, hotelId, roomId, dateRange) {
                         return ManageInventory.getInventory(hotelId, roomId, dateRange);
-                    },
+                    }
                 },
                 controller: "InventoryController"
             })
