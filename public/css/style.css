@@ -214,3 +214,77 @@ template {
   display: none;
 }
 
+.jqstooltip {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    visibility: hidden;
+    background: rgb(0, 0, 0) transparent;
+    background-color: rgba(0, 0, 0, 0.6);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+    color: white;
+    font: 10px arial, san serif;
+    text-align: left;
+    white-space: nowrap;
+    padding: 5px;
+    border: 1px solid white;
+    z-index: 10000;
+}
+
+.jqsfield {
+    color: white;
+    font: 10px arial, san serif;
+    text-align: left;
+} 
+
+#menubar, #base {
+    transition:all .2s ease-in-out;
+    -webkit-transition:all .2s ease-in-out;
+}
+
+#menubar.sidebar-collapsed {
+     width: 64px !important;
+}
+
+#base.sidebar-collapsed{
+  padding-left: 64px !important; 
+}
+
+ul.dropdown-menu.animation-dock {
+    border-radius: 0;
+}
+
+.sb-submenu {
+  overflow: hidden;
+}
+
+/*.gui-folder:hover .sb-submenu {
+  display: block;
+  max-height: 200px;
+}*/
+
+.ink-reaction{
+  overflow:hidden;
+}
+
+.ripple-effect{
+  position: absolute;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: #ddd;
+  animation: ripple-animation 2s;
+}
+
+
+@keyframes ripple-animation {
+    from {
+      transform: scale(1);
+      opacity: 0.4;
+    }
+    to {
+      transform: scale(100);
+      opacity: 0;
+    }
+}

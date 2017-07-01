@@ -1,11 +1,15 @@
-
-        <ng-include src="'app/base/header.html'"></ng-include>
-        <div class="main-container">
-            <ng-include src="'app/base/mainsidebar.html'"></ng-include>
-            <div class="page-content">
-                <div class="container page-container">
-                    <ui-view><ui-view>
-                </div>
+<ng-include src="'app/base/header.html'">
+</ng-include>
+<div id="base">
+    <!-- BEGIN OFFCANVAS LEFT -->
+    <div class="offcanvas"></div>
+    <!-- END OFFCANVAS LEFT -->
+    <div id="content">
+        <section>
+            <div class="section-body">
+                <ui-view></ui-view>
             </div>
-        </div>
-
+        </section>
+    </div>
+    <ng-include src="'app/base/mainsidebar.html'"></ng-include>
+</div>

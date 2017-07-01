@@ -1,4 +1,267 @@
-<div ng-controller="HeaderController">
+<!-- BEGIN HEADER-->
+<header id="header">
+    <div class="headerbar">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="headerbar-left">
+            <ul class="header-nav header-nav-options">
+                <li class="header-nav-brand">
+                    <div class="brand-holder">
+                        <a href="http://www.codecovers.eu/materialadmin/dashboards/dashboard">
+                            <span class="text-lg text-bold text-primary">MATERIAL ADMIN</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a onClick="toggleSidebar();" class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        
+        <div class="headerbar-right">
+            <ul class="header-nav header-nav-options">
+                <li>
+                    <select ng-model="selectedHotel" ng-options="hotel.name for hotel in hotels track by hotel.id"></select>
+                    <div id="hotel-search" class="hotel-search">
+                        <ui-select ng-model="selectedHotel" class="hotel-list">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="hotel in (hotels | filter: $select.search) track by hotel.id">
+                                <span ng-bind="hotel.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </li>
+                <li>
+                    <!-- Search form -->
+                    <form class="navbar-search" role="search">
+                        <div class="form-group">
+                            <input class="form-control" name="headerSearch" placeholder="Enter your keyword" type="text">
+                        </div>
+                        <button type="submit" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-search"></i></button>
+                    </form>
+                </li>
+                <li class="dropdown hidden-xs">
+                    <a aria-expanded="false" href="javascript:void(0);" class="btn btn-icon-toggle btn-default" data-toggle="dropdown">
+                        <i class="fa fa-bell"></i><sup class="badge style-danger">4</sup>
+                    </a>
+                    <ul class="dropdown-menu animation-expand">
+                        <li class="dropdown-header">Today's messages</li>
+                        <li>
+                            <a class="alert alert-callout alert-warning" href="javascript:void(0);">
+                                <img class="pull-right img-circle dropdown-avatar" src="" alt="">
+                                <strong>Alex Anistor</strong>
+                                <br>
+                                <small>Testing functionality...</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="alert alert-callout alert-info" href="javascript:void(0);">
+                                <img class="pull-right img-circle dropdown-avatar" src="" alt="">
+                                <strong>Alicia Adell</strong>
+                                <br>
+                                <small>Reviewing last changes...</small>
+                            </a>
+                        </li>
+                    </ul>
+                    <!--end .dropdown-menu -->
+                </li>
+                <!--end .dropdown -->
+            </ul>
+            <!--end .header-nav-options -->
+            <ul class="header-nav header-nav-profile">
+                <li class="dropdown" uib-dropdown>
+                    <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="profile-setting" uib-dropdown-toggle>
+                        <img src="images/avatar1.jpg" alt="">
+                        <span class="profile-info">
+                        Ghanshyam Pathak
+                        <small>Hotelier</small>
+                    </span>
+                    </a>
+                    <ul class="dropdown-menu animation-dock" uib-dropdown-menu role="menu" aria-labelledby="profile-setting">
+                        <li><a href="http://www.codecovers.eu/materialadmin/pages/profile">My profile</a></li>
+                        <li><a href="http://www.codecovers.eu/materialadmin/pages/calendar">My Activities</a></li>
+                        <li class="divider"></li>
+                        <li><a href="http://www.codecovers.eu/materialadmin/pages/login"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+                    </ul>
+                    <!--end .dropdown-menu -->
+                </li>
+                <!--end .dropdown -->
+            </ul>
+        </div>
+        <!--end #header-navbar-collapse -->
+    </div>
+</header>
+<!-- END HEADER-->
+<!-- BEGIN OFFCANVAS RIGHT -->
+<div class="offcanvas">
+    <!-- BEGIN OFFCANVAS SEARCH -->
+    <div id="offcanvas-search" class="offcanvas-pane width-8">
+        <div class="offcanvas-head">
+            <header class="text-primary">Search</header>
+            <div class="offcanvas-tools">
+                <a class="btn btn-icon-toggle btn-default-light pull-right" data-dismiss="offcanvas">
+                    <i class="md md-close"></i>
+                </a>
+            </div>
+        </div>
+        <div class="offcanvas-body no-padding">
+            <ul class="list ">
+                <li class="tile divider-full-bleed">
+                    <div class="tile-content">
+                        <div class="tile-text"><strong>A</strong></div>
+                    </div>
+                </li>
+                <li class="tile">
+                    <a class="tile-content ink-reaction" href="#offcanvas-chat" data-toggle="offcanvas" data-backdrop="false">
+                        <div class="tile-icon">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="tile-text">
+                            Alex Nelson
+                            <small>123-123-3210</small>
+                        </div>
+                    </a>
+                </li>
+                <li class="tile">
+                    <a class="tile-content ink-reaction" href="#offcanvas-chat" data-toggle="offcanvas" data-backdrop="false">
+                        <div class="tile-icon">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="tile-text">
+                            Ann Laurens
+                            <small>123-123-3210</small>
+                        </div>
+                    </a>
+                </li>
+                <li class="tile divider-full-bleed">
+                    <div class="tile-content">
+                        <div class="tile-text"><strong>J</strong></div>
+                    </div>
+                </li>
+                <li class="tile">
+                    <a class="tile-content ink-reaction" href="#offcanvas-chat" data-toggle="offcanvas" data-backdrop="false">
+                        <div class="tile-icon">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="tile-text">
+                            Jessica Cruise
+                            <small>123-123-3210</small>
+                        </div>
+                    </a>
+                </li>
+                <li class="tile">
+                    <a class="tile-content ink-reaction" href="#offcanvas-chat" data-toggle="offcanvas" data-backdrop="false">
+                        <div class="tile-icon">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="tile-text">
+                            Jim Peters
+                            <small>123-123-3210</small>
+                        </div>
+                    </a>
+                </li>
+                <li class="tile divider-full-bleed">
+                    <div class="tile-content">
+                        <div class="tile-text"><strong>M</strong></div>
+                    </div>
+                </li>
+                <li class="tile">
+                    <a class="tile-content ink-reaction" href="#offcanvas-chat" data-toggle="offcanvas" data-backdrop="false">
+                        <div class="tile-icon">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="tile-text">
+                            Mabel Logan
+                            <small>123-123-3210</small>
+                        </div>
+                    </a>
+                </li>
+                <li class="tile">
+                    <a class="tile-content ink-reaction" href="#offcanvas-chat" data-toggle="offcanvas" data-backdrop="false">
+                        <div class="tile-icon">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="tile-text">
+                            Mary Peterson
+                            <small>123-123-3210</small>
+                        </div>
+                    </a>
+                </li>
+                <li class="tile">
+                    <a class="tile-content ink-reaction" href="#offcanvas-chat" data-toggle="offcanvas" data-backdrop="false">
+                        <div class="tile-icon">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="tile-text">
+                            Mike Alba
+                            <small>123-123-3210</small>
+                        </div>
+                    </a>
+                </li>
+                <li class="tile divider-full-bleed">
+                    <div class="tile-content">
+                        <div class="tile-text"><strong>N</strong></div>
+                    </div>
+                </li>
+                <li class="tile">
+                    <a class="tile-content ink-reaction" href="#offcanvas-chat" data-toggle="offcanvas" data-backdrop="false">
+                        <div class="tile-icon">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="tile-text">
+                            Nathan Peterson
+                            <small>123-123-3210</small>
+                        </div>
+                    </a>
+                </li>
+                <li class="tile divider-full-bleed">
+                    <div class="tile-content">
+                        <div class="tile-text"><strong>P</strong></div>
+                    </div>
+                </li>
+                <li class="tile">
+                    <a class="tile-content ink-reaction" href="#offcanvas-chat" data-toggle="offcanvas" data-backdrop="false">
+                        <div class="tile-icon">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="tile-text">
+                            Philip Ericsson
+                            <small>123-123-3210</small>
+                        </div>
+                    </a>
+                </li>
+                <li class="tile divider-full-bleed">
+                    <div class="tile-content">
+                        <div class="tile-text"><strong>S</strong></div>
+                    </div>
+                </li>
+                <li class="tile">
+                    <a class="tile-content ink-reaction" href="#offcanvas-chat" data-toggle="offcanvas" data-backdrop="false">
+                        <div class="tile-icon">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="tile-text">
+                            Samuel Parsons
+                            <small>123-123-3210</small>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--end .offcanvas-body -->
+    </div>
+    <!--end .offcanvas-pane -->
+    <!-- END OFFCANVAS SEARCH -->
+</div>
+<!--end .offcanvas-->
+<!-- END OFFCANVAS RIGHT -->
+
+
+<div ng-controller="HeaderController" style="display: none;">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="fluid-container">
             <div class="navbar-header">
