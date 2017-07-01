@@ -155,6 +155,10 @@ body {
   margin: 0;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+    display: none !important;
+}
+
 /* HTML5 display definitions
    ========================================================================== */
 
@@ -287,4 +291,70 @@ ul.dropdown-menu.animation-dock {
       transform: scale(100);
       opacity: 0;
     }
+}
+
+
+
+
+/* Zakir's Customization */
+
+.hotellist-dd {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.search-hotels {
+    min-width: 220px;
+    display: inline-block;
+}
+.hotel-list {
+    margin-top: 14px;
+}
+
+.hotel-list.ui-select-bootstrap > .ui-select-match > .btn{
+    border-radius: 0;
+    width: 100% !important;
+    padding-right: 26px;
+    border: 1px solid #ccc;
+}
+
+.hotel-list.ui-select-bootstrap .ui-select-match-text{
+    padding: 8px 0 0 10px;
+    text-transform: capitalize;
+}
+
+.hotel-list.ui-select-bootstrap .ui-select-toggle > .caret{
+    right: 10px;
+}
+
+.hotel-list.ui-select-bootstrap input[type=search]{
+    width: 100% !important;
+    border-radius: 0;
+    margin: 0 !important;
+    padding-right: 48px;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+.ui-select-bootstrap .ui-select-choices-row>span{
+    padding: 7px 20px 6px 20px;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active>span {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    background-color: #28b2b3;
+}
+
+.ui-select-bootstrap > .ui-select-choices, .ui-select-bootstrap > .ui-select-no-choice {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+    border-radius: 0;
+    margin-top: -1px;
 }

@@ -20,24 +20,24 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         
+        <div class="hotellist-dd">
+            <div id="hotel-search" class="search-hotels">
+                <ui-select ng-model="selectedHotel" class="hotel-list">
+                    <ui-select-match>
+                        <span ng-bind="$select.selected.name"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="hotel in (hotels | filter: $select.search) track by hotel.id">
+                        <span ng-bind="hotel.name"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+
         <div class="headerbar-right">
             <ul class="header-nav header-nav-options">
                 <li>
-                    <select ng-model="selectedHotel" ng-options="hotel.name for hotel in hotels track by hotel.id"></select>
-                    <div id="hotel-search" class="hotel-search">
-                        <ui-select ng-model="selectedHotel" class="hotel-list">
-                            <ui-select-match>
-                                <span ng-bind="$select.selected.name"></span>
-                            </ui-select-match>
-                            <ui-select-choices repeat="hotel in (hotels | filter: $select.search) track by hotel.id">
-                                <span ng-bind="hotel.name"></span>
-                            </ui-select-choices>
-                        </ui-select>
-                    </div>
-                </li>
-                <li>
                     <!-- Search form -->
-                    <form class="navbar-search" role="search">
+                    <form class="navbar-search" role="search" style="display: none;">
                         <div class="form-group">
                             <input class="form-control" name="headerSearch" placeholder="Enter your keyword" type="text">
                         </div>

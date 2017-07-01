@@ -1,6 +1,7 @@
 angular.module("productApp", [
     "ui.router",
     "ui.bootstrap",
+    "ui.select",
     "cart.module",
     "login.module",
     "app.config",
