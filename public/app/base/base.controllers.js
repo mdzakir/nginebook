@@ -1,22 +1,35 @@
 angular.module("base.controllers", [
         "base.module"
     ])
-    .controller('BaseController', ['$scope', '$rootScope', function($scope, $rootScope) {
+    .controller('BaseController', ['$scope', '$rootScope', 'hotels', 'AppContext', 'User', '$rootScope', '$window' , function($scope, $rootScope, hotels, AppContext, User, $rootScope, $window) {
 
-       $scope.hotels = [{
-       	id:1,
-       	name: "Hotel Krishna"
-       },{
-       	id:2,
-       	name: "Ganga Residency"
-       },{
-       	id:3,
-       	name: "Paradise Hotel"
-       },{
-       	id:4,
-       	name: "Taj Vivanta"
-       }];
-       console.log($scope.hotels);
+      console.log('hotels-->', hotels);
+
+      $scope.hotels = hotels;
+      $scope.hotelId = User.getHotelID();
+      $scope.indexOfSelectedHotel = _.findIndex($scope.hotels, function (o) {
+          return o.id == $scope.hotelId;
+      });
+      $scope.selectedHotel = $scope.hotels[$scope.indexOfSelectedHotel];
+
+      $scope.hotelChanged = function (changedHotelID) {
+          updateUserSettings(changedHotelID);
+          UIContext.changeHotel(changedHotelID);
+          $scope.hotelId = changedHotelID;
+          $scope.indexOfSelectedHotel = _.findIndex($scope.hotels, function (o) {
+              return o.id == $scope.hotelId;
+          });
+          $scope.selectedHotel = $scope.hotels[$scope.indexOfSelectedHotel];
+          User.setRoomID([1, false]);
+          BookingImports.get(changedHotelID).then(function (res) {
+              $scope.bookingImports = res.data;
+          });
+      };
+
+      $scope.logout = function () {
+          User.logout();
+      };
+
 
        $scope.selectedHotel = $scope.hotels[0];
 

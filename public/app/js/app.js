@@ -80,7 +80,7 @@ angular.module("productApp", [
             $rootScope.pageTitle = title;
         })
     })
-    .factory('User', function($http, $window, $rootScope, CacheFactory, $cookies, apiEndPoint) {
+    .factory('User', function($http, $window, $rootScope, $cookies, apiEndPoint) {
         var user = null;
         var store = $window.localStorage;
         var token_key = 'auth-token';
@@ -103,10 +103,16 @@ angular.module("productApp", [
                 var that = this;
                 return $http.post(apiEndPoint + '/user/auth', params).then(function(response) {
 
+                    debugger;
                     user = { name: email, authenticated: true };
                     that.setToken(response.data.token);
                     that.setEmail(email);
+                    that.setUserConfig(response.config.data);
+                    that.setUserName(response.config.data.email);
+
+                    //that.setHotelConfig(response.data.hotel_config);
                     //that.setHotelID(response.data.hotel_id);
+                    that.setHotelID("58726a8e5aa124394eb7dae4");
                     $rootScope.$broadcast('userLoggedIn');
                 }, function(response) {
                     that.setToken('invalid');
@@ -115,7 +121,6 @@ angular.module("productApp", [
             logout: function() {
                 this.setToken();
                 this.setUserConfig();
-                CacheFactory.destroyAll();
                 $rootScope.$broadcast('userLoggedOut');
             },
 
@@ -124,6 +129,27 @@ angular.module("productApp", [
             },
             setEmail: function(email_id) {
                 store.setItem(email, email_id);
+            },
+            setHotelConfig: function(config) {
+                store.setItem(currency_code, JSON.stringify(config));
+            },
+            getHotelID: function() {
+                return JSON.parse(store.getItem(HotelID));
+            },
+            setHotelID: function(config) {
+                store.setItem(HotelID, JSON.stringify(config));
+            },
+            getUserName: function() {
+                return JSON.parse(store.getItem(username));
+            },
+            setUserName: function(config) {
+                store.setItem(username, JSON.stringify(config));
+            },
+            getUserConfig: function() {
+                return JSON.parse(store.getItem(user_config));
+            },
+            setUserConfig: function(config) {
+                store.setItem(user_config, JSON.stringify(config));
             },
             getToken: function() {
                 return store.getItem(token_key);
