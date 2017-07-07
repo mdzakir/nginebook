@@ -122,8 +122,8 @@
 
     $(function() {
         $('body').on('click', '#main-menu > li > a', function() {
-            $('ul.sb-submenu').not($(this).siblings()).slideUp();
-            $(this).siblings("ul.sb-submenu").slideToggle();
+            $('ul.sb-submenu').not($(this).siblings()).slideUp('fast');
+            $(this).siblings("ul.sb-submenu").slideToggle('fast');
         });
         $('body').on('click', '.sb-submenu > li > a', function(e) {
             e.stopPropagation();

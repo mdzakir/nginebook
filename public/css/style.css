@@ -361,23 +361,27 @@ ul.dropdown-menu.animation-dock {
 
 .app-logo {
     background: #fff;
-    border: 4px solid #ccc;
     border-radius: 50%;
     width: 100px;
     height: 100px;
     display: inline-block;
     text-align: center;
-    padding-top: 32px;
-    margin: -60px auto 0;
+    padding-top: 38px;
+    margin: -41px auto 0;
+    color: #333531;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
 }
 
 .login-container{
-    border: 1px solid #ccc;
     background: #fff;
     /*box-shadow: 0 0 20px 0px #ccc;*/
-    border-radius: 3px;
+    border-radius: 2px;
     text-align: center;
     padding-bottom: 20px;
+
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
 }
 
 .login-card.card-body {
@@ -394,4 +398,20 @@ ul.dropdown-menu.animation-dock {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+.login-reg-link-wrapper{
+    background: #F3F3F3;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: -21px; 
+}
+
+.login-reg-link-wrapper .lr-link{
+  color: #337ab7;
+  cursor: pointer;
+}
+
+.login-reg-link-wrapper .lr-link:hover{
+  text-decoration: underline;
 }

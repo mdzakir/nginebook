@@ -1250,7 +1250,8 @@ a.text-success:hover {
   height: 5px;
 }
 .headerbar-left {
-  position: absolute;
+    position: absolute;
+    z-index: 1006;
 }
 .headerbar-left a {
   float: left;
@@ -1915,6 +1916,7 @@ body:not(.menubar-first) .menubar-fixed-panel {
 .gui-controls > .gui-folder > a:after {
   top: 12px;
   margin-left: 2px;
+  right: 12px;
 }
 .gui-controls > .gui-folder.expanding > a:after,
 .gui-controls > .gui-folder.expanded > a:after {
@@ -2126,6 +2128,8 @@ body:not(.menubar-first) .menubar-fixed-panel {
 .menubar-inverse .gui-controls li .title {
   color: rgba(255, 255, 255, 0.55);
   text-shadow: 0 1px 2px #000000;
+  font-size: 14px;
+  color: #ddd;
 }
 .menubar-inverse .gui-controls li > a:hover .title {
   color: #ffffff;
@@ -2134,7 +2138,7 @@ body:not(.menubar-first) .menubar-fixed-panel {
   color: #ffffff;
 }
 .menubar-inverse .gui-controls li.gui-folder > a .title {
-  color: rgba(255, 255, 255, 0.5);
+  color: #ddd;
 }
 .menubar-inverse .gui-controls li.gui-folder.expanded > a .title,
 .menubar-inverse .gui-controls li.gui-folder.active > a .title {
@@ -2706,15 +2710,14 @@ label {
 }
 .form-group > label,
 .form-group .control-label {
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.5;
-  margin-bottom: 0;
 }
 .form .form-group > label,
 .form-inline .form-group > label {
-  position: absolute;
+/*  position: absolute;
   top: 0;
-  left: 0;
+  left: 0;*/
 }
 .form-control-static {
   font-size: 16px;
@@ -2725,17 +2728,12 @@ label {
   bottom: 0;
 }
 .form-control {
-  padding: 0;
-  height: 37px;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  border-bottom-color: rgba(12, 12, 12, 0.12);
-  background: transparent;
-  color: #0c0c0c;
-  font-size: 16px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+    height: 37px;
+    background: transparent;
+    color: #0c0c0c;
+    font-size: 16px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 .form-control.placeholder {
   color: #999c96;
@@ -2787,6 +2785,7 @@ textarea.autosize {
 .form-group {
   position: relative;
   margin-bottom: 19px;
+  text-align: left;
 }
 .form-group .form-control:not(.static) ~ label,
 .form-group .form-control:not(.static) ~ .form-control-line {
@@ -2822,8 +2821,11 @@ textarea.autosize {
   font-size: 12px;
   opacity: 0.5;
 }
-.form-group .form-control:focus {
-  border-color: rgba(12, 12, 12, 0.12);
+.form-group .form-control:focus, .form-control:focus {
+  border-color: #5a99f3;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 1px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 1px rgba(102,175,233,.6);
 }
 .form-group .form-control:focus ~ label {
   color: #0aa89e;
@@ -3902,7 +3904,6 @@ fieldset[disabled] .btn-accent-dark.active {
 }
 .btn {
   font-size: 14px;
-  text-transform: uppercase;
 }
 .btn:active,
 .btn.active {

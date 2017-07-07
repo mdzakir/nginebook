@@ -122,7 +122,7 @@ body {
 
 .form-control,
 .btn {
-    border-radius: 0;
+    border-radius: 2px;
 }
 
 .stats-box ul {
