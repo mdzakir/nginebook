@@ -7,6 +7,7 @@ angular.module("base.controllers", [
 
       $scope.hotels = hotels;
       $scope.hotelId = User.getHotelID();
+      console.log(User.getHotelID())
       $scope.indexOfSelectedHotel = _.findIndex($scope.hotels, function (o) {
           return o.id == $scope.hotelId;
       });

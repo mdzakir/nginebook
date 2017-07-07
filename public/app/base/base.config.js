@@ -47,7 +47,7 @@ angular.module("base.config", [])
             if (hotelId) $rootScope.$broadcast('contextChanged', context);
         }
     })
-    .factory('UserHotels', function($q, $http) {
+    .factory('UserHotels', function($q, $http,User,apiEndPoint) {
         var hotels;
         return {
             get: function() {
@@ -56,8 +56,8 @@ angular.module("base.config", [])
                 } else {
                     var deferred = $q.defer();
                     hotels = deferred.promise;
-                    //$http.get('/user/products')
-                    $http.get('jsonData/hotels.json')
+                    $http.get(apiEndPoint + '/user/products?id='+User.getEmail())
+                    //$http.get('jsonData/hotels.json')
                         .then(function(response) {
                             hotels = response.data;
                             deferred.resolve(hotels);

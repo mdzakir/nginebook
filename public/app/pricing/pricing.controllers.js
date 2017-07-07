@@ -79,7 +79,8 @@ angular.module("pricing.controllers", [
                 var invList = [];
                 roomDetails.push({
                     "room_id" : pricing[i].room_id,
-                    "room_name" : pricing[i].room_name
+                    "room_name" : pricing[i].room_name,
+		    "rate_plan_name" : pricing[i].rate_plan_name
                 });
 
                 for(var date = moment(startDate); (date.isBefore(endDate) || date.isSame(endDate)); date.add(1, 'days')) {
@@ -104,6 +105,7 @@ angular.module("pricing.controllers", [
                             "date" : dateValue,
                             "room_id" : pricing[i].room_id,
                             "room_name" : pricing[i].room_name
+			    
                         })
                     } else {
                         invList.push({
