@@ -2252,6 +2252,7 @@ section.full-bleed {
 }
 .section-body:first-child {
   margin-top: 24px;
+  min-height: 400px;
 }
 .full-bleed .section-body:first-child {
   margin-top: 0;
@@ -2744,9 +2745,9 @@ label {
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
-  background-color: transparent;
+  /*background-color: transparent;
   border-bottom-color: rgba(12, 12, 12, 0.2);
-  border-bottom-style: dashed;
+  border-bottom-style: dashed;*/
 }
 .form-control[disabled]::-moz-placeholder,
 .form-control[readonly]::-moz-placeholder,

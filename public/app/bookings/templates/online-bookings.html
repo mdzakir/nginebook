@@ -1,0 +1,101 @@
+<form class="well">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Type</label>
+				<div class="">
+					<select class="form-control">
+						<option>Booking</option>
+						<option>Checkin</option>
+						<option>Stay</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Start date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="start_date" 
+					is-open="start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_start()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">End date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="end_date" 
+					is-open="end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_end()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Status</label>
+				<div class="">
+					<select class="form-control">
+						<option>Confirmed</option>
+						<option>Cancelled</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group tac">
+				<button type="button" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
+				<button type="button" class="btn btn-primary"><i class="fa fa-download"></i> Download</button>
+			</div>
+		</div>
+	</div>
+</form>
+
+<div class="row searched-bookings-table">
+	<div class="col-md-12">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Booking ID</th>
+					<th>Guest Name</th>
+					<th>Source</th>
+					<th>Total Profit</th>
+					<th>Profit</th>
+					<th>Status</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody ng-if="bookingData != 'No Booking found'">
+				<tr ng-repeat="booking in bookingData track by $index">
+					<td>{{booking.reference_id}}</td>
+					<td>{{booking.guest_name}}</td>
+					<td>Travel Agent ( Ravi Raj )</td>
+					<td>10000</td>
+					<td>1000</td>
+					<td>Confirmed</td>
+					<td>
+					    <div class="btn-group" uib-dropdown is-open="status.isopen">
+					      <button id="btn_{{booking.bookingId}}" type="button" class="btn btn-primary btn-sm" uib-dropdown-toggle ng-disabled="disabled"> Action <span class="caret"></span>
+					      </button>
+					      <ul class="dropdown-menu pull-right" uib-dropdown-menu role="menu" aria-labelledby="btn_{{booking.bookingId}}">
+					        <li role="menuitem"><a href="#">Change Status</a></li>
+					        <li role="menuitem"><a href="#">Cancel Booking</a></li>
+					      </ul>
+					    </div>
+					</td>
+				</tr>
+			</tbody>
+			<tbody ng-if="bookingData == 'No Booking found'">
+				<tr>
+					<td style="padding: 30px;" class="tac" colspan="10">
+						<p><i class="fa fa-thumbs-o-down"></i> No booking data available.</p>
+    					<a style="font-size: 14px;" ui-sref="base.create-manual-booking"><i class="fa fa-plus nrr-btn-add"></i><span> Create a Booking</span></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -3,6 +3,9 @@ angular.module("base.controllers", [
     ])
     .controller('BaseController', ['$scope', '$rootScope', 'hotels', 'AppContext', 'User', '$rootScope', '$window' , function($scope, $rootScope, hotels, AppContext, User, $rootScope, $window) {
 
+      // Set App Global Values 
+      $scope.user_name = User.getUserName();
+
       console.log('hotels-->', hotels);
 
       $scope.hotels = hotels;
