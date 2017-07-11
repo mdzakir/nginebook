@@ -2,7 +2,7 @@ angular.module("login.controllers", [
     "login.module"
 ])
 
-.controller('LoginController', function($scope, $http, User, $rootScope) {
+.controller('LoginController', function($scope, $state,$http, User, $rootScope,RegisterUser) {
     $scope.title = "Login";
     $scope.$emit("pageTitleChanged", "Login");
 
@@ -49,22 +49,17 @@ angular.module("login.controllers", [
     $scope.registrationSubmit = function() {
 
         var regParams = {
-            firstName : $scope.registrationDetails.firstName,
-            lastName : $scope.registrationDetails.lastName,
-            typeOfUser : $scope.registrationDetails.typeOfUser,
-            emailId : $scope.registrationDetails.emailId,
-            mobile : $scope.registrationDetails.mobile,
-            password: $scope.registrationDetails.password,
-            confirmPassword: $scope.registrationDetails.confirmPassword
+            first_name : $scope.registrationDetails.firstName,
+            last_name : $scope.registrationDetails.lastName,
+            user_type : $scope.registrationDetails.typeOfUser,
+            email : $scope.registrationDetails.emailId,
+            phone : $scope.registrationDetails.mobile,
+            password: $scope.registrationDetails.password
         };
 
-        // User.registration(params).then(function() {
-        //     if (User.getToken('auth-token') == 'invalid') {
-        //         $scope.invalidLogin = true;
-        //     } else {
-        //         $scope.invalidLogin = false;
-        //     }
-        // });
+        RegisterUser.register(regParams, function() {
+            $state.go('.', {}, { reload: 'login' });
+        });
     };
 
 });

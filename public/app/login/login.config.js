@@ -9,4 +9,16 @@ angular.module("login.config", [])
                 },
                 controller: "LoginController",
             });
+    })
+    .factory('RegisterUser', function($http, $q, apiEndPoint) {
+	return {
+	    register: function(params, callback) {
+	        var post_url = apiEndPoint + '/user/createuser';
+	        $http.post(post_url, angular.toJson(params, true))
+	            .then(function() {
+	                callback();
+	            });
+	    },
+	};
+
     });
