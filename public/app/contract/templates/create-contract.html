@@ -1,0 +1,117 @@
+<form class="well" >
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Name</label>
+				<div class="">
+					<input type="text" class="form-control" ng-model="addOns.name" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Description</label>
+				<div class="">
+					<textarea class="form-control" ng-model="addOns.description"> </textarea>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Mandate</label>
+				<div class="">
+					<label><input type="radio" ng-model="addOns.mandate" value="true" /> Yes</label>
+					<label><input type="radio" ng-model="addOns.mandate" value="false" /> No</label>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Cut-Off</label>
+				<div class="">
+					<select class="form-control" ng-model="addOns.cut_off">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Charge Type</label>
+				<div class="">
+					<select class="form-control" ng-model="addOns.charge_type" >
+						<option value="1">FREE</option>
+						<option value="2">FIXED</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Charge Value</label>
+				<div class="">
+					<input type="text" class="form-control" ng-model="addOns.charge_value" ng-required="true"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Charge Scope</label>
+				<div class="">
+					<select class="form-control" ng-model="addOns.chargeScope" >
+						<option value="1">Per Booking</option>
+						<option value="2">Per Room</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+		<div class="col-md-6">
+			<fieldset>
+				<legend>Validity</legend>
+				<div class="row fieldset-row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Validity Start</label>
+							<div class="">
+								<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="addOns.validity_start" ng-required="true"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="">Validity End</label>
+							<div class="">
+								<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="addOns.validity_end" ng-required="true"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="">Validity Days of Week</label>
+							<div>
+								<div class="btn-group">
+								    <label class="btn" 
+			    					ng-repeat="bd in addOns.applicable_days"
+			    					ng-model="bd.checked" uib-btn-checkbox>{{bd.name}}</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group tac">
+				<button type="button" class="btn btn-success" ng-click="saveAddOns();"><i class="fa fa-save"></i> Save</button>
+			</div>
+		</div>
+	</div>
+</form>

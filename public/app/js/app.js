@@ -21,6 +21,7 @@ angular.module("productApp", [
     "promotions.module",
     "taxes.module",
     "addOns.module",
+    "contract.module",
     "create-manual-booking.module",
     "product.module",
     "about.module",

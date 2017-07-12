@@ -22,8 +22,23 @@
                     <span class="title">Dashboard</span>
                 </a>
             </li>
+ 
             <!--end /menu-li -->
             <!-- END DASHBOARD -->
+
+            <li class="gui-folder" ui-sref-active="active">
+                <a>
+                    <div class="gui-icon"><i class="fa fa-clipboard"></i></div>
+                    <span class="title">Contracts</span>
+                </a>
+                <!--start submenu -->
+                <ul class="sb-submenu">
+                    <li><a ui-sref="base.contract"><span class="title">Create Contract</span></a></li>
+                    <li><a ui-sref="base.contract"><span class="title">View Contract</span></a></li>
+                </ul>
+                <!--end /submenu -->
+            </li>
+
             <!-- BEGIN Basic Info -->
             <li class="gui-folder" ui-sref-active="active">
                 <a>
@@ -42,12 +57,12 @@
             <!-- BEGIN Inventory -->
             <li class="gui-folder" ui-sref-active="active">
                 <a>
-                    <div class="gui-icon"><i class="fa fa-th"></i></div>
+                    <div class="gui-icon"><i class="fa fa-calendar-check-o"></i></div>
                     <span class="title">Inventory &amp; Pricing</span>
                 </a>
                 <!--start submenu -->
                 <ul class="sb-submenu">
-                    <li><a ui-sref="base.inventory"><span class="title">Inventory</span></a></li>
+                    <li><a ui-sref="base.inventory"><span class="title"><i class="fa fa-calendar-check-o"></i>Inventory</span></a></li>
                     <li><a ui-sref="base.pricing"><span class="title"><i class="fa fa-money"></i> Pricing</span></a></li>
                 </ul>
                 <!--end /submenu -->

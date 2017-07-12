@@ -82,7 +82,9 @@ angular.module("create-manual-booking.controllers", [
 
         $scope.segmentType = [
           {id: '1', name: 'Corporate'},
-          {id: '2', name: 'Individual'}
+          {id: '2', name: 'Travel Agent'},
+          {id: '3', name: 'Website'},
+          {id: '4', name: 'Walk-in'},
         ];
         $scope.selectedSegmentType = $scope.segmentType[0];
 
