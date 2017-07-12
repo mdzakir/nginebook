@@ -1,0 +1,92 @@
+<form class="well">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Type</label>
+				<div class="">
+					<select class="form-control">
+						<option>Booking</option>
+						<option>Checkin</option>
+						<option>Stay</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Start date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="start_date" 
+					is-open="start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_start()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">End date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="end_date" 
+					is-open="end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_end()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Status</label>
+				<div class="">
+					<select class="form-control">
+						<option>Confirmed</option>
+						<option>Cancelled</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group tac">
+				<button type="button" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
+				<button type="button" class="btn btn-primary"><i class="fa fa-download"></i> Download</button>
+			</div>
+		</div>
+	</div>
+</form>
+
+<div class="row searched-bookings-table">
+	<div class="col-md-12">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Hotel Name</th>
+					<th>Activity Time</th>
+					<th>Type</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+                                        <th>Updated By</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody ng-if="activityData != 'No Activity found'">
+				<tr ng-repeat="activity in activityData track by $index">
+					<td>{{activity.hotel_id}}</td>
+					<td>{{activity.creation_date}}</td>
+					<td>{{activity.activity_type}}</td>
+					<td>{{activity.start_date}}</td>
+					<td>{{activity.end_date}}</td>
+                                        <td>{{activity.updatedBy}}</td>
+                                        <td>ddd</td>
+				</tr>
+			</tbody>
+			<tbody ng-if="activityData == 'No Activity found'">
+				<tr>
+					<td style="padding: 30px;" class="tac" colspan="10">
+						<p><i class="fa fa-thumbs-o-down"></i> No Activity data available.</p>
+    					<a style="font-size: 14px;" ui-sref="base.create-manual-booking"><i class="fa fa-plus nrr-btn-add"></i><span> Create a Booking</span></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

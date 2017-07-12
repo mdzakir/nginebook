@@ -1,0 +1,155 @@
+<h2 class="page-title">Pricing 
+	<button type="button" ng-if="!showUpdatePricingForm" class="btn btn-primary pull-right" ng-click="showUpdatePricingFormFn();">Update Prices</button>
+	<button type="button" ng-if="showUpdatePricingForm" class="btn btn-primary pull-right" ng-click="hideUpdatePricingFormFn();"><i class="fa fa-times"></i> Close Form</button>
+</h2>
+
+<form class="well" ng-if="showUpdatePricingForm">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Start date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="priceUpdate.start_date" 
+					is-open="start_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_start()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">End date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="priceUpdate.end_date" 
+					is-open="end_date_popup.opened" datepicker-options="dateOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_end()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Room Type</label>
+				<div class="">
+					
+					<select class="form-control" ng-model="priceUpdate.room" ng-change="roomChange(priceUpdate.room);" ng-options="room.id as room.name for room in rooms"></select>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Rate plans</label>
+				<div class="">
+					<select class="form-control" ng-model="priceUpdate.rateplan" ng-change="rateplanChange(rateplan);" ng-options="rateplan.id as rateplan.name for rateplan in rateplans"></select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+			<div class="form-group">
+				<label class="">Single</label>
+				<div class="">
+					<input ng-model="priceUpdate.single" type="text" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="form-group">
+				<label class="">Double</label>
+				<div class="">
+					<input ng-model="priceUpdate.double" type="text" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="form-group">
+				<label class="">Triple</label>
+				<div class="">
+					<input ng-model="priceUpdate.triple" type="text"  ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="form-group">
+				<label class="">Extra Adult</label>
+				<div class="">
+					<input ng-model="priceUpdate.extra_adult" type="text" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="form-group">
+				<label class="">Extra Child</label>
+				<div class="">
+					<input ng-model="priceUpdate.extra_child" type="text" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="form-group">
+				<label class="">Extra Bed</label>
+				<div class="">
+					<input ng-model="priceUpdate.extra_bed" type="text" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group tac">
+				<button type="button" class="btn btn-success" ng-click="updatePricing();"><i class="fa fa-save"></i> Update</button>
+			</div>
+		</div>
+	</div>
+</form>
+
+<div class="room-occupancies-wrapper">
+    <span class="room-occupancy" ng-click="roomOccupancy('1')">Single</span>
+    <span class="room-occupancy" ng-click="roomOccupancy('2')">Double</span>
+    <span class="room-occupancy" ng-click="roomOccupancy('3')">Triple</span>
+    <span class="room-occupancy" ng-click="roomOccupancy('4')">Extra Adult</span>
+    <span class="room-occupancy" ng-click="roomOccupancy('5')">Extra Child</span>
+    <span class="room-occupancy" ng-click="roomOccupancy('6')">Extra Bed</span>
+</div>
+
+<div class="inventoryChart pricingChart">
+    <div class="top-bar">
+        <div class="left-space">&nbsp;</div>
+        <div class="nav-bar">
+            <span class="icon-arrow-left-3 left-nav inv-nav col-md-1" ng-click="previousDates();"><i class="fa fa-chevron-left"></i></span>
+            <div class="form-horizontal start-date-form col-md-8 col-md-offset-1">
+                <div class="form-group">
+                    <label class="control-label col-md-4"></label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control dp uidpInventory" uib-datepicker-popup="{{format}}" ng-model="cal_start_date" ng-change="startDateChanged();" 
+						is-open="open_cal_start_popup.opened" datepicker-options="calDateOptions" ng-required="true" 
+						close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_cal_start()" readonly="readonly"/>
+                    </div>
+                </div>
+            </div>
+            <span class="icon-arrow-right-3 right-nav inv-nav col-md-1" ng-click="nextDates();"><i class="fa fa-chevron-right"></i></span>
+        </div>
+    </div>
+    
+    <div class="roomsColumn">
+    	<div class="room-heading">Rooms</div>
+		<div class="room-list" ng-repeat="room in pricingTable.roomsList.roomData">{{room.room_name}}-{{room.rate_plan_name}}</div>
+	</div>
+
+    <div class="invDatesColumn">
+        <div class="datesRow" id="datesCount">
+            <div class="datesWrapper" ng-repeat="date in pricingTable.dates track by $index" >
+                <span>{{date.month}}</span>
+                <span>{{date.year}}</span>
+                <span>{{date.day}}</span> <span class="datesq">{{date.date}}</span>
+            </div>
+        </div>
+        <div class="invRowWrapper">
+	        <div class="invRow" ng-repeat="pricingData in pricingTable.roomsList.pricingListData">
+	            <div class="invCol" ng-repeat="price in pricingData">
+	                <span class="invsq">{{price.price[roomOccupancySelected]}}</span>
+	            </div>
+	        </div>
+        </div>
+    </div>
+</div>
