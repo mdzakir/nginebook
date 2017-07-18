@@ -1,0 +1,20 @@
+<div class="row searched-bookings-table">
+	<div class="col-md-12">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+                                        <th>Phone</th>
+				</tr>
+			</thead>
+                        <tbody ng-if="contactDetails != 'No Contacts found'">
+				<tr ng-repeat="contact in contactDetails track by $index">
+					<td>{{contact.name}}</td>
+					<td>{{contact.email}}</td>
+					<td>{{contact.phone}}</td>
+                                </tr>
+			</tbody>
+			
+	</div>
+</div>

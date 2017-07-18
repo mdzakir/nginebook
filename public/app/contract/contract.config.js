@@ -2,31 +2,31 @@ angular.module("contract.config", [])
 .config(function ($stateProvider) {
 	$stateProvider
 	.state("base.contract", {
-		url : "/addOns",
-		templateUrl : "app/addOns/templates/addOns.html",
+		url : "/contract",
+		templateUrl : "app/contract/templates/contract.html",
 		resolve: {
 			hotelId: function() {
                 return '58726a8e5aa124394eb7dae4';
             },
-			viewAddOns : function(ManageAddOns){
-				return ManageAddOns.getAddOns();
+			viewContract : function(ManageContract){
+				return ManageContract.getContract();
 			},
 		},
 		controller : "ContractController"
 	})
     .state('base.create-contract', {
-        url: '/addOns/:id',
-        templateUrl: 'app/addOns/templates/create-addOns.html',
+        url: '/contract/:id',
+        templateUrl: 'app/contract/templates/create-contract.html',
         resolve: {
             hotelId: function() {
                 return '58726a8e5aa124394eb7dae4';
             },
-            viewAddOns : function(ManageAddOns){
-                return ManageAddOns.getAddOns();
+            viewContract : function(ManageContract){
+                return ManageContract.getContract();
             },
-            addOn : function($stateParams, ManageAddOns, hotelId) {
+            contract : function($stateParams, ManageContract, hotelId) {
             if ($stateParams.id) {
-                return ManageAddOns.getAddOn(hotelId, $stateParams.id);
+                return ManageContract.getContract(hotelId, $stateParams.id);
             }
             return {};
             }
@@ -37,42 +37,24 @@ angular.module("contract.config", [])
 })
 .factory('ManageContract', function ($http, $q, apiEndPoint) {
     return {
-        getAddOns: function(){
+        getContract: function(){
             var deferred = $q.defer();
-            var viewaddons = deferred.promise;
-            $http.get(apiEndPoint + '/addOns/view?hotel_id=58726a8e5aa124394eb7dae4').then(function(response) {
-                var viewaddons = response.data;
-                deferred.resolve(viewaddons);
+            var viewcontract = deferred.promise;
+            $http.get(apiEndPoint + '/contract/view').then(function(response) {
+                var viewcontract = response.data;
+                deferred.resolve(viewcontract);
             }, function(error) {
-                viewaddons = null;
+                viewcontract = null;
                 deferred.reject(error);
             });
-            return viewaddons;
+            return viewcontract;
         },
         save: function (params, isAdd, callback) {
-            var post_url = isAdd ? apiEndPoint + '/addOns/create/' : apiEndPoint + '/addOns/edit/' ;
+            var post_url = isAdd ? apiEndPoint + '/contract/create/' : apiEndPoint + 'contract/create/' ;
             $http.post(post_url, angular.toJson(params, true))
                 .then(function () {
                     callback();
                 });
-        },
-        getAddOn: function(hotelId, addOnId) {
-            var deferred = $q.defer();
-            var addOn = deferred.promise;
-            $http.get(apiEndPoint + '/addOns/view', {
-                    params: {
-                        hotel_id: hotelId,
-                        id: addOnId
-                    }
-                })
-                .then(function(response) {
-                    var addOn = response.data;
-                    deferred.resolve(addOn[0]);
-                }, function(error) {
-                    addOn = null;
-                    deferred.reject(error);
-                });
-            return addOn;
         },
     };
 })

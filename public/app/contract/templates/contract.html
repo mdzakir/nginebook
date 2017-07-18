@@ -1,33 +1,41 @@
-<div class="row">
-	<div class="col-md-12"><h4>AddOns <a style="font-size: 14px;margin-left: 15px;" ui-sref="base.create-addOns"><i class="fa fa-plus nrr-btn-add"></i><span>Add New AddOns</span></a></h4></div>
-	<div class="col-md-3" ng-repeat="addOns in addOnsList track by $index">
-		<div class="room-rateplan-box room-box">
-			<div class="room-rateplan-box-name">{{addOns.name}}</div>
-			<div class="room-rateplan-box-img">
-				<img ng-if="addOns.image" ng-src="{{addOns.image}}" alt="{{addOns.name}}" class="img-responsive" />
-				<img ng-if="!addOns.image" ng-src="images/no-image.jpg" alt="{{addOns.name}}" class="img-responsive" />
-				<div class="view-room-controls">
-					<button type="button" ng-click="deleteAddOns(addOns.id);"><i class="fa fa-times"></i></button>
-					<button type="button" ng-click="editAddOns(addOns.id);"><i class="fa fa-pencil"></i></button>
-				</div>
-			</div>
-			<div class="room-rateplan-box-desc">
-				<p>{{addOns.description}}</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="room-rateplan-box room-box">
-			<div class="new-room-rateplan new-room">
-				<div class="nrr-btn-wrapper">
-					<div class="nrr-btn" >
-						<a ui-sref="base.create-addOns">
-							<i class="fa fa-plus nrr-btn-add"></i>
-							<span>Add New AddOns</span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
+<div class="row searched-bookings-table">
+	<div class="col-md-12">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Contract ID</th>
+					<th>Creation Time</th>
+					<th>Hotel</th>
+					<th>Status</th>
+					<th>Contract Type</th>
+					<th>Created By</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody ng-if="contractList != 'No Contract found'">
+				<tr ng-repeat="contract in contractList track by $index">
+					<td>{{contract.id}}</td>
+					<td>{{contract.creation_time}}</td>
+					<td>{{contract.hotel_name}}</td>
+					<td>{{contract.status}}</td>
+					<td>{{contract.contract_type}}</td>
+					<td>{{contract.created_by}}</td>
+					<td>
+					    <div class="btn-group" uib-dropdown is-open="status.isopen">
+					      <button id="btn_{{booking.bookingId}}" type="button" class="btn btn-primary btn-sm" uib-dropdown-toggle ng-disabled="disabled"> View <span class="fa fa-eye"></span>
+					      </button>
+					    </div>
+					</td>
+				</tr>
+			</tbody>
+			<tbody ng-if="bookingData == 'No Booking found'">
+				<tr>
+					<td style="padding: 30px;" class="tac" colspan="10">
+						<p><i class="fa fa-thumbs-o-down"></i> No booking data available.</p>
+    					<a style="font-size: 14px;" ui-sref="base.create-manual-booking"><i class="fa fa-plus nrr-btn-add"></i><span> Create a Booking</span></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>

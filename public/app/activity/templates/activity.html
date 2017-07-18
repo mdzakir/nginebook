@@ -72,11 +72,21 @@
 				<tr ng-repeat="activity in activityData track by $index">
 					<td>{{activity.hotel_id}}</td>
 					<td>{{activity.creation_date}}</td>
-					<td>{{activity.no_of_rooms}}</td>
+					<td>{{activity.activity_type}}</td>
 					<td>{{activity.start_date}}</td>
 					<td>{{activity.end_date}}</td>
                                         <td>{{activity.updatedBy}}</td>
-                                        <td>ddd</td>
+                                        <td ng-if ="activity.inventory_detail">
+					   <div ng-repeat="actions in activity.inventory_detail track by $index">
+						Date : {{actions.date}}
+                                                 - New Value :{{actions.old_inventory}}
+                                                 - Old Value :{{actions.old_inventory}}
+					   </div>
+					</td>
+                                        <td ng-if ="activity.price_detail">
+                                         New Value :{{activity.price_detail.new_price}}
+                                         - Old Value :{{activity.price_detail.old_price}}
+					</td>
 				</tr>
 			</tbody>
 			<tbody ng-if="activityData == 'No Activity found'">

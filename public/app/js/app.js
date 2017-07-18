@@ -28,7 +28,8 @@ angular.module("productApp", [
     "about.module",
     "ngResource",
     "upload-images.module",
-    "ngFileUpload"
+    "ngFileUpload",
+    "hotel.module"
 ])
 
 .constant('DEBUG', true)
