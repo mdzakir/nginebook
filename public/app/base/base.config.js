@@ -16,7 +16,7 @@ angular.module("base.config", [])
             })
 
     })
-    .factory('AppContext', function($q, UserHotels, User) {
+    .factory('AppContext', function($q, UserHotels, User, $rootScope) {
         var hotelId;
         return {
             changeHotel: function (hid) {
@@ -29,7 +29,6 @@ angular.module("base.config", [])
                     return hotelId;
                 } else {
                     var deferred = $q.defer();
-                    console.log(UserHotels.get());
                     UserHotels.get().then(function(hotels) {
                         hotelId = User.getHotelID();
                         deferred.resolve(hotelId);

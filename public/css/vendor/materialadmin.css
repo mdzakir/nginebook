@@ -2681,7 +2681,7 @@ legend span {
 legend:before,
 legend:after {
   content: '';
-  display: table-cell;
+  /*display: table-cell;*/
   border-bottom: 1px solid rgba(12, 12, 12, 0.25);
 }
 legend:before {
@@ -2774,7 +2774,7 @@ fieldset[disabled] .form-control ~ .form-control-line:after {
   display: none;
 }
 textarea.form-control {
-  padding: 4px 0 4px 0;
+  /*padding: 4px 0 4px 0;*/
 }
 textarea.autosize {
   min-height: 38px;

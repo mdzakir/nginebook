@@ -11,6 +11,7 @@ angular.module("productApp", [
     "home.module",
     "manual-bookings.module",
     "online-bookings.module",
+    "rules.module",
     "rooms.module",
     "rateplans.module",
     "inventory.module",
@@ -107,8 +108,6 @@ angular.module("productApp", [
                 var params = { email: email, password: password };
                 var that = this;
                 return $http.post(apiEndPoint + '/user/auth', params).then(function(response) {
-
-                    debugger;
                     user = { name: email, authenticated: true };
                     that.setToken(response.data.token);
                     that.setEmail(email);
@@ -116,8 +115,7 @@ angular.module("productApp", [
                     that.setUserName(response.config.data.email);
 
                     //that.setHotelConfig(response.data.hotel_config);
-                    //that.setHotelID(response.data.hotel_id);
-                    that.setHotelID("58726a8e5aa124394eb7dae4");
+                    that.setHotelID(response.data.hotel_id);
                     $rootScope.$broadcast('userLoggedIn');
                 }, function(response) {
                     that.setToken('invalid');
@@ -137,12 +135,6 @@ angular.module("productApp", [
             },
             setHotelConfig: function(config) {
                 store.setItem(currency_code, JSON.stringify(config));
-            },
-            getHotelID: function() {
-                return JSON.parse(store.getItem(HotelID));
-            },
-            setHotelID: function(config) {
-                store.setItem(HotelID, JSON.stringify(config));
             },
             getUserName: function() {
                 return JSON.parse(store.getItem(username));

@@ -1,0 +1,87 @@
+<form class="well" >
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Rule Name</label>
+				<div class="">
+					<input type="text" class="form-control" ng-model="rule.name" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="form-group">
+				<label class="">Start Date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="rule.start_date" 
+					is-open="rule_start_popup.opened" datepicker-options="validityStartOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_rule_validity_start()" ng-change="setMinDate()"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="form-group">
+				<label class="">End Date</label>
+				<div class="">
+					<input type="text" class="form-control dp" uib-datepicker-popup="{{format}}" ng-model="rule.end_date" 
+					is-open="rule_end_popup.opened" datepicker-options="validityEndOptions" ng-required="true" 
+					close-text="Close" alt-input-formats="altInputFormats" ng-focus="open_rule_validity_end()" />
+				</div>
+			</div>
+		</div>
+		<div class="col-md-5">
+			<div class="form-group">
+				<label class="">Days of Week</label>
+				<div>
+					<div class="btn-group">
+					    <label class="btn" ng-class="{'btn-primary':day.checked, 'btn-default': !day.checked}" 
+						ng-repeat="day in rule.applicable_days"
+						ng-model="day.checked" uib-btn-checkbox>{{day.name}}</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="">Slab Type</label>
+				<div>
+					<div class="btn-group occ-type-btns">
+                        <label class="btn btn-default btn" data-ng-click="changeOccSlabType(rule.partition_type)" ng-model="rule.partition_type" uib-btn-radio="'Percentage'" ng-class="{'btn-primary':rule.partition_type == 'Percentage', 'btn-default': rule.partition_type == 'Fixed'}">% Percentage</label>
+                        <label class="btn btn-default btn" data-ng-click="changeOccSlabType(rule.partition_type)" ng-model="rule.partition_type" uib-btn-radio="'Fixed'" ng-class="{'btn-primary':rule.partition_type == 'Fixed', 'btn-default': rule.partition_type == 'Percentage'}"><span ng-bind-html="currency_class"></span> Fixed</label>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group" >
+				<label class="">Rooms</label>
+				<div class="" ng-repeat="room in rule.rooms">
+					<label><input type="checkbox" name="" ng-model="room.checked" /> {{room.name}} </label>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="">Slabs</label>
+							<button type="button" class="btn btn-link" ng-click="addImage()"><i class="fa fa-plus"></i> Add Slab</button>
+							<div class="">
+								<div class="" ng-repeat="roomImages in room.images">
+									<div class="input-group" >
+										<input type="text" ng-model="roomImages.url" />
+										<button type="button" class="btn btn-link" ng-click="room.images.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group tac">
+				<button type="button" class="btn btn-success" ng-click="saveAddRoom();"><i class="fa fa-save"></i> Save</button>
+			</div>
+		</div>
+	</div>
+</form>

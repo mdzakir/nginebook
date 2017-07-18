@@ -1,58 +1,54 @@
-angular.module("rooms.config", [])
+angular.module("rules.config", [])
 .config(function ($stateProvider) {
 	$stateProvider
-	.state("base.rooms", {
-		url : "/rooms",
-		templateUrl : "app/rooms/templates/rooms.html",
+	.state("base.rules", {
+		url : "/rules",
+		templateUrl : "app/rules/templates/rules.html",
 		resolve: {
 			hotelId: function(AppContext) {
                 return AppContext.getHotelId();
             },
-			viewRooms : function(ManageRooms){
-				return ManageRooms.getRooms();
+			viewRooms : function(ManageRules, hotelId){
+				return ManageRules.getRooms(hotelId);
 			},
-			amenities : function(ManageRooms){
-				return ManageRooms.getRoomAmenities();
-			},
-			getRoomForEdit : function($stateParams, ManageRooms, hotelId) {
+            viewRules : function(ManageRules, hotelId){
+                return ManageRules.getRules(hotelId);
+            },
+			getRuleForEdit : function($stateParams, ManageRules, hotelId) {
                 if ($stateParams.roomId) {
-                    return ManageRooms.getRoom(hotelId, $stateParams.roomId);
+                    return ManageRules.getRule(hotelId, $stateParams.roomId);
                 }
                 return {};
             },
 		},
-		controller : "RoomsController"
+		controller : "RulesController"
 	})
-    .state('base.create-room', {
-        url: '/create-room/:id',
-        templateUrl: 'app/rooms/templates/create-room.html',
+    .state('base.create-rule', {
+        url: '/create-rule/:id',
+        templateUrl: 'app/rules/templates/create-rule.html',
         resolve: {
             hotelId: function(AppContext) {
                 return AppContext.getHotelId();
             },
-            viewRooms : function(ManageRooms){
-                return ManageRooms.getRooms();
+            viewRooms : function(ManageRules, hotelId){
+                return ManageRules.getRooms(hotelId);
             },
-            amenities : function(ManageRooms){
-                return ManageRooms.getRoomAmenities();
-            },
-            room: function ($stateParams, ManageRooms, hotelId) {
+            rule: function ($stateParams, ManageRules, hotelId) {
                 if ($stateParams.id) {
-                    return ManageRooms.getRoom(hotelId, $stateParams.id);
+                    return ManageRules.getRule(hotelId, $stateParams.id);
                 }
                 return {};
             }
         },
-        controller: 'CreateRoomController'
+        controller: 'CreateRuleController'
     });
 })
-.factory('ManageRooms', function ($http, $q, apiEndPoint, AppContext) {
+.factory('ManageRules', function ($http, $q, apiEndPoint) {
     return {
-        getRooms : function(){
+        getRooms : function(hotelId){
             var deferred = $q.defer();
             var viewrooms = deferred.promise;
-            debugger;
-            $http.get(apiEndPoint + '/room/view?hotel_id='+AppContext.getHotelId()+'&status=1').then(function(response) {
+            $http.get(apiEndPoint + '/room/view?hotel_id='+hotelId+'&status=1').then(function(response) {
                 var viewrooms = response.data;
                 deferred.resolve(viewrooms);
             }, function(error) {
@@ -61,22 +57,22 @@ angular.module("rooms.config", [])
             });
             return viewrooms;
         },
-        getRoomAmenities: function() {
+        getRules : function(hotelId){
             var deferred = $q.defer();
-            var amenities = deferred.promise;
-            $http.get(apiEndPoint + '/hotel/amenities').then(function(response) {
-                var amenities = response.data;
-                deferred.resolve(amenities);
+            var viewrooms = deferred.promise;
+            $http.get(apiEndPoint + '/rule/view?hotel_id='+hotelId+'&status=1').then(function(response) {
+                var viewrooms = response.data;
+                deferred.resolve(viewrooms);
             }, function(error) {
-                amenities = null;
+                viewrooms = null;
                 deferred.reject(error);
             });
-            return amenities;
+            return viewrooms;
         },
-        getRoom: function(hotelId, roomId) {
+        getRule: function(hotelId, roomId) {
             var deferred = $q.defer();
             var room = deferred.promise;
-            $http.get(apiEndPoint + '/room/view', {
+            $http.get(apiEndPoint + '/rule/view', {
                     params: {
                         hotel_id: hotelId,
                         room_id: roomId,
@@ -94,14 +90,14 @@ angular.module("rooms.config", [])
             return room;
         },
         save: function (params, isAdd, callback) {
-            var post_url = isAdd ? apiEndPoint + '/room/create/' : apiEndPoint + '/room/edit/' ;
+            var post_url = isAdd ? apiEndPoint + '/rule/create/' : apiEndPoint + '/rule/edit/' ;
             $http.post(post_url, angular.toJson(params, true))
                 .then(function () {
                     callback();
                 });
         },
-        deleteRoom: function (params, callback) {
-            var post_url = apiEndPoint + '/room/updateStatus?hotel_id='+AppContext.getHotelId()+'&room_id='+params.room_id+'&status=3';
+        deleteRule: function (params, callback) {
+            var post_url = apiEndPoint + '/rule/updateStatus?hotel_id='+hotelId+'&room_id='+params.room_id+'&status=3';
             $http.get(post_url)
                 .then(function () {
                     callback();
