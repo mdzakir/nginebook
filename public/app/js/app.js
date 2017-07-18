@@ -107,8 +107,6 @@ angular.module("productApp", [
                 var params = { email: email, password: password };
                 var that = this;
                 return $http.post(apiEndPoint + '/user/auth', params).then(function(response) {
-
-                    debugger;
                     user = { name: email, authenticated: true };
                     that.setToken(response.data.token);
                     that.setEmail(email);

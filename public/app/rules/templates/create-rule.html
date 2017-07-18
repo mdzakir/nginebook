@@ -54,60 +54,28 @@
 			</div>
 		</div>
 		<div class="col-md-3">
-			<div class="form-group" ng-repeat="room in rule.rooms">
+			<div class="form-group" >
 				<label class="">Rooms</label>
-				<div class="">
-					<input type="checkbox" name="" ng-model="room.checked" /> Standard Room
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Smoking</label>
-				<div class="">
-					<label><input type="radio" ng-model="room.isSmoking" value="true" /> Yes</label>
-					<label><input type="radio" ng-model="room.isSmoking" value="false" /> No</label>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Images</label>
-				<button type="button" class="btn btn-link" ng-click="addImage()"><i class="fa fa-plus"></i> Add Image</button>
-				<div class="">
-					<div class="" ng-repeat="roomImages in room.images">
-						<div class="input-group" >
-							<input type="text" ng-model="roomImages.url" />
-							<button type="button" class="btn btn-link" ng-click="room.images.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
+				<div class="" ng-repeat="room in rule.rooms">
+					<label><input type="checkbox" name="" ng-model="room.checked" /> {{room.name}} </label>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="">Slabs</label>
+							<button type="button" class="btn btn-link" ng-click="addImage()"><i class="fa fa-plus"></i> Add Slab</button>
+							<div class="">
+								<div class="" ng-repeat="roomImages in room.images">
+									<div class="input-group" >
+										<input type="text" ng-model="roomImages.url" />
+										<button type="button" class="btn btn-link" ng-click="room.images.splice($index, 1)" ng-if="$index != 0"><i class="fa fa-minus"></i></button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3">
-			<div class="form-group">
-				<label class="">Max. Adults</label>
-				<div class="">
-					<input type="text" ng-model="room.max_adult" ng-pattern="/^\d+$/" ng-maxlength="200" name="" class="form-control" />
-				</div>
-			</div>
-		</div>
-		<div class="col-md-9">
-			<div class="form-group">
-				<label class="">Amenities</label>
-				<div class="">
-
-
-
-					<ul>
-						<li style="display: inline-block;width: 30%" ng-repeat="amenity in room.amenities">
-							<label><input type="checkbox" name="" value="{{amenity.id}}" ng-model="amenity.checked">
-							<i class="{{amenity.icon}}"></i> {{amenity.name}}</label>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		
 	</div>
 	<div class="row">
 		<div class="col-md-12">

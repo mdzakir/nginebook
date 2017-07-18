@@ -1,14 +1,17 @@
 angular.module("create.rule.controllers", [
         "rules.module"
     ])
-    .controller('CreateRuleController', function($state, $scope, $http, $stateParams, ManageRooms, rule, viewRooms) {
+    .controller('CreateRuleController', function($state, $scope, $http, $stateParams, ManageRooms, rule, viewRooms, User, AppContext, hotelId) {
         
         $scope.title = "Create Rule";
         $scope.$emit("pageTitleChanged", "Create Rule");
 
-        $scope.rule = rule[0] || {};
-        $scope.rule.rooms = viewRooms;
+        $scope.hotelId = hotelId;
 
+        $scope.rule = rule[0] || {};
+        console.log("viewRooms", viewRooms);
+        $scope.rule.rooms = viewRooms;
+        
         $scope.changeOccSlabType = function (type) {
             if (type != null) {
                 if (type == 'Fixed') {
@@ -25,7 +28,6 @@ angular.module("create.rule.controllers", [
                 }
             }
         };
-
 
         // Available Rules
         var isAddRule = _.isEmpty($scope.rule);
@@ -106,12 +108,10 @@ angular.module("create.rule.controllers", [
             checked: true
         }];
 
-        
-
         $scope.saveAddRule = function(){
             var params = {
                 "room_id": _.isEmpty($scope.rule) ? " " : $scope.rule.id,
-                "hotel_id": "58726a8e5aa124394eb7dae4",
+                "hotel_id": $scope.hotelId,
                 "name": $scope.rule.name,
                 "start_date" : $scope.rule.start_date,
                 "end_date" : $scope.rule.end_date,

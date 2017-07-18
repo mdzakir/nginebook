@@ -1,9 +1,11 @@
 angular.module("rules.controllers", [
         "rules.module"
     ])
-    .controller('RulesController', function($state, $scope, ManageRules, viewRules, viewRooms) {
+    .controller('RulesController', function($state, $scope, ManageRules, viewRules, viewRooms, hotelId) {
         $scope.title = "Rules";
         $scope.$emit("pageTitleChanged", "Rules");
+
+        $scope.hotelId = hotelId;
 
         // Available Rooms
         $scope.rooms = viewRooms;
@@ -13,7 +15,7 @@ angular.module("rules.controllers", [
 
         $scope.deleteRule = function(rule){
             params = {
-                "hotel_id": "58726a8e5aa124394eb7dae4",
+                "hotel_id": $scope.hotelId,
                 "rule_id" : rule.id,
                 "status" : 3
             }
