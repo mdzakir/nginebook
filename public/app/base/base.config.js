@@ -16,7 +16,7 @@ angular.module("base.config", [])
             })
 
     })
-    .factory('AppContext', function($q, UserHotels, User) {
+    .factory('AppContext', function($q, UserHotels, User, $rootScope) {
         var hotelId;
         return {
             changeHotel: function (hid) {

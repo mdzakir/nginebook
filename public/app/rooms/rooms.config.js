@@ -5,8 +5,8 @@ angular.module("rooms.config", [])
 		url : "/rooms",
 		templateUrl : "app/rooms/templates/rooms.html",
 		resolve: {
-			hotelId: function() {
-                return '58726a8e5aa124394eb7dae4';
+			hotelId: function(AppContext) {
+                return AppContext.getHotelId();
             },
 			viewRooms : function(ManageRooms){
 				return ManageRooms.getRooms();
@@ -27,8 +27,8 @@ angular.module("rooms.config", [])
         url: '/create-room/:id',
         templateUrl: 'app/rooms/templates/create-room.html',
         resolve: {
-            hotelId: function() {
-                return '58726a8e5aa124394eb7dae4';
+            hotelId: function(AppContext) {
+                return AppContext.getHotelId();
             },
             viewRooms : function(ManageRooms){
                 return ManageRooms.getRooms();
@@ -46,12 +46,13 @@ angular.module("rooms.config", [])
         controller: 'CreateRoomController'
     });
 })
-.factory('ManageRooms', function ($http, $q, apiEndPoint) {
+.factory('ManageRooms', function ($http, $q, apiEndPoint, AppContext) {
     return {
         getRooms : function(){
             var deferred = $q.defer();
             var viewrooms = deferred.promise;
-            $http.get(apiEndPoint + '/room/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+            debugger;
+            $http.get(apiEndPoint + '/room/view?hotel_id='+AppContext.getHotelId()+'&status=1').then(function(response) {
                 var viewrooms = response.data;
                 deferred.resolve(viewrooms);
             }, function(error) {
@@ -100,7 +101,7 @@ angular.module("rooms.config", [])
                 });
         },
         deleteRoom: function (params, callback) {
-            var post_url = apiEndPoint + '/room/updateStatus?hotel_id=58726a8e5aa124394eb7dae4&room_id='+params.room_id+'&status=3';
+            var post_url = apiEndPoint + '/room/updateStatus?hotel_id='+AppContext.getHotelId()+'&room_id='+params.room_id+'&status=3';
             $http.get(post_url)
                 .then(function () {
                     callback();

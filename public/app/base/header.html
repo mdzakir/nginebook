@@ -22,7 +22,7 @@
         
         <div class="hotellist-dd">
             <div id="hotel-search" class="search-hotels">
-                <ui-select ng-model="selectedHotel" class="hotel-list">
+                <ui-select ng-model="selectedHotel" class="hotel-list" ng-change="hotelChanged($select.selected.id);">
                     <ui-select-match>
                         <span ng-bind="$select.selected.name"></span>
                     </ui-select-match>

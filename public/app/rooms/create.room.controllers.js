@@ -1,9 +1,15 @@
 angular.module("create.room.controllers", [
         "rooms.module"
     ])
-    .controller('CreateRoomController', function($state, $scope, $http, $stateParams, ManageRooms, room, amenities, viewRooms) {
+    .controller('CreateRoomController', function($state, $scope, $http, $stateParams, ManageRooms, room, amenities, viewRooms, User, hotelId) {
         
+        $scope.$on('contextChanged', function () {
+            $state.go('.', {}, {reload: 'base.create-room'});
+        });
+
         $scope.room = room[0] || {};
+
+        $scope.hotelId = hotelId;
 
         // AVAILABLE ROOMS
         var isAddRoom = _.isEmpty($scope.room);
@@ -24,7 +30,7 @@ angular.module("create.room.controllers", [
         // SHOW ADD ROOM FORM
         $scope.showAddRoomForm = false;
         $scope.addRoomForm = function(){
-            $state.go('create-room');
+            $state.go('base.create-room');
         };
 
         
@@ -42,7 +48,7 @@ angular.module("create.room.controllers", [
             /*$scope.room.selectedAmenities = _.filter($scope.room.amenities, 'checked');*/
             var params = {
                 "room_id": _.isEmpty($scope.room) ? " " : $scope.room.id,
-                "hotel_id": "58726a8e5aa124394eb7dae4",
+                "hotel_id": $scope.hotelId,
                 "name": $scope.room.name,
                 "description": $scope.room.description,
                 "type" : $scope.room.type,
