@@ -424,6 +424,13 @@ ul.dropdown-menu.animation-dock {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-image: linear-gradient(to right top, #8069db, #d059ba, #f7598c, #fe735f, #ec963f)
+}
+
+.login-btn{
+  background-image: linear-gradient(to right, #d71b68, #8e44ad);
+  background-image: linear-gradient(to right, #bd2c8f,  #d35400);
+  border: 0;
 }
 
 .login-reg-link-wrapper{
