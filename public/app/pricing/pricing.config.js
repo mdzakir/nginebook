@@ -6,13 +6,13 @@ angular.module("pricing.config", [])
                 templateUrl: "app/pricing/templates/pricing.html",
                 resolve: {
                     hotelId: function() {
-                        return '58726a8e5aa124394eb7dae4';
+                        return '5ab89e1af67b5115b2c19ec4';
                     },
                     roomId: function() {
-                        return '58a9ecfc7159cc2806591106';
+                        return '5ab8a2dbf67b511900470b5d';
                     },
                     ratePlanId: function() {
-                        return '58c054a47159cc491aa489c3';
+                        return '5ab8a611f67b511900470b68';
                     },
                     dateRange : function(){
                         if(!localStorage.startDate){
@@ -54,7 +54,7 @@ angular.module("pricing.config", [])
             getRooms: function() {
                 var deferred = $q.defer();
                 var viewrooms = deferred.promise;
-                $http.get(apiEndPoint + '/room/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+                $http.get(apiEndPoint + '/room/view?hotel_id=5ab89e1af67b5115b2c19ec4&status=1').then(function(response) {
                     var viewrooms = response.data;
                     deferred.resolve(viewrooms);
                 }, function(error) {
@@ -66,7 +66,7 @@ angular.module("pricing.config", [])
             getRateplans : function(){
                 var deferred = $q.defer();
                 var viewrateplans = deferred.promise;
-                $http.get(apiEndPoint + '/ratePlan/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+                $http.get(apiEndPoint + '/ratePlan/view?hotel_id=5ab89e1af67b5115b2c19ec4&status=1').then(function(response) {
                     var viewrateplans = response.data;
                     deferred.resolve(viewrateplans);
                 }, function(error) {

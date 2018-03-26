@@ -1,5 +1,6 @@
 angular.module("app.config", [])
 
+/*.value('apiEndPoint', "http://192.168.1.191:8000")*/
 .value('apiEndPoint', "http://0.0.0.0:8083")
 .value('settings', {})
 

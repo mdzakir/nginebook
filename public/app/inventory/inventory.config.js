@@ -6,10 +6,10 @@ angular.module("inventory.config", [])
                 templateUrl: "app/inventory/templates/inventory.html",
                 resolve: {
                     hotelId: function() {
-                        return '58726a8e5aa124394eb7dae4';
+                        return '5ab89e1af67b5115b2c19ec4';
                     },
                     roomId: function() {
-                        return '58a9ecfc7159cc2806591106';
+                        return '5ab8a2dbf67b511900470b5d';
                     },
                     dateRange : function(){
                         if(!localStorage.startDate){
@@ -45,7 +45,7 @@ angular.module("inventory.config", [])
             getRooms: function() {
                 var deferred = $q.defer();
                 var viewrooms = deferred.promise;
-                $http.get(apiEndPoint + '/room/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+                $http.get(apiEndPoint + '/room/view?hotel_id=5ab89e1af67b5115b2c19ec4&status=1').then(function(response) {
                     var viewrooms = response.data;
                     deferred.resolve(viewrooms);
                 }, function(error) {

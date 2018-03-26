@@ -33,13 +33,23 @@
     
     <!-- BEGIN LOGIN SECTION -->
     <section class="section-account">
-        <div class="login-bg-img" style="background-image: url('/images/homePage.jpg')"></div>
-        <div class="card contain-sm style-transparent">
+        <div class="login-bg-img" style="background-image: linear-gradient(to right top, #8069db, #d059ba, #f7598c, #fe735f, #ec963f)"></div>
+        <div class="">
             <div class="card-body login-card">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3 login-container" ng-if="loginForm" >
-                        <span class="text-lg text-bold text-primary app-logo">Goomo</span>
-                        <br/><br/>
+                <div class="" style="display: table-row;">
+                    <div class="card-left" >
+                        <div class="tac">
+                            <img src="/images/hotel.png" style="margin-top:40px;height: 100px;" alt="Hotel Management">
+                        </div>
+                        <div class="tag-line tac">
+                            Manage Your Hotels
+                        </div>
+                        <div class="desc-login">
+                            Seamlessly increase your bookings by defining the rules
+                        </div>
+                    </div>
+                    <div class="login-container" ng-if="loginForm" >
+                        <h1>Sign in</h1>
                         <form class="form floating-label" accept-charset="utf-8" method="post" ng-submit="loginSubmit()">
                             <div class="form-group">
                                 <label for="username">Username</label>
@@ -64,7 +74,7 @@
                                     </div>
                                 </div><!--end .col -->
                                 <div class="col-xs-6 text-right">
-                                    <button class="btn btn-primary btn-raised" type="submit">Login</button>
+                                    <button class="btn btn-success btn-raised" type="submit">Login</button>
                                 </div><!--end .col -->
                             </div><!--end .row -->
                             <div class="row">
@@ -78,24 +88,18 @@
                                 </div>
                             </div>
                         </form>
-
-                        
-
                     </div><!--end .col -->
-                    <div class="col-md-8 col-md-offset-2 login-container" ng-if="registrationForm" >
-                        <span class="text-lg text-bold text-primary app-logo">Goomo</span>
-                        <br/><br/>
+                    <div class="login-container" ng-if="registrationForm" >
+                        <h1>Register</h1>
                         <form class="form-horizontal" accept-charset="utf-8" method="post" ng-submit="registrationSubmit()">
                             <div class="form-group">
-                                <label for="firstName" class="col-md-4 control-label" >First Name</label>
+                                <label for="firstName" class="col-md-4 control-label" >Name</label>
                                 <div class="col-md-7">
-                                    <input autocomplete="off" type="text" class="form-control" id="firstName" name="firstName" ng-model="registrationDetails.firstName" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName" class="col-md-4 control-label" >Last Name</label>
-                                <div class="col-md-7">
-                                    <input autocomplete="off" type="text" class="form-control" id="lastName" name="lastName" ng-model="registrationDetails.lastName">
+                                    <div class="input-group">
+                                        <input autocomplete="off" type="text" class="form-control" id="firstName" name="firstName" ng-model="registrationDetails.firstName" />
+                                        <!-- <span class="input-group-addon"></span>
+                                        <input autocomplete="off" type="text" class="form-control" id="lastName" name="lastName" ng-model="registrationDetails.lastName"> -->
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -130,12 +134,12 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="confirmPassword" class="col-md-4 control-label" >Confirm Password</label>
                                 <div class="col-md-7">
                                     <input autocomplete="off" type="password" class="form-control" id="confirm_password" name="confirmPassword" ng-model="registrationDetails.confirmPassword">
                                 </div>
-                            </div>
+                            </div> -->
                             
                             <div class="row">
                                 <div class="col-md-12 tac">
