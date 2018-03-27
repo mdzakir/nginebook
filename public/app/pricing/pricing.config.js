@@ -98,6 +98,7 @@ angular.module("pricing.config", [])
                 return price;
             },
             updatePricing: function(params, callback) {
+                console.log(params);
                 var post_url = apiEndPoint + '/ratePlan/price/'
                 $http.post(post_url, angular.toJson(params, true))
                     .then(function() {

@@ -1,7 +1,7 @@
 angular.module("create.rateplan.controllers", [
         "rateplans.module"
     ])
-    .controller('CreateRateplanController', function($state, $scope, $http, $stateParams, ManageRateplans, rateplan, viewRateplans) {
+    .controller('CreateRateplanController', function($state, $scope, $http, $stateParams, ManageRateplans, rateplan, viewRateplans, User) {
 
         $scope.title = "Create Rateplan";
         $scope.$emit("pageTitleChanged", "Create Rateplan");
@@ -229,7 +229,7 @@ angular.module("create.rateplan.controllers", [
             })
 
             var params = {
-                "hotel_id": "58726a8e5aa124394eb7dae4",
+                "hotel_id": User.getHotelID(),
                 "rate_id": _.isEmpty($scope.rateplan) ? " " : $scope.rateplan.id,
                 "name": $scope.rateplan.name,
                 "description": $scope.rateplan.description,

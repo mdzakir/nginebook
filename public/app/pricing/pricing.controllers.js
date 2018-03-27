@@ -1,8 +1,8 @@
 angular.module("pricing.controllers", [
         "pricing.module"
     ])
-    .controller('PricingController', ['$scope', '$http', '$state', 'Pricing', 'apiEndPoint', 'viewPricing', 'viewRooms', 'viewRateplans', 'hotelId', 'roomId', 
-        function($scope, $http, $state, Pricing, apiEndPoint, viewPricing, viewRooms, viewRateplans, hotelId, roomId, ratePlanId) {
+    .controller('PricingController', ['$scope', '$http', '$state', 'Pricing', 'apiEndPoint', 'viewPricing', 'viewRooms', 'viewRateplans', 'hotelId', 'roomId', 'User', 
+        function($scope, $http, $state, Pricing, apiEndPoint, viewPricing, viewRooms, viewRateplans, hotelId, roomId, ratePlanId, User) {
         $scope.title = "Pricing";
         $scope.$emit("pageTitleChanged", "Pricing");
 
@@ -265,7 +265,7 @@ angular.module("pricing.controllers", [
 
         $scope.updatePricing = function() {
             var params = {
-                "hotel_id": "58726a8e5aa124394eb7dae4",
+                "hotel_id": hotelId,
                 "room_id": $scope.priceUpdate.room,
                 "rate_id": $scope.priceUpdate.rateplan,
                 "price_details": {

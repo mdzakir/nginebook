@@ -2712,7 +2712,7 @@ label {
 .form-group > label,
 .form-group .control-label {
   font-size: 14px;
-  opacity: 0.5;
+  opacity: 1;
 }
 .form .form-group > label,
 .form-inline .form-group > label {

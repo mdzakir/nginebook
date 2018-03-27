@@ -5,8 +5,8 @@ angular.module("rateplans.config", [])
 		url : "/rateplans",
 		templateUrl : "app/rateplans/templates/rateplans.html",
 		resolve: {
-			hotelId: function() {
-                return '58726a8e5aa124394eb7dae4';
+			hotelId: function(User) {
+                return User.getHotelID();
             },
 			viewRateplans : function(ManageRateplans){
 				return ManageRateplans.getRateplans();
@@ -24,8 +24,8 @@ angular.module("rateplans.config", [])
         url: '/create-rateplan/:id',
         templateUrl: 'app/rateplans/templates/create-rateplan.html',
         resolve: {
-            hotelId: function() {
-                return '58726a8e5aa124394eb7dae4';
+            hotelId: function(User) {
+                return User.getHotelID();
             },
             viewRateplans : function(ManageRateplans){
                 return ManageRateplans.getRateplans();
@@ -40,12 +40,12 @@ angular.module("rateplans.config", [])
         controller: 'CreateRateplanController'
     });
 })
-.factory('ManageRateplans', function ($http, $q, apiEndPoint) {
+.factory('ManageRateplans', function ($http, $q, apiEndPoint, User) {
     return {
         getRateplans : function(){
             var deferred = $q.defer();
             var viewrateplans = deferred.promise;
-            $http.get(apiEndPoint + '/ratePlan/view?hotel_id=58726a8e5aa124394eb7dae4&status=1').then(function(response) {
+            $http.get(apiEndPoint + '/ratePlan/view?hotel_id='+User.getHotelID()+'&status=1').then(function(response) {
                 var viewrateplans = response.data;
                 deferred.resolve(viewrateplans);
             }, function(error) {
@@ -80,7 +80,7 @@ angular.module("rateplans.config", [])
                 });
         },
         deleteRateplan: function (params, callback) {
-            var post_url = apiEndPoint + '/ratePlan/updateStatus?hotel_id=58726a8e5aa124394eb7dae4&rate_id='+params.rateplan_id+'&status=3';
+            var post_url = apiEndPoint + '/ratePlan/updateStatus?hotel_id='+User.getHotelID()+'&rate_id='+params.rateplan_id+'&status=3';
             $http.get(post_url)
                 .then(function () {
                     callback();
