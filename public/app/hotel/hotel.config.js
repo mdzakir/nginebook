@@ -5,8 +5,8 @@ angular.module("hotel.config", [])
                 url: "/hotel-basic-detail",
                 templateUrl: "app/hotel/templates/basicDetails.html",
                 resolve: {
-                    hotelId: function() {
-                        return '5961f5b45aa1246063532fbb';
+                    hotelId: function(User) {
+                        return User.getHotelID();
                     },
                     viewBasicDetails: function(ManageHotel) {
                         return ManageHotel.getBasicDetails();
@@ -18,8 +18,8 @@ angular.module("hotel.config", [])
                 url: "/hotel-contact-detail",
                 templateUrl: "app/hotel/templates/contactDetails.html",
                 resolve: {
-                    hotelId: function() {
-                        return '5961f5b45aa1246063532fbb';
+                    hotelId: function(User) {
+                        return User.getHotelID();
                     },
                     viewContactsDetails: function(ManageHotel) {
                         return ManageHotel.getContactDetails();
@@ -32,8 +32,8 @@ angular.module("hotel.config", [])
                 url: "/hotel-map-detail",
                 templateUrl: "app/hotel/templates/hotelMap.html",
                 resolve: {
-                    hotelId: function() {
-                        return '5961f5b45aa1246063532fbb';
+                    hotelId: function(User) {
+                        return User.getHotelID();
                     },
                     viewMapDetails: function(ManageHotel) {
                         return ManageHotel.getMapDetails();
@@ -43,12 +43,12 @@ angular.module("hotel.config", [])
                 controller: "HotelMapDetailsController"
             })
     })
-    .factory('ManageHotel', function($http, $q, apiEndPoint) {
+    .factory('ManageHotel', function($http, $q, apiEndPoint, User) {
         return {
             getBasicDetails: function() {
                 var deferred = $q.defer();
                 var viewbasicdetail = deferred.promise;
-                $http.get(apiEndPoint + '/hotel/basic?hotel_id=58726a8e5aa124394eb7dae4').then(function(response) {
+                $http.get(apiEndPoint + '/hotel/basic?hotel_id='+User.getHotelID()).then(function(response) {
                     var viewbasicdetail = response.data;
                     deferred.resolve(viewbasicdetail);
                 }, function(error) {
@@ -60,7 +60,7 @@ angular.module("hotel.config", [])
             getContactDetails: function() {
                 var deferred = $q.defer();
                 var viewcontactsdetail = deferred.promise;
-                $http.get(apiEndPoint + '/hotel/contacts?hotel_id=58726a8e5aa124394eb7dae4').then(function(response) {
+                $http.get(apiEndPoint + '/hotel/contacts?hotel_id='+User.getHotelID()).then(function(response) {
                     var viewcontactsdetail = response.data;
                     deferred.resolve(viewcontactsdetail);
                 }, function(error) {
@@ -72,7 +72,7 @@ angular.module("hotel.config", [])
             getMapDetails: function() {
                 var deferred = $q.defer();
                 var viewmapdetail = deferred.promise;
-                $http.get(apiEndPoint + '/hotel/hotel_map?hotel_id=58726a8e5aa124394eb7dae4').then(function(response) {
+                $http.get(apiEndPoint + '/hotel/hotel_map?hotel_id='+User.getHotelID()).then(function(response) {
                     var viewmapdetail = response.data;
                     deferred.resolve(viewmapdetail);
                 }, function(error) {

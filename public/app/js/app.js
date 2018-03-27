@@ -164,6 +164,7 @@ angular.module("productApp", [
                 return JSON.parse(store.getItem(HotelID));
             },
             setHotelID: function(config) {
+                debugger;
                 store.setItem(HotelID, JSON.stringify(config));
             }
         };

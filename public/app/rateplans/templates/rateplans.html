@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <h4>Rateplans <a ng-if="rateplans.length" style="font-size: 14px;margin-left: 15px;" ui-sref="base.create-rateplan"><i class="fa fa-plus nrr-btn-add"></i><span> Create New Rateplan</span></a></h4></div>
+        <h4>Rateplans <a class="btn btn-success btn-xs" ng-if="rateplans.length" style="font-size: 14px;margin-left: 15px;" ui-sref="base.create-rateplan"><i class="fa fa-plus nrr-btn-add"></i><span> Create New Rateplan</span></a></h4></div>
 
     <div class="col-md-3" ng-repeat="rateplan in rateplans track by $index" ng-if="rateplans.length">
         <div class="rateplan-box">
@@ -23,6 +23,6 @@
     </div>
     <div class="col-md-12 no-rps-created" ng-if="rateplans.length == 0">
     	<p>No Rateplans created yet.</p>
-    	<a style="font-size: 14px;" ui-sref="base.create-rateplan"><i class="fa fa-plus nrr-btn-add"></i><span> Create New Rateplan</span></a>
+    	<a class="" style="font-size: 14px;" ui-sref="base.create-rateplan"><i class="fa fa-plus nrr-btn-add"></i><span> Create New Rateplan</span></a>
     </div>
 </div>

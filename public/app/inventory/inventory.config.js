@@ -5,11 +5,14 @@ angular.module("inventory.config", [])
                 url: "/inventory",
                 templateUrl: "app/inventory/templates/inventory.html",
                 resolve: {
-                    hotelId: function() {
-                        return '5ab89e1af67b5115b2c19ec4';
+                    hotelId: function(User) {
+                        return User.getHotelID();
                     },
-                    roomId: function() {
-                        return '5ab8a2dbf67b511900470b5d';
+                    viewRooms : function(ManageRooms){
+                        return ManageRooms.getRooms();
+                    },
+                    roomId: function(viewRooms) {
+                        return viewRooms[0];
                     },
                     dateRange : function(){
                         if(!localStorage.startDate){
@@ -23,9 +26,6 @@ angular.module("inventory.config", [])
                         }
                         return localStorage;
                     },
-                    viewRooms: function(ManageInventory) {
-                        return ManageInventory.getRooms();
-                    },
                     viewInventory: function(ManageInventory, hotelId, roomId, dateRange) {
                         return ManageInventory.getInventory(hotelId, roomId, dateRange);
                     }
@@ -33,7 +33,7 @@ angular.module("inventory.config", [])
                 controller: "InventoryController"
             })
     })
-    .factory('ManageInventory', function($http, $q, apiEndPoint) {
+    .factory('ManageInventory', function($http, $q, apiEndPoint, User) {
         return {
             month: moment(),
             currentMonth: function() {
@@ -45,7 +45,7 @@ angular.module("inventory.config", [])
             getRooms: function() {
                 var deferred = $q.defer();
                 var viewrooms = deferred.promise;
-                $http.get(apiEndPoint + '/room/view?hotel_id=5ab89e1af67b5115b2c19ec4&status=1').then(function(response) {
+                $http.get(apiEndPoint + '/room/view?hotel_id='+User.getHotelID()+'&status=1').then(function(response) {
                     var viewrooms = response.data;
                     deferred.resolve(viewrooms);
                 }, function(error) {

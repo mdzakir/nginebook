@@ -5,14 +5,20 @@ angular.module("pricing.config", [])
                 url: "/pricing",
                 templateUrl: "app/pricing/templates/pricing.html",
                 resolve: {
-                    hotelId: function() {
-                        return '5ab89e1af67b5115b2c19ec4';
+                    hotelId: function(User) {
+                        return User.getHotelID();
                     },
-                    roomId: function() {
-                        return '5ab8a2dbf67b511900470b5d';
+                    viewRooms : function(ManageRooms){
+                        return ManageRooms.getRooms();
                     },
-                    ratePlanId: function() {
-                        return '5ab8a611f67b511900470b68';
+                    roomId: function(viewRooms) {
+                        return viewRooms[0];
+                    },
+                    viewRateplans: function(Pricing) {
+                        return Pricing.getRateplans();
+                    },
+                    ratePlanId: function(viewRateplans) {
+                        return viewRateplans[0];
                     },
                     dateRange : function(){
                         if(!localStorage.startDate){
@@ -26,12 +32,6 @@ angular.module("pricing.config", [])
                         }
                         return localStorage;
                     },
-                    viewRooms: function(Pricing) {
-                        return Pricing.getRooms();
-                    },
-                    viewRateplans: function(Pricing) {
-                        return Pricing.getRateplans();
-                    },
                     viewPricing : function(Pricing, hotelId, roomId, ratePlanId, dateRange) {
                         return Pricing.getPricing(hotelId, roomId, ratePlanId, dateRange);
                     }
@@ -39,7 +39,7 @@ angular.module("pricing.config", [])
                 controller: "PricingController"
             })
     })
-    .factory('Pricing', function($http, $q, apiEndPoint) {
+    .factory('Pricing', function($http, $q, apiEndPoint, User) {
         return {
             month: moment(),
             currentMonth: function() {
@@ -54,7 +54,7 @@ angular.module("pricing.config", [])
             getRooms: function() {
                 var deferred = $q.defer();
                 var viewrooms = deferred.promise;
-                $http.get(apiEndPoint + '/room/view?hotel_id=5ab89e1af67b5115b2c19ec4&status=1').then(function(response) {
+                $http.get(apiEndPoint + '/room/view?hotel_id='+User.getHotelID()+'&status=1').then(function(response) {
                     var viewrooms = response.data;
                     deferred.resolve(viewrooms);
                 }, function(error) {
@@ -66,13 +66,14 @@ angular.module("pricing.config", [])
             getRateplans : function(){
                 var deferred = $q.defer();
                 var viewrateplans = deferred.promise;
-                $http.get(apiEndPoint + '/ratePlan/view?hotel_id=5ab89e1af67b5115b2c19ec4&status=1').then(function(response) {
+                $http.get(apiEndPoint + '/ratePlan/view?hotel_id='+User.getHotelID()+'&status=1').then(function(response) {
                     var viewrateplans = response.data;
                     deferred.resolve(viewrateplans);
                 }, function(error) {
                     viewrateplans = null;
                     deferred.reject(error);
                 });
+                debugger;
                 return viewrateplans;
             },
             getPricing: function(hotelId, roomId, ratePlanId, dateRange) {
@@ -89,7 +90,6 @@ angular.module("pricing.config", [])
                     })
                     .then(function(response) {
                         var price = response.data;
-                        debugger;
                         deferred.resolve(price);
                     }, function(error) {
                         price = null;

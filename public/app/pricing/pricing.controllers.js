@@ -25,6 +25,7 @@ angular.module("pricing.controllers", [
 
         // Rateplans
         $scope.rateplans = _.clone(viewRateplans);
+        debugger;
         $scope.priceUpdate.rateplan = $scope.rateplans[0].id;
 
         // Room Occupancy Selected
